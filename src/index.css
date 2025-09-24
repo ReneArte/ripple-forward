@@ -1,42 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ItForward Design System - Headspace-inspired, warm & playful */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Core Brand Colors - HSL only */
+    --hope-green: 145 33% 49%;        /* #4CAF7D */
+    --ripple-teal: 180 72% 39%;       /* #1AA6A6 */
+    --peach-glow: 25 100% 83%;        /* #FFC9A6 */
+    --deep-navy: 210 77% 16%;         /* #0F2742 */
+    --sand: 35 35% 94%;               /* #F6EDE3 */
+    
+    /* Extended Palette */
+    --hope-green-light: 145 33% 65%;
+    --hope-green-dark: 145 33% 35%;
+    --ripple-teal-light: 180 72% 55%;
+    --peach-glow-light: 25 100% 90%;
+    --deep-navy-light: 210 77% 25%;
+    
+    /* Semantic Design System */
+    --background: 35 35% 94%;         /* Sand */
+    --foreground: 210 77% 16%;        /* Deep Navy */
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 77% 16%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 210 77% 16%;
+    
+    --primary: 145 33% 49%;           /* Hope Green */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 180 72% 39%;         /* Ripple Teal */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 25 100% 83%;            /* Peach Glow */
+    --accent-foreground: 210 77% 16%;
+    
+    --muted: 35 20% 88%;
+    --muted-foreground: 210 30% 45%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 35 20% 85%;
+    --input: 35 20% 90%;
+    --ring: 145 33% 49%;
+    
+    --radius: 1.5rem;                 /* 24px rounded corners */
+    
+    /* Gradients */
+    --gradient-hope: linear-gradient(135deg, hsl(var(--hope-green)), hsl(var(--hope-green-light)));
+    --gradient-ripple: linear-gradient(135deg, hsl(var(--ripple-teal)), hsl(var(--ripple-teal-light)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--peach-glow)), hsl(var(--peach-glow-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--hope-green)), hsl(var(--ripple-teal)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--hope-green) / 0.1);
+    --shadow-ripple: 0 8px 30px -8px hsl(var(--ripple-teal) / 0.2);
+    --shadow-warm: 0 4px 20px -4px hsl(var(--peach-glow) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +131,82 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  /* Ripple Animation */
+  .ripple-animation {
+    @apply relative;
+  }
+  
+  .ripple-animation::before,
+  .ripple-animation::after {
+    content: '';
+    @apply absolute rounded-full border-2 border-primary/30;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 2s infinite;
+  }
+  
+  .ripple-animation::after {
+    animation-delay: 1s;
+  }
+  
+  @keyframes ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+    }
+  }
+  
+  /* Pebble Drop Animation */
+  .pebble-drop {
+    animation: pebbleDrop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  @keyframes pebbleDrop {
+    0% {
+      transform: translateY(-20px) scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(5px) scale(1.1);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Gentle Hover Effects */
+  .gentle-hover {
+    transition: var(--transition-smooth);
+  }
+  
+  .gentle-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* Brand Elements */
+  .brand-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .warm-gradient {
+    background: var(--gradient-warm);
+  }
+  
+  .soft-shadow {
+    box-shadow: var(--shadow-soft);
   }
 }

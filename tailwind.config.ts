@@ -13,7 +13,29 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+      },
       colors: {
+        'hope-green': {
+          DEFAULT: 'hsl(var(--hope-green))',
+          light: 'hsl(var(--hope-green-light))',
+          dark: 'hsl(var(--hope-green-dark))',
+        },
+        'ripple-teal': {
+          DEFAULT: 'hsl(var(--ripple-teal))',
+          light: 'hsl(var(--ripple-teal-light))',
+        },
+        'peach-glow': {
+          DEFAULT: 'hsl(var(--peach-glow))',
+          light: 'hsl(var(--peach-glow-light))',
+        },
+        'deep-navy': {
+          DEFAULT: 'hsl(var(--deep-navy))',
+          light: 'hsl(var(--deep-navy-light))',
+        },
+        'sand': 'hsl(var(--sand))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
