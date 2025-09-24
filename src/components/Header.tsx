@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from './ThemeToggle';
 import { User, Menu } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -25,12 +26,13 @@ const Header: React.FC = () => {
         </nav>
         
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Button variant="ghost" size="sm" className="hidden md:flex">
             <User className="w-4 h-4 mr-2" />
             Sign In
           </Button>
           <Button size="sm" className="bg-hope-green hover:bg-hope-green-dark text-white">
-            Start a Ripple
+            Celebrate Someone
           </Button>
           <Button variant="ghost" size="sm" className="md:hidden">
             <Menu className="w-4 h-4" />
