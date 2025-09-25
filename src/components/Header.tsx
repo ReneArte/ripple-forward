@@ -17,14 +17,14 @@ const Header: React.FC = () => {
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/ripples" className="text-muted-foreground hover:text-foreground transition-colors">
-            Explore Ripples
+          <Link to="/splashes" className="text-muted-foreground hover:text-foreground transition-colors">
+            Explore Splashes
+          </Link>
+          <Link to="/my-ripples" className="text-muted-foreground hover:text-foreground transition-colors">
+            My Ripples
           </Link>
           <Link to="/profile" className="text-muted-foreground hover:text-foreground transition-colors">
             Profile
-          </Link>
-          <Link to="/ocean" className="text-muted-foreground hover:text-foreground transition-colors">
-            Ocean
           </Link>
         </nav>
         

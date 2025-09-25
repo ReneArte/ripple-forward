@@ -84,45 +84,57 @@ const Landing: React.FC = () => {
           </h2>
           
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <Card className="text-center gentle-hover soft-shadow border-0 transform hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-hope-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Camera className="w-8 h-8 text-hope-green" />
+            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
+              <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
+                {/* Ripple rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-blue-400/40 animate-ping"></div>
+                <div className="absolute inset-2 rounded-full border border-blue-300/30 animate-pulse"></div>
+                <div className="relative z-10">
+                  <Camera className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
+                  <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story.</p>
                 </div>
-                <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
-                <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story.</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             
-            <Card className="text-center gentle-hover soft-shadow border-0 transform hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-ripple-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="w-8 h-8 text-ripple-teal" />
+            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
+              <div className="relative bg-gradient-to-br from-blue-500/20 to-blue-700/20 rounded-full p-8 backdrop-blur-sm border border-blue-500/30">
+                {/* Ripple rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-blue-500/40 animate-ping animation-delay-500"></div>
+                <div className="absolute inset-2 rounded-full border border-blue-400/30 animate-pulse animation-delay-500"></div>
+                <div className="relative z-10">
+                  <Trophy className="w-8 h-8 text-blue-700 mx-auto mb-4" />
+                  <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
+                  <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community.</p>
                 </div>
-                <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
-                <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community.</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             
-            <Card className="text-center gentle-hover soft-shadow border-0 transform hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-peach-glow/60 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8 text-deep-navy" />
+            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
+              <div className="relative bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-full p-8 backdrop-blur-sm border border-blue-600/30">
+                {/* Ripple rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-blue-600/40 animate-ping animation-delay-1000"></div>
+                <div className="absolute inset-2 rounded-full border border-blue-500/30 animate-pulse animation-delay-1000"></div>
+                <div className="relative z-10">
+                  <Star className="w-8 h-8 text-blue-800 mx-auto mb-4" />
+                  <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
+                  <p className="text-muted-foreground text-sm">Collect Kind stickers and badges for celebrating others and spreading positivity.</p>
                 </div>
-                <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
-                <p className="text-muted-foreground text-sm">Collect Kind stickers and badges for celebrating others and spreading positivity.</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
             
-            <Card className="text-center gentle-hover soft-shadow border-0 transform hover:scale-105 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-hope-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Share2 className="w-8 h-8 text-hope-green" />
+            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
+              <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
+                {/* Ripple rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-blue-400/40 animate-ping animation-delay-1500"></div>
+                <div className="absolute inset-2 rounded-full border border-blue-300/30 animate-pulse animation-delay-1500"></div>
+                <div className="relative z-10">
+                  <Share2 className="w-8 h-8 text-blue-600 mx-auto mb-4" />
+                  <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
+                  <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
                 </div>
-                <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
-                <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -138,10 +150,10 @@ const Landing: React.FC = () => {
             This week's most inspiring act of kindness
           </p>
           
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-xl mx-auto">
             <Card className="soft-shadow border-0 overflow-hidden">
-              <div className="aspect-square bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
-                <Camera className="w-24 h-24 text-white/70" />
+              <div className="aspect-video bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
+                <Camera className="w-16 h-16 text-white/70" />
               </div>
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-4">
