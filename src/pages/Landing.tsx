@@ -18,8 +18,43 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 relative">
-        <WaterRipples intensity="medium" className="opacity-30" />
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-sand">
+        {/* Animated Background Waves */}
+        <div className="absolute inset-0 overflow-hidden">
+          <svg
+            className="absolute bottom-0 left-0 w-full h-full"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,60 C300,100 600,20 900,60 C1050,80 1150,40 1200,60 L1200,120 L0,120 Z"
+              fill="#1AA6A6"
+              className="animate-[wave_3s_ease-in-out_infinite]"
+              style={{ animationDelay: '0s' }}
+            />
+            <path
+              d="M0,80 C250,120 550,40 850,80 C1000,100 1100,60 1200,80 L1200,120 L0,120 Z"
+              fill="#4CAF7D"
+              opacity="0.8"
+              className="animate-[wave_4s_ease-in-out_infinite]"
+              style={{ animationDelay: '-1s' }}
+            />
+            <path
+              d="M0,100 C200,140 500,60 800,100 C950,120 1050,80 1200,100 L1200,120 L0,120 Z"
+              fill="#FFC9A6"
+              opacity="0.6"
+              className="animate-[wave_5s_ease-in-out_infinite]"
+              style={{ animationDelay: '-2s' }}
+            />
+          </svg>
+          
+          {/* Additional floating wave elements */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-ripple-teal/20 rounded-full animate-[float_6s_ease-in-out_infinite]"></div>
+          <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-hope-green/30 rounded-full animate-[float_8s_ease-in-out_infinite]" style={{ animationDelay: '-3s' }}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-20 h-20 bg-peach-glow/40 rounded-full animate-[float_7s_ease-in-out_infinite]" style={{ animationDelay: '-1.5s' }}></div>
+        </div>
+        
         <div className="container mx-auto text-center relative z-10">
           <Logo size="lg" animated className="mx-auto mb-8" />
           
