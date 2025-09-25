@@ -17,62 +17,43 @@ const Landing: React.FC = () => {
       <WaterRipples intensity="light" />
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-sand">
-        {/* Animated Background Waves */}
+      {/* Hero Section - Headspace Style */}
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFD93D 0%, #FF6B35 100%)' }}>
+        {/* Headspace-style floating elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <svg
-            className="absolute bottom-0 left-0 w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0,60 C300,100 600,20 900,60 C1050,80 1150,40 1200,60 L1200,120 L0,120 Z"
-              fill="#1AA6A6"
-              className="animate-[wave_3s_ease-in-out_infinite]"
-              style={{ animationDelay: '0s' }}
-            />
-            <path
-              d="M0,80 C250,120 550,40 850,80 C1000,100 1100,60 1200,80 L1200,120 L0,120 Z"
-              fill="#4CAF7D"
-              opacity="0.8"
-              className="animate-[wave_4s_ease-in-out_infinite]"
-              style={{ animationDelay: '-1s' }}
-            />
-            <path
-              d="M0,100 C200,140 500,60 800,100 C950,120 1050,80 1200,100 L1200,120 L0,120 Z"
-              fill="#FFC9A6"
-              opacity="0.6"
-              className="animate-[wave_5s_ease-in-out_infinite]"
-              style={{ animationDelay: '-2s' }}
-            />
-          </svg>
+          {/* Large decorative circles */}
+          <div className="absolute top-10 left-10 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-32 right-16 w-96 h-96 bg-ripple-teal/30 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-peach-glow/40 rounded-full blur-2xl"></div>
           
-          {/* Additional floating wave elements */}
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-ripple-teal/20 rounded-full animate-[float_6s_ease-in-out_infinite]"></div>
-          <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-hope-green/30 rounded-full animate-[float_8s_ease-in-out_infinite]" style={{ animationDelay: '-3s' }}></div>
-          <div className="absolute bottom-1/3 left-1/3 w-20 h-20 bg-peach-glow/40 rounded-full animate-[float_7s_ease-in-out_infinite]" style={{ animationDelay: '-1.5s' }}></div>
+          {/* Floating geometric shapes */}
+          <div className="absolute top-1/4 right-1/3 w-16 h-16 bg-white/60 rounded-2xl rotate-45 animate-[float_6s_ease-in-out_infinite]"></div>
+          <div className="absolute top-1/2 left-1/5 w-12 h-12 bg-ripple-teal/70 rounded-full animate-[float_8s_ease-in-out_infinite]" style={{ animationDelay: '-2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-20 h-20 bg-hope-green/50 rounded-3xl rotate-12 animate-[float_7s_ease-in-out_infinite]" style={{ animationDelay: '-4s' }}></div>
+          
+          {/* Small accent dots */}
+          <div className="absolute top-20 left-1/2 w-4 h-4 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute bottom-32 right-1/3 w-6 h-6 bg-deep-navy/60 rounded-full animate-pulse" style={{ animationDelay: '-1s' }}></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
           <Logo size="lg" animated className="mx-auto mb-8" />
           
-          <h1 className="font-poppins font-bold text-5xl md:text-7xl text-foreground mb-4 leading-tight">
+          <h1 className="font-poppins font-bold text-5xl md:text-7xl text-white mb-4 leading-tight drop-shadow-lg">
             ItForward
           </h1>
           
-          <h2 className="font-poppins font-semibold text-2xl md:text-4xl text-foreground mb-6">
+          <h2 className="font-poppins font-semibold text-2xl md:text-4xl text-white/90 mb-6 drop-shadow-md">
             It pays to be Kind
           </h2>
           
-          <div className="text-xl md:text-2xl text-foreground mb-8">
-            <span className="brand-gradient bg-clip-text text-transparent font-semibold">
+          <div className="text-xl md:text-2xl text-white/80 mb-8 drop-shadow-sm">
+            <span className="font-semibold">
               "Change starts when you forward it"
             </span>
           </div>
           
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
             You can finally start Paying it Forward! Celebrate people's acts of kindness, share their stories with photos and messages. 
             See kindness ripple through your community and get rewarded for being kind. Earn your Kind stickers and nominate others to keep the chain going.
           </p>
@@ -80,7 +61,7 @@ const Landing: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button 
               size="lg" 
-              className="bg-hope-green hover:bg-hope-green-dark text-white px-8 py-4 text-lg font-medium gentle-hover"
+              className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg"
               onClick={() => setShowSplash(true)}
               asChild
             >
@@ -93,7 +74,7 @@ const Landing: React.FC = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white px-8 py-4 text-lg font-medium gentle-hover"
+              className="border-2 border-white text-white hover:bg-white hover:text-deep-navy px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm"
               asChild
             >
               <Link to="/ripples">
@@ -102,9 +83,11 @@ const Landing: React.FC = () => {
             </Button>
           </div>
           
-          {/* Ripple Preview */}
-          <div className="mb-16">
-            <RippleVisualization size="lg" delay={500} />
+          {/* Ripple Preview with Headspace styling */}
+          <div className="mb-16 relative">
+            <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
+              <RippleVisualization size="lg" delay={500} />
+            </div>
           </div>
         </div>
       </section>
