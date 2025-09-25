@@ -15,8 +15,8 @@ const Profile: React.FC = () => {
         <div className="container mx-auto max-w-4xl">
           {/* Profile Header */}
           <div className="text-center mb-8">
-            <div className="w-32 h-32 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-white text-4xl font-bold">A</span>
+            <div className="w-48 h-48 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800">
+              <span className="text-white text-6xl font-bold">A</span>
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">
               Alex Johnson

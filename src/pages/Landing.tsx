@@ -50,10 +50,9 @@ const Landing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
+              <Button 
               size="lg" 
               className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg"
-              onClick={() => setShowSplash(true)}
               asChild
             >
               <Link to="/create">
@@ -80,7 +79,7 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 bg-card relative">
+      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
@@ -89,16 +88,12 @@ const Landing: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
-                  <img 
-                    src="/src/assets/rock-shape.jpg" 
-                    alt="Rock shape" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                    <Camera className="w-8 h-8 text-stone-700" />
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-stone-400 to-stone-600 
+                               flex items-center justify-center shadow-lg overflow-hidden">
+                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
+                                 animate-pulse group-hover:animate-none">
+                    <Camera className="w-12 h-12 text-stone-700" />
                   </div>
                 </div>
                 {/* Subtle vibration effect */}
@@ -106,21 +101,17 @@ const Landing: React.FC = () => {
                                animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
-              <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story.</p>
+              <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story. <strong>Only YOU can build other people's profiles</strong> (except personal info like pictures).</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
-                  <img 
-                    src="/src/assets/droplet-shape.jpg" 
-                    alt="Droplet shape" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                    <Trophy className="w-8 h-8 text-blue-700" />
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-blue-600 
+                               flex items-center justify-center shadow-lg overflow-hidden">
+                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
+                                 animate-pulse group-hover:animate-none">
+                    <Trophy className="w-12 h-12 text-blue-700" />
                   </div>
                 </div>
                 {/* Subtle vibration effect */}
@@ -128,21 +119,17 @@ const Landing: React.FC = () => {
                                animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
-              <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community.</p>
+              <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community. <strong>Only others can build YOUR profile</strong>.</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
-                  <img 
-                    src="/src/assets/sea-star-shape.jpg" 
-                    alt="Sea star shape" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                    <Star className="w-8 h-8 text-orange-600" />
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-orange-600 
+                               flex items-center justify-center shadow-lg overflow-hidden">
+                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
+                                 animate-pulse group-hover:animate-none">
+                    <Star className="w-12 h-12 text-orange-600" />
                   </div>
                 </div>
                 {/* Subtle vibration effect */}
@@ -150,25 +137,21 @@ const Landing: React.FC = () => {
                                animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
-              <p className="text-muted-foreground text-sm">Collect Kind stickers and badges for celebrating others and spreading positivity.</p>
+              <p className="text-muted-foreground text-sm">Collect pebbles based on acts of kindness received. <strong>You must always nominate at least one person</strong> to keep the kindness flowing.</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
-                  <img 
-                    src="/src/assets/wave-shape.jpg" 
-                    alt="Wave shape" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
-                    <Share2 className="w-8 h-8 text-blue-600" />
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 
+                               flex items-center justify-center shadow-lg overflow-hidden">
+                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
+                                 animate-pulse group-hover:animate-none">
+                    <Share2 className="w-12 h-12 text-blue-600" />
                   </div>
                 </div>
                 {/* Subtle vibration effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-600/20 
                                animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
@@ -233,13 +216,23 @@ const Landing: React.FC = () => {
                 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div className="flex items-center gap-4">
-                    <button className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark transition-colors">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10"
+                      onClick={() => alert('Liked! Feature coming soon.')}
+                    >
                       <Heart className="w-5 h-5" />
                       <span className="font-medium">247 kinds</span>
-                    </button>
-                    <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                    </Button>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                      onClick={() => alert('Comments feature coming soon.')}
+                    >
                       <span className="font-medium">32 comments</span>
-                    </button>
+                    </Button>
                   </div>
                   <span className="text-sm text-muted-foreground">2 days ago</span>
                 </div>
@@ -251,9 +244,11 @@ const Landing: React.FC = () => {
             <Button 
               variant="outline" 
               className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
-              onClick={() => setShowCarousel(true)}
+              asChild
             >
-              Explore More Splashes
+              <Link to="/splashes">
+                Explore More Splashes
+              </Link>
             </Button>
           </div>
         </div>

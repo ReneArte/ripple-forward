@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { Camera, Trophy, Star, Share2 } from 'lucide-react';
 
 interface RippleProps {
   delay?: number;
   size?: 'sm' | 'md' | 'lg';
   color?: 'primary' | 'secondary' | 'accent';
+  icon?: 'camera' | 'trophy' | 'star' | 'share';
 }
 
 const RippleVisualization: React.FC<RippleProps> = ({ 
   delay = 0, 
   size = 'md', 
-  color = 'primary' 
+  color = 'primary',
+  icon = 'camera'
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -30,14 +33,24 @@ const RippleVisualization: React.FC<RippleProps> = ({
     accent: 'border-peach-glow/60',
   };
 
+  const IconComponent = {
+    camera: Camera,
+    trophy: Trophy,
+    star: Star,
+    share: Share2,
+  }[icon];
+
   return (
     <div className={`relative ${sizeClasses[size]} mx-auto`}>
-      {/* Central Pebble */}
+      {/* Central Icon with vibration */}
       <div 
         className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                   w-4 h-4 bg-hope-green rounded-full z-10 transition-all duration-500
+                   w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full z-10 transition-all duration-500
+                   flex items-center justify-center animate-pulse hover:animate-none hover:scale-110
                    ${isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}
-      />
+      >
+        <IconComponent className="w-8 h-8 text-white" />
+      </div>
       
       {/* Ripple Rings */}
       {[1, 2, 3].map((ring) => (

@@ -231,6 +231,36 @@
     box-shadow: var(--shadow-soft);
   }
 
+  /* Tree and nature animations */
+  @keyframes grow {
+    0% {
+      transform: scale(0) translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes gentle-sway {
+    0%, 100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(2px) rotate(1deg);
+    }
+  }
+
+  @keyframes draw-line {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+    100% {
+      stroke-dasharray: 100 0;
+    }
+  }
+
   /* Wave Animations - Slow and Natural */
   @keyframes wave1 {
     0%, 100% { 
