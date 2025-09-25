@@ -1,9 +1,8 @@
 import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Sky, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Ocean Surface Component
+// Ocean Surface Component with simplified shaders
 const OceanSurface = ({ scrollProgress }: { scrollProgress: number }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.ShaderMaterial>(null);
@@ -13,32 +12,26 @@ const OceanSurface = ({ scrollProgress }: { scrollProgress: number }) => {
       time: { value: 0 },
       depth: { value: 0 },
       waveHeight: { value: 0.5 },
-      waveFrequency: { value: 0.3 },
-      sunlightIntensity: { value: 1.0 },
       opacity: { value: 1.0 }
     },
     vertexShader: `
       uniform float time;
       uniform float waveHeight;
-      uniform float waveFrequency;
       varying vec3 vPosition;
       varying vec3 vNormal;
       
       void main() {
         vPosition = position;
         
-        // Create wave displacement
-        float wave1 = sin(position.x * waveFrequency + time * 2.0) * waveHeight;
-        float wave2 = sin(position.z * waveFrequency * 1.5 + time * 1.5) * waveHeight * 0.7;
-        float wave3 = sin((position.x + position.z) * waveFrequency * 0.8 + time * 2.5) * waveHeight * 0.5;
+        // Create simple wave displacement
+        float wave1 = sin(position.x * 0.3 + time * 2.0) * waveHeight;
+        float wave2 = sin(position.z * 0.45 + time * 1.5) * waveHeight * 0.7;
         
         vec3 newPosition = position;
-        newPosition.y += wave1 + wave2 + wave3;
+        newPosition.y += wave1 + wave2;
         
-        // Calculate normal for lighting
-        float dx = cos(position.x * waveFrequency + time * 2.0) * waveFrequency * waveHeight;
-        float dz = cos(position.z * waveFrequency * 1.5 + time * 1.5) * waveFrequency * 1.5 * waveHeight * 0.7;
-        vNormal = normalize(vec3(-dx, 1.0, -dz));
+        // Simple normal calculation
+        vNormal = normalize(vec3(0.0, 1.0, 0.0));
         
         gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
       }
@@ -46,7 +39,6 @@ const OceanSurface = ({ scrollProgress }: { scrollProgress: number }) => {
     fragmentShader: `
       uniform float time;
       uniform float depth;
-      uniform float sunlightIntensity;
       uniform float opacity;
       varying vec3 vPosition;
       varying vec3 vNormal;
@@ -54,30 +46,20 @@ const OceanSurface = ({ scrollProgress }: { scrollProgress: number }) => {
       void main() {
         // Ocean colors that change with depth
         vec3 surfaceColor = vec3(0.1, 0.6, 0.9);
-        vec3 shallowColor = vec3(0.2, 0.8, 0.9);
         vec3 deepColor = vec3(0.0, 0.2, 0.4);
         vec3 abyssColor = vec3(0.0, 0.05, 0.15);
         
         // Interpolate colors based on depth
         vec3 color;
-        if (depth < 0.3) {
-          color = mix(surfaceColor, shallowColor, depth / 0.3);
-        } else if (depth < 0.7) {
-          color = mix(shallowColor, deepColor, (depth - 0.3) / 0.4);
+        if (depth < 0.5) {
+          color = mix(surfaceColor, deepColor, depth / 0.5);
         } else {
-          color = mix(deepColor, abyssColor, (depth - 0.7) / 0.3);
+          color = mix(deepColor, abyssColor, (depth - 0.5) / 0.5);
         }
         
         // Simple lighting
-        float light = max(0.3, dot(vNormal, normalize(vec3(1.0, 1.0, 0.5)))) * sunlightIntensity;
+        float light = max(0.3, 0.8) * (1.0 - depth * 0.5);
         color *= light;
-        
-        // Add some foam/sparkle on surface
-        if (depth < 0.1) {
-          float foam = sin(vPosition.x * 10.0 + time * 3.0) * sin(vPosition.z * 10.0 + time * 2.0);
-          foam = smoothstep(0.8, 1.0, foam);
-          color = mix(color, vec3(1.0), foam * 0.3);
-        }
         
         gl_FragColor = vec4(color, opacity);
       }
@@ -88,14 +70,13 @@ const OceanSurface = ({ scrollProgress }: { scrollProgress: number }) => {
     if (materialRef.current) {
       materialRef.current.uniforms.time.value = clock.elapsedTime;
       materialRef.current.uniforms.depth.value = scrollProgress;
-      materialRef.current.uniforms.sunlightIntensity.value = Math.max(0.1, 1.0 - scrollProgress * 0.8);
       materialRef.current.uniforms.waveHeight.value = Math.max(0.1, 0.5 - scrollProgress * 0.4);
     }
   });
 
   return (
     <mesh ref={meshRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-      <planeGeometry args={[100, 100, 64, 64]} />
+      <planeGeometry args={[100, 100, 32, 32]} />
       <shaderMaterial
         ref={materialRef}
         {...oceanShader}
@@ -111,8 +92,8 @@ const UnderwaterParticles = ({ scrollProgress }: { scrollProgress: number }) => 
   const particlesRef = useRef<THREE.Points>(null);
   
   const particles = useMemo(() => {
-    const positions = new Float32Array(1000 * 3);
-    for (let i = 0; i < 1000; i++) {
+    const positions = new Float32Array(500 * 3);
+    for (let i = 0; i < 500; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 50;
       positions[i * 3 + 1] = Math.random() * 30 - 15;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 50;
@@ -120,7 +101,7 @@ const UnderwaterParticles = ({ scrollProgress }: { scrollProgress: number }) => 
     return positions;
   }, []);
 
-  useFrame(({ clock }) => {
+  useFrame(() => {
     if (particlesRef.current) {
       particlesRef.current.rotation.y += 0.001;
       const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
@@ -139,7 +120,7 @@ const UnderwaterParticles = ({ scrollProgress }: { scrollProgress: number }) => 
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={1000}
+          count={500}
           array={particles}
           itemSize={3}
         />
@@ -161,7 +142,7 @@ const OceanFloor = ({ scrollProgress }: { scrollProgress: number }) => {
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -20, 0]}>
       <planeGeometry args={[100, 100]} />
-      <meshLambertMaterial
+      <meshBasicMaterial
         color={new THREE.Color(0.2, 0.15, 0.1)}
         transparent
         opacity={opacity}
@@ -182,16 +163,6 @@ const OceanScene = ({ scrollProgress }: { scrollProgress: number }) => {
 
   return (
     <>
-      {/* Sky - only visible at surface */}
-      {scrollProgress < 0.3 && (
-        <Sky
-          distance={450000}
-          sunPosition={[0, 1, 0]}
-          inclination={0}
-          azimuth={0.25}
-        />
-      )}
-      
       {/* Ambient light that decreases with depth */}
       <ambientLight intensity={Math.max(0.1, 0.8 - scrollProgress * 0.6)} color={new THREE.Color(0.7, 0.8, 1.0)} />
       
