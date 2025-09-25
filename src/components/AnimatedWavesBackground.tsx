@@ -4,30 +4,57 @@ const AnimatedWavesBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Sun for light mode */}
-      <div className="absolute top-12 right-12 w-20 h-20 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-2xl opacity-100 dark:opacity-0 transition-opacity duration-500">
-        {/* Sun rays */}
-        <div className="absolute inset-0">
-          <div className="absolute w-1 h-6 bg-yellow-400 -top-8 left-1/2 transform -translate-x-1/2 rounded-full"></div>
-          <div className="absolute w-1 h-6 bg-yellow-400 -bottom-8 left-1/2 transform -translate-x-1/2 rounded-full"></div>
-          <div className="absolute w-6 h-1 bg-yellow-400 -left-8 top-1/2 transform -translate-y-1/2 rounded-full"></div>
-          <div className="absolute w-6 h-1 bg-yellow-400 -right-8 top-1/2 transform -translate-y-1/2 rounded-full"></div>
-          <div className="absolute w-1 h-5 bg-yellow-400 -top-6 -left-4 transform rotate-45 rounded-full"></div>
-          <div className="absolute w-1 h-5 bg-yellow-400 -top-6 -right-4 transform -rotate-45 rounded-full"></div>
-          <div className="absolute w-1 h-5 bg-yellow-400 -bottom-6 -left-4 transform -rotate-45 rounded-full"></div>
-          <div className="absolute w-1 h-5 bg-yellow-400 -bottom-6 -right-4 transform rotate-45 rounded-full"></div>
+      <div className="absolute top-12 left-12 w-24 h-24 opacity-100 dark:opacity-0 transition-opacity duration-500">
+        {/* Sun glow */}
+        <div className="absolute -inset-4 bg-yellow-300/30 rounded-full animate-pulse blur-xl"></div>
+        <div className="absolute -inset-2 bg-yellow-300/40 rounded-full animate-pulse blur-lg animation-delay-500"></div>
+        
+        {/* Sun body */}
+        <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-400 to-orange-400 shadow-2xl animate-[sunFloat_6s_ease-in-out_infinite]">
+          {/* Sun face */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Eyes */}
+            <div className="absolute top-7 left-7 w-2 h-2 bg-orange-600 rounded-full"></div>
+            <div className="absolute top-7 right-7 w-2 h-2 bg-orange-600 rounded-full"></div>
+            {/* Smile */}
+            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-4 h-2 border-b-2 border-orange-600 rounded-full"></div>
+          </div>
+        </div>
+        
+        {/* Rotating sun rays */}
+        <div className="absolute inset-0 animate-spin" style={{animationDuration: '20s'}}>
+          <div className="absolute w-1 h-8 bg-yellow-400 -top-10 left-1/2 transform -translate-x-1/2 rounded-full"></div>
+          <div className="absolute w-1 h-8 bg-yellow-400 -bottom-10 left-1/2 transform -translate-x-1/2 rounded-full"></div>
+          <div className="absolute w-8 h-1 bg-yellow-400 -left-10 top-1/2 transform -translate-y-1/2 rounded-full"></div>
+          <div className="absolute w-8 h-1 bg-yellow-400 -right-10 top-1/2 transform -translate-y-1/2 rounded-full"></div>
+          <div className="absolute w-1 h-6 bg-yellow-400 -top-8 -left-6 transform rotate-45 rounded-full"></div>
+          <div className="absolute w-1 h-6 bg-yellow-400 -top-8 -right-6 transform -rotate-45 rounded-full"></div>
+          <div className="absolute w-1 h-6 bg-yellow-400 -bottom-8 -left-6 transform -rotate-45 rounded-full"></div>
+          <div className="absolute w-1 h-6 bg-yellow-400 -bottom-8 -right-6 transform rotate-45 rounded-full"></div>
         </div>
       </div>
 
       {/* Moon for dark mode */}
-      <div className="absolute top-12 right-12 w-20 h-20 rounded-full bg-gradient-to-br from-gray-200 to-gray-400 shadow-2xl shadow-gray-600/50 opacity-0 dark:opacity-100 transition-opacity duration-500">
-        {/* Moon craters */}
-        <div className="absolute inset-0">
-          <div className="absolute w-3 h-3 bg-gray-400 rounded-full top-4 left-5"></div>
-          <div className="absolute w-2 h-2 bg-gray-400 rounded-full top-8 left-12"></div>
-          <div className="absolute w-2.5 h-2.5 bg-gray-400 rounded-full top-12 left-7"></div>
+      <div className="absolute top-12 left-12 w-24 h-24 opacity-0 dark:opacity-100 transition-opacity duration-500">
+        {/* Moon glow */}
+        <div className="absolute -inset-4 bg-gray-300/20 rounded-full animate-pulse blur-xl"></div>
+        
+        {/* Moon body */}
+        <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-gray-200 to-gray-400 shadow-2xl shadow-gray-600/50 animate-[moonFloat_8s_ease-in-out_infinite]">
+          {/* Moon craters */}
+          <div className="absolute w-3 h-3 bg-gray-500 rounded-full top-6 left-7"></div>
+          <div className="absolute w-2 h-2 bg-gray-500 rounded-full top-10 left-16"></div>
+          <div className="absolute w-2.5 h-2.5 bg-gray-500 rounded-full top-14 left-9"></div>
+          
+          {/* Moon face */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            {/* Eyes */}
+            <div className="absolute top-7 left-7 w-2 h-2 bg-gray-600 rounded-full"></div>
+            <div className="absolute top-7 right-7 w-2 h-2 bg-gray-600 rounded-full"></div>
+            {/* Smile */}
+            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-4 h-2 border-b-2 border-gray-600 rounded-full"></div>
+          </div>
         </div>
-        {/* Glow effect */}
-        <div className="absolute -inset-2 bg-white/20 rounded-full blur-sm"></div>
       </div>
 
       {/* Wave Layer 1 - Teal/Turquoise with happy face */}
