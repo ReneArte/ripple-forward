@@ -8,10 +8,9 @@ import RippleVisualization from '@/components/RippleVisualization';
 import WaterRipples from '@/components/WaterRipples';
 import RockSplash from '@/components/RockSplash';
 import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
-
+import VisualExplanation from '@/components/VisualExplanation';
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
-import OceanBackground from '@/components/OceanBackground';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 
 const Landing: React.FC = () => {
@@ -19,19 +18,17 @@ const Landing: React.FC = () => {
   const [showCarousel, setShowCarousel] = useState(false);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Ocean Background */}
-      <OceanBackground />
-      
-      {/* Remove old water ripples and animated waves */}
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <WaterRipples intensity="light" />
       <Header />
       
-      {/* Hero Section - Updated to work with ocean background */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden z-10"
-               style={{ background: 'transparent' }}>
+      {/* Hero Section - Headspace Style */}
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 dark:from-indigo-900 dark:via-blue-900 dark:to-blue-800">
+        {/* Animated waves background */}
+        <AnimatedWavesBackground />
         
         <div className="container mx-auto text-center relative z-10">
-          <Logo size="lg" animated className="mx-auto mb-8 w-48 h-48" />
+          <Logo size="lg" animated className="mx-auto mb-8" />
           
           <h1 className="font-poppins font-bold text-5xl md:text-7xl text-white mb-4 leading-tight drop-shadow-lg">
             ItForward
@@ -82,7 +79,7 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 relative z-10 bg-white/10 backdrop-blur-sm">
+      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
@@ -168,8 +165,27 @@ const Landing: React.FC = () => {
         </div>
       </section>
       
+      {/* Visual Explanation Section */}
+      <VisualExplanation />
+      
       {/* The Biggest Wave Section */}
-      <section className="py-16 px-4 relative overflow-hidden z-10 bg-white/5 backdrop-blur-sm">
+      <section className="py-16 px-4 relative overflow-hidden">
+        {/* Animated wave background */}
+        <div className="absolute inset-0 opacity-20">
+          <svg
+            className="absolute bottom-0 left-0 w-full h-full"
+            viewBox="0 0 1200 400"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
+              <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
+            </defs>
+            <use href="#bgwave1" fill="hsl(var(--primary))" className="animate-[slowWave_20s_ease-in-out_infinite]" />
+            <use href="#bgwave2" fill="hsl(var(--secondary))" className="animate-[slowWave_25s_ease-in-out_infinite_reverse]" />
+          </svg>
+        </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
             The Biggest Wave
@@ -299,7 +315,8 @@ const Landing: React.FC = () => {
       <PayItForward />
       
       {/* CTA Section */}
-      <section className="py-16 px-4 relative overflow-hidden z-10 bg-white/5 backdrop-blur-sm">
+      <section className="py-16 px-4 brand-gradient text-white relative overflow-hidden">
+        <WaterRipples intensity="medium" className="opacity-20" />
         <div className="container mx-auto text-center relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
             Every act of kindness deserves to be celebrated
