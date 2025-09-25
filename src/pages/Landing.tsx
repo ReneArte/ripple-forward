@@ -68,6 +68,7 @@ const Landing: React.FC = () => {
                 Explore Acts of Kindness
               </Link>
             </Button>
+          </div>
         </div>
       </section>
       
