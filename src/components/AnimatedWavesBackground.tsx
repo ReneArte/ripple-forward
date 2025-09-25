@@ -4,7 +4,7 @@ const AnimatedWavesBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Sun for light mode */}
-      <div className="absolute top-1/2 left-12 w-24 h-24 opacity-100 dark:opacity-0 transition-opacity duration-500">
+      <div className="absolute top-8 left-12 w-24 h-24 opacity-100 dark:opacity-0 transition-opacity duration-500">
         {/* Sun glow */}
         <div className="absolute -inset-4 bg-yellow-300/30 rounded-full animate-pulse blur-xl"></div>
         <div className="absolute -inset-2 bg-yellow-300/40 rounded-full animate-pulse blur-lg animation-delay-500"></div>
@@ -56,7 +56,7 @@ const AnimatedWavesBackground: React.FC = () => {
       </div>
 
       {/* Moon for dark mode */}
-      <div className="absolute top-1/2 left-12 w-24 h-24 opacity-0 dark:opacity-100 transition-opacity duration-500">
+      <div className="absolute top-8 left-12 w-24 h-24 opacity-0 dark:opacity-100 transition-opacity duration-500">
         {/* Moon glow */}
         <div className="absolute -inset-4 bg-gray-300/20 rounded-full animate-pulse blur-xl"></div>
         
