@@ -19,7 +19,7 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section - Headspace Style */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFD93D 0%, #FF8C42 50%, #FF6B35 100%)' }}>
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 dark:from-indigo-900 dark:via-blue-900 dark:to-blue-800">
         {/* Animated waves background */}
         <AnimatedWavesBackground />
         
@@ -68,14 +68,6 @@ const Landing: React.FC = () => {
                 Explore Acts of Kindness
               </Link>
             </Button>
-          </div>
-          
-          {/* Ripple Preview with Headspace styling */}
-          <div className="mb-16 relative">
-            <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 shadow-2xl">
-              <RippleVisualization size="lg" delay={500} />
-            </div>
-          </div>
         </div>
       </section>
       
