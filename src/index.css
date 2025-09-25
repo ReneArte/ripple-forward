@@ -298,11 +298,6 @@
     }
   }
 
-  /* Slow wave utility classes */
-  .animate-slow-wave1 { animation: wave1 60s ease-in-out infinite; }
-  .animate-slow-wave2 { animation: wave2 75s ease-in-out infinite reverse; }
-  .animate-slow-wave3 { animation: wave3 90s ease-in-out infinite; }
-
   @keyframes sunFloat {
     0%, 100% {
       transform: translateY(0px);

@@ -88,10 +88,10 @@ const AnimatedWavesBackground: React.FC = () => {
         <defs>
           <path id="wave1" d="M0,180 C200,120 400,220 600,160 C800,100 1000,140 1200,120 L1200,400 L0,400 Z" />
         </defs>
-        <use href="#wave1" fill="hsl(180, 70%, 50%)" className="animate-[wave1_60s_ease-in-out_infinite] dark:fill-blue-400/60" />
+        <use href="#wave1" fill="hsl(180, 70%, 50%)" className="animate-[wave1_25s_ease-in-out_infinite] dark:fill-blue-400/60" />
         
         {/* Happy face on wave 1 */}
-        <g className="animate-[wave1_60s_ease-in-out_infinite]" transform="translate(300, 140)">
+        <g className="animate-[wave1_25s_ease-in-out_infinite]" transform="translate(300, 140)">
           {/* Eyes */}
           <circle cx="0" cy="0" r="3" fill="hsl(220, 90%, 20%)" />
           <circle cx="20" cy="0" r="3" fill="hsl(220, 90%, 20%)" />
@@ -110,10 +110,10 @@ const AnimatedWavesBackground: React.FC = () => {
         <defs>
           <path id="wave2" d="M0,240 C150,190 350,270 550,220 C750,170 950,200 1200,180 L1200,400 L0,400 Z" />
         </defs>
-        <use href="#wave2" fill="hsl(200, 80%, 60%)" className="animate-[wave2_75s_ease-in-out_infinite_reverse] dark:fill-blue-600/50" />
+        <use href="#wave2" fill="hsl(200, 80%, 60%)" className="animate-[wave2_30s_ease-in-out_infinite_reverse] dark:fill-blue-600/50" />
         
         {/* Happy face on wave 2 */}
-        <g className="animate-[wave2_75s_ease-in-out_infinite_reverse]" transform="translate(600, 210)">
+        <g className="animate-[wave2_30s_ease-in-out_infinite_reverse]" transform="translate(600, 210)">
           {/* Eyes */}
           <circle cx="0" cy="0" r="3" fill="hsl(220, 90%, 20%)" />
           <circle cx="20" cy="0" r="3" fill="hsl(220, 90%, 20%)" />
@@ -132,7 +132,7 @@ const AnimatedWavesBackground: React.FC = () => {
         <defs>
           <path id="wave3" d="M0,300 C100,260 300,330 500,290 C700,250 900,280 1200,260 L1200,400 L0,400 Z" />
         </defs>
-        <use href="#wave3" fill="hsl(220, 80%, 50%)" className="animate-[wave3_90s_ease-in-out_infinite] dark:fill-blue-800/40" />
+        <use href="#wave3" fill="hsl(220, 80%, 50%)" className="animate-[wave3_35s_ease-in-out_infinite] dark:fill-blue-800/40" />
         
         {/* Happy face on wave 3 */}
         <g className="animate-[wave3_35s_ease-in-out_infinite]" transform="translate(400, 280)">
