@@ -89,16 +89,17 @@ const Landing: React.FC = () => {
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-stone-400 to-stone-600 
-                               flex items-center justify-center shadow-lg overflow-hidden">
+                               flex items-center justify-center shadow-lg overflow-hidden
+                               hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
-                                 animate-pulse group-hover:animate-none">
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
+                                 group-hover:bg-white">
                     <Camera className="w-12 h-12 text-stone-700" />
                   </div>
                 </div>
-                {/* Subtle vibration effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/20 to-stone-600/20 
-                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Soft glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/10 to-stone-600/10 
+                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
               <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story. <strong>Only YOU can build other people's profiles</strong> (except personal info like pictures).</p>
@@ -107,16 +108,17 @@ const Landing: React.FC = () => {
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-blue-600 
-                               flex items-center justify-center shadow-lg overflow-hidden">
+                               flex items-center justify-center shadow-lg overflow-hidden
+                               hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
-                                 animate-pulse group-hover:animate-none">
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
+                                 group-hover:bg-white">
                     <Trophy className="w-12 h-12 text-blue-700" />
                   </div>
                 </div>
-                {/* Subtle vibration effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 
-                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Soft glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 
+                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
               <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community. <strong>Only others can build YOUR profile</strong>.</p>
@@ -125,16 +127,17 @@ const Landing: React.FC = () => {
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-orange-600 
-                               flex items-center justify-center shadow-lg overflow-hidden">
+                               flex items-center justify-center shadow-lg overflow-hidden
+                               hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
-                                 animate-pulse group-hover:animate-none">
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
+                                 group-hover:bg-white">
                     <Star className="w-12 h-12 text-orange-600" />
                   </div>
                 </div>
-                {/* Subtle vibration effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/20 to-orange-600/20 
-                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Soft glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/10 to-orange-600/10 
+                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
               <p className="text-muted-foreground text-sm">Collect pebbles based on acts of kindness received. <strong>You must always nominate at least one person</strong> to keep the kindness flowing.</p>
@@ -143,16 +146,17 @@ const Landing: React.FC = () => {
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
                 <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 
-                               flex items-center justify-center shadow-lg overflow-hidden">
+                               flex items-center justify-center shadow-lg overflow-hidden
+                               hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-200
-                                 animate-pulse group-hover:animate-none">
+                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
+                                 group-hover:bg-white">
                     <Share2 className="w-12 h-12 text-blue-600" />
                   </div>
                 </div>
-                {/* Subtle vibration effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-600/20 
-                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Soft glow effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/10 to-blue-600/10 
+                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
               <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
@@ -190,66 +194,116 @@ const Landing: React.FC = () => {
             This week's most inspiring act of kindness
           </p>
           
-          <div className="max-w-lg mx-auto">
-            <Card className="soft-shadow border-0 overflow-hidden">
-              <div className="aspect-video bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
-                <Camera className="w-16 h-16 text-white/70" />
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Main Featured Story */}
+            <div>
+              <Card className="soft-shadow border-0 overflow-hidden">
+                <div className="aspect-video bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
+                  <Camera className="w-16 h-16 text-white/70" />
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-hope-green rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">A</span>
+                    </div>
+                    <div>
+                      <h3 className="font-poppins font-semibold text-lg">Alex Johnson</h3>
+                      <p className="text-muted-foreground text-sm">@alexjohnson</p>
+                    </div>
+                  </div>
+                  
+                  <h4 className="font-poppins font-semibold text-xl mb-3">
+                    Organized food drive for 200 families
+                  </h4>
+                  <p className="text-muted-foreground mb-4">
+                    Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. 
+                    They coordinated with local businesses and volunteers to make it happen. The smile on every family's face was priceless.
+                  </p>
+                  
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <div className="flex items-center gap-4">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10"
+                        onClick={() => alert('Liked! Feature coming soon.')}
+                      >
+                        <Heart className="w-5 h-5" />
+                        <span className="font-medium">247 kinds</span>
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+                        onClick={() => alert('Comments feature coming soon.')}
+                      >
+                        <span className="font-medium">32 comments</span>
+                      </Button>
+                    </div>
+                    <span className="text-sm text-muted-foreground">2 days ago</span>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="text-center mt-6">
+                <Button 
+                  variant="outline" 
+                  className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
+                  asChild
+                >
+                  <Link to="/splashes">
+                    Explore More Splashes
+                  </Link>
+                </Button>
               </div>
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-hope-green rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">A</span>
+            </div>
+
+            {/* Splashers That Deserve Support */}
+            <div>
+              <Card className="soft-shadow border-0 h-full">
+                <CardContent className="p-6">
+                  <h3 className="font-poppins font-semibold text-xl mb-6 text-center">
+                    Splashers that deserve to be paid for their kindness
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {[
+                      { name: "Maria Santos", action: "Built wheelchair ramps", amount: "$2,847", supporters: 47 },
+                      { name: "David Chen", action: "Free coding classes", amount: "$1,923", supporters: 31 },
+                      { name: "Sarah Williams", action: "Community garden", amount: "$3,156", supporters: 62 },
+                      { name: "James Rodriguez", action: "Youth mentoring", amount: "$1,445", supporters: 28 }
+                    ].map((person, index) => (
+                      <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center">
+                            <span className="text-white font-bold text-sm">{person.name[0]}</span>
+                          </div>
+                          <div>
+                            <p className="font-medium text-sm">{person.name}</p>
+                            <p className="text-xs text-muted-foreground">{person.action}</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-semibold text-sm text-hope-green">{person.amount}</p>
+                          <p className="text-xs text-muted-foreground">{person.supporters} supporters</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div>
-                    <h3 className="font-poppins font-semibold text-lg">Alex Johnson</h3>
-                    <p className="text-muted-foreground text-sm">@alexjohnson</p>
-                  </div>
-                </div>
-                
-                <h4 className="font-poppins font-semibold text-xl mb-3">
-                  Organized food drive for 200 families
-                </h4>
-                <p className="text-muted-foreground mb-4">
-                  Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. 
-                  They coordinated with local businesses and volunteers to make it happen. The smile on every family's face was priceless.
-                </p>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <div className="flex items-center gap-4">
+                  
+                  <div className="mt-6 text-center">
                     <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10"
-                      onClick={() => alert('Liked! Feature coming soon.')}
+                      variant="outline"
+                      size="sm"
+                      className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal hover:text-white"
+                      onClick={() => alert('Support feature coming soon!')}
                     >
-                      <Heart className="w-5 h-5" />
-                      <span className="font-medium">247 kinds</span>
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                      onClick={() => alert('Comments feature coming soon.')}
-                    >
-                      <span className="font-medium">32 comments</span>
+                      Support Someone Today
                     </Button>
                   </div>
-                  <span className="text-sm text-muted-foreground">2 days ago</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="text-center mt-8">
-            <Button 
-              variant="outline" 
-              className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
-              asChild
-            >
-              <Link to="/splashes">
-                Explore More Splashes
-              </Link>
-            </Button>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
