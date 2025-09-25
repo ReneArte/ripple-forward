@@ -8,10 +8,14 @@ import RippleVisualization from '@/components/RippleVisualization';
 import WaterRipples from '@/components/WaterRipples';
 import RockSplash from '@/components/RockSplash';
 import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
+import VisualExplanation from '@/components/VisualExplanation';
+import WorldMap from '@/components/WorldMap';
+import SplashCarousel from '@/components/SplashCarousel';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -86,9 +90,9 @@ const Landing: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
-                {/* Ripple rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-blue-400/40 animate-ping"></div>
-                <div className="absolute inset-2 rounded-full border border-blue-300/30 animate-pulse"></div>
+                {/* Smaller ripple rings */}
+                <div className="absolute inset-4 rounded-full border border-blue-400/30 animate-ping"></div>
+                <div className="absolute inset-6 rounded-full border border-blue-300/20 animate-pulse"></div>
                 <div className="relative z-10">
                   <Camera className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                   <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
@@ -99,9 +103,9 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative bg-gradient-to-br from-blue-500/20 to-blue-700/20 rounded-full p-8 backdrop-blur-sm border border-blue-500/30">
-                {/* Ripple rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-blue-500/40 animate-ping animation-delay-500"></div>
-                <div className="absolute inset-2 rounded-full border border-blue-400/30 animate-pulse animation-delay-500"></div>
+                {/* Smaller ripple rings */}
+                <div className="absolute inset-4 rounded-full border border-blue-500/30 animate-ping animation-delay-500"></div>
+                <div className="absolute inset-6 rounded-full border border-blue-400/20 animate-pulse animation-delay-500"></div>
                 <div className="relative z-10">
                   <Trophy className="w-8 h-8 text-blue-700 mx-auto mb-4" />
                   <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
@@ -112,9 +116,9 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-full p-8 backdrop-blur-sm border border-blue-600/30">
-                {/* Ripple rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-blue-600/40 animate-ping animation-delay-1000"></div>
-                <div className="absolute inset-2 rounded-full border border-blue-500/30 animate-pulse animation-delay-1000"></div>
+                {/* Smaller ripple rings */}
+                <div className="absolute inset-4 rounded-full border border-blue-600/30 animate-ping animation-delay-1000"></div>
+                <div className="absolute inset-6 rounded-full border border-blue-500/20 animate-pulse animation-delay-1000"></div>
                 <div className="relative z-10">
                   <Star className="w-8 h-8 text-blue-800 mx-auto mb-4" />
                   <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
@@ -125,9 +129,9 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
-                {/* Ripple rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-blue-400/40 animate-ping animation-delay-1500"></div>
-                <div className="absolute inset-2 rounded-full border border-blue-300/30 animate-pulse animation-delay-1500"></div>
+                {/* Smaller ripple rings */}
+                <div className="absolute inset-4 rounded-full border border-blue-400/30 animate-ping animation-delay-1500"></div>
+                <div className="absolute inset-6 rounded-full border border-blue-300/20 animate-pulse animation-delay-1500"></div>
                 <div className="relative z-10">
                   <Share2 className="w-8 h-8 text-blue-600 mx-auto mb-4" />
                   <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
@@ -139,18 +143,87 @@ const Landing: React.FC = () => {
         </div>
       </section>
       
+      {/* Visual Explanation Section */}
+      <VisualExplanation />
+      
+      {/* Explore Splashes Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950">
+        <div className="container mx-auto">
+          <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-4">
+            Explore Splashes
+          </h2>
+          <p className="text-xl text-muted-foreground text-center mb-12">
+            See where kindness is happening around the world
+          </p>
+          
+          <div className="max-w-4xl mx-auto mb-12">
+            <WorldMap />
+          </div>
+          
+          {/* Featured splashes grid */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <Card key={i} className="hover:shadow-lg transition-shadow duration-200">
+                <div className="aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                  <Camera className="w-8 h-8 text-white/70" />
+                </div>
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">U</span>
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-sm">User {i}</h4>
+                      <p className="text-xs text-muted-foreground">@user{i}</p>
+                    </div>
+                  </div>
+                  
+                  <h5 className="font-medium text-sm mb-2">Act of kindness #{i}</h5>
+                  
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center gap-1 text-red-500">
+                        <Heart className="w-3 h-3" />
+                        {Math.floor(Math.random() * 200) + 50}
+                      </span>
+                      <span className="text-muted-foreground">{Math.floor(Math.random() * 30) + 5} comments</span>
+                    </div>
+                    <span className="text-muted-foreground">{i}h ago</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* The Biggest Wave Section */}
-      <section className="py-16 px-4 relative">
-        <WaterRipples intensity="medium" className="opacity-30" />
+      <section className="py-16 px-4 relative overflow-hidden">
+        {/* Animated wave background */}
+        <div className="absolute inset-0 opacity-20">
+          <svg
+            className="absolute bottom-0 left-0 w-full h-full"
+            viewBox="0 0 1200 400"
+            fill="none"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
+              <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
+            </defs>
+            <use href="#bgwave1" fill="hsl(var(--primary))" className="animate-[slowWave_20s_ease-in-out_infinite]" />
+            <use href="#bgwave2" fill="hsl(var(--secondary))" className="animate-[slowWave_25s_ease-in-out_infinite_reverse]" />
+          </svg>
+        </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
-            🌊 The Biggest Wave
+            The Biggest Wave
           </h2>
           <p className="text-xl text-muted-foreground text-center mb-12">
             This week's most inspiring act of kindness
           </p>
           
-          <div className="max-w-xl mx-auto">
+          <div className="max-w-lg mx-auto">
             <Card className="soft-shadow border-0 overflow-hidden">
               <div className="aspect-video bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
                 <Camera className="w-16 h-16 text-white/70" />
@@ -194,8 +267,9 @@ const Landing: React.FC = () => {
             <Button 
               variant="outline" 
               className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
+              onClick={() => setShowCarousel(true)}
             >
-              Explore More Ripples
+              Explore More Splashes
             </Button>
           </div>
         </div>
@@ -226,6 +300,9 @@ const Landing: React.FC = () => {
           </Button>
         </div>
       </section>
+      
+      {/* Splash Carousel */}
+      <SplashCarousel isOpen={showCarousel} onClose={() => setShowCarousel(false)} />
       
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-border">

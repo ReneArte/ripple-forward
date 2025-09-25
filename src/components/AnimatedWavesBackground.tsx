@@ -4,20 +4,20 @@ const AnimatedWavesBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Sun for light mode */}
-      <div className="absolute top-12 left-12 w-24 h-24 opacity-100 dark:opacity-0 transition-opacity duration-500">
+      <div className="absolute top-1/2 left-12 w-24 h-24 opacity-100 dark:opacity-0 transition-opacity duration-500">
         {/* Sun glow */}
         <div className="absolute -inset-4 bg-yellow-300/30 rounded-full animate-pulse blur-xl"></div>
         <div className="absolute -inset-2 bg-yellow-300/40 rounded-full animate-pulse blur-lg animation-delay-500"></div>
         
         {/* Sun body */}
         <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-400 to-orange-400 shadow-2xl animate-[sunFloat_6s_ease-in-out_infinite]">
-          {/* Sun face */}
+          {/* Sun face - happier */}
           <div className="absolute inset-0 flex items-center justify-center">
-            {/* Eyes */}
-            <div className="absolute top-7 left-7 w-2 h-2 bg-orange-600 rounded-full"></div>
-            <div className="absolute top-7 right-7 w-2 h-2 bg-orange-600 rounded-full"></div>
-            {/* Smile */}
-            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-4 h-2 border-b-2 border-orange-600 rounded-full"></div>
+            {/* Eyes - closer together and happier */}
+            <div className="absolute top-6 left-8 w-2 h-2 bg-orange-600 rounded-full"></div>
+            <div className="absolute top-6 right-8 w-2 h-2 bg-orange-600 rounded-full"></div>
+            {/* Bigger smile */}
+            <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-6 h-3 border-b-3 border-orange-600 rounded-full"></div>
           </div>
         </div>
         
@@ -34,8 +34,29 @@ const AnimatedWavesBackground: React.FC = () => {
         </div>
       </div>
 
+      {/* Starry night background for dark mode */}
+      <div className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500 pointer-events-none">
+        {/* Stars */}
+        <div className="absolute top-10 left-20 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+        <div className="absolute top-16 left-40 w-1.5 h-1.5 bg-white/80 rounded-full animate-pulse animation-delay-1000"></div>
+        <div className="absolute top-8 left-60 w-1 h-1 bg-white/60 rounded-full animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-20 left-80 w-2 h-2 bg-white rounded-full animate-pulse animation-delay-500"></div>
+        <div className="absolute top-12 left-96 w-1 h-1 bg-white/70 rounded-full animate-pulse animation-delay-1500"></div>
+        <div className="absolute top-24 right-20 w-1.5 h-1.5 bg-white/90 rounded-full animate-pulse animation-delay-3000"></div>
+        <div className="absolute top-8 right-40 w-1 h-1 bg-white/50 rounded-full animate-pulse animation-delay-2500"></div>
+        <div className="absolute top-18 right-60 w-1 h-1 bg-white/80 rounded-full animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-14 right-80 w-2 h-2 bg-white/60 rounded-full animate-pulse animation-delay-3500"></div>
+        <div className="absolute top-6 right-96 w-1 h-1 bg-white rounded-full animate-pulse animation-delay-1000"></div>
+        
+        {/* More scattered stars */}
+        <div className="absolute top-32 left-32 w-1 h-1 bg-white/40 rounded-full animate-pulse animation-delay-6000"></div>
+        <div className="absolute top-28 left-72 w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse animation-delay-4500"></div>
+        <div className="absolute top-36 right-32 w-1 h-1 bg-white/90 rounded-full animate-pulse animation-delay-5000"></div>
+        <div className="absolute top-40 right-72 w-1 h-1 bg-white/60 rounded-full animate-pulse animation-delay-5500"></div>
+      </div>
+
       {/* Moon for dark mode */}
-      <div className="absolute top-12 left-12 w-24 h-24 opacity-0 dark:opacity-100 transition-opacity duration-500">
+      <div className="absolute top-1/2 left-12 w-24 h-24 opacity-0 dark:opacity-100 transition-opacity duration-500">
         {/* Moon glow */}
         <div className="absolute -inset-4 bg-gray-300/20 rounded-full animate-pulse blur-xl"></div>
         
@@ -46,13 +67,13 @@ const AnimatedWavesBackground: React.FC = () => {
           <div className="absolute w-2 h-2 bg-gray-500 rounded-full top-10 left-16"></div>
           <div className="absolute w-2.5 h-2.5 bg-gray-500 rounded-full top-14 left-9"></div>
           
-          {/* Moon face */}
+          {/* Moon face - happier */}
           <div className="absolute inset-0 flex items-center justify-center">
-            {/* Eyes */}
-            <div className="absolute top-7 left-7 w-2 h-2 bg-gray-600 rounded-full"></div>
-            <div className="absolute top-7 right-7 w-2 h-2 bg-gray-600 rounded-full"></div>
-            {/* Smile */}
-            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-4 h-2 border-b-2 border-gray-600 rounded-full"></div>
+            {/* Eyes - closer together and happier */}
+            <div className="absolute top-6 left-8 w-2 h-2 bg-gray-600 rounded-full"></div>
+            <div className="absolute top-6 right-8 w-2 h-2 bg-gray-600 rounded-full"></div>
+            {/* Bigger smile */}
+            <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-6 h-3 border-b-3 border-gray-600 rounded-full"></div>
           </div>
         </div>
       </div>
