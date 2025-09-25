@@ -18,7 +18,9 @@ const Landing: React.FC = () => {
   const [showCarousel, setShowCarousel] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden" style={{
+      background: 'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 40%, hsl(210, 100%, 85%) 60%, hsl(210, 100%, 70%) 80%, hsl(210, 100%, 40%) 100%)'
+    }}>
       <WaterRipples intensity="light" />
       <Header />
       
@@ -79,84 +81,52 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative">
+      <section className="py-16 px-4 relative">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
           </h2>
           
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-stone-400 to-stone-600 
-                               flex items-center justify-center shadow-lg overflow-hidden
-                               hover:shadow-xl transition-all duration-300">
-                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
-                                 group-hover:bg-white">
-                    <Camera className="w-12 h-12 text-stone-700" />
-                  </div>
+            <div className="text-center group">
+              <div className="relative mb-6">
+                <div className="w-24 h-24 mx-auto flex items-center justify-center 
+                               group-hover:scale-110 transition-all duration-300">
+                  <Camera className="w-16 h-16 text-stone-600 group-hover:text-stone-700 transition-colors duration-300" strokeWidth={1} />
                 </div>
-                {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/10 to-stone-600/10 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
               <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story. <strong>Only YOU can build other people's profiles</strong> (except personal info like pictures).</p>
             </div>
             
-            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-blue-600 
-                               flex items-center justify-center shadow-lg overflow-hidden
-                               hover:shadow-xl transition-all duration-300">
-                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
-                                 group-hover:bg-white">
-                    <Trophy className="w-12 h-12 text-blue-700" />
-                  </div>
+            <div className="text-center group">
+              <div className="relative mb-6">
+                <div className="w-24 h-24 mx-auto flex items-center justify-center 
+                               group-hover:scale-110 transition-all duration-300">
+                  <Trophy className="w-16 h-16 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" strokeWidth={1} />
                 </div>
-                {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
               <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community. <strong>Only others can build YOUR profile</strong>.</p>
             </div>
             
-            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-orange-600 
-                               flex items-center justify-center shadow-lg overflow-hidden
-                               hover:shadow-xl transition-all duration-300">
-                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
-                                 group-hover:bg-white">
-                    <Star className="w-12 h-12 text-orange-600" />
-                  </div>
+            <div className="text-center group">
+              <div className="relative mb-6">
+                <div className="w-24 h-24 mx-auto flex items-center justify-center 
+                               group-hover:scale-110 transition-all duration-300">
+                  <Star className="w-16 h-16 text-orange-600 group-hover:text-orange-700 transition-colors duration-300" strokeWidth={1} />
                 </div>
-                {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/10 to-orange-600/10 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
               <p className="text-muted-foreground text-sm">Collect pebbles based on acts of kindness received. <strong>You must always nominate at least one person</strong> to keep the kindness flowing.</p>
             </div>
             
-            <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 
-                               flex items-center justify-center shadow-lg overflow-hidden
-                               hover:shadow-xl transition-all duration-300">
-                  <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
-                                 flex items-center justify-center group-hover:scale-110 transition-transform duration-300
-                                 group-hover:bg-white">
-                    <Share2 className="w-12 h-12 text-blue-600" />
-                  </div>
+            <div className="text-center group">
+              <div className="relative mb-6">
+                <div className="w-24 h-24 mx-auto flex items-center justify-center 
+                               group-hover:scale-110 transition-all duration-300">
+                  <Share2 className="w-16 h-16 text-cyan-600 group-hover:text-cyan-700 transition-colors duration-300" strokeWidth={1} />
                 </div>
-                {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/10 to-blue-600/10 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
               <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
@@ -170,22 +140,6 @@ const Landing: React.FC = () => {
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 relative overflow-hidden">
-        {/* Animated wave background */}
-        <div className="absolute inset-0 opacity-20">
-          <svg
-            className="absolute bottom-0 left-0 w-full h-full"
-            viewBox="0 0 1200 400"
-            fill="none"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
-              <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
-            </defs>
-            <use href="#bgwave1" fill="hsl(var(--primary))" className="animate-[slowWave_20s_ease-in-out_infinite]" />
-            <use href="#bgwave2" fill="hsl(var(--secondary))" className="animate-[slowWave_25s_ease-in-out_infinite_reverse]" />
-          </svg>
-        </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
             The Biggest Wave
