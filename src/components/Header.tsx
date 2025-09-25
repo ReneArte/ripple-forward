@@ -20,8 +20,11 @@ const Header: React.FC = () => {
           <Link to="/ripples" className="text-muted-foreground hover:text-foreground transition-colors">
             Explore Ripples
           </Link>
-          <Link to="/my-acts" className="text-muted-foreground hover:text-foreground transition-colors">
-            My Acts
+          <Link to="/profile" className="text-muted-foreground hover:text-foreground transition-colors">
+            Profile
+          </Link>
+          <Link to="/ocean" className="text-muted-foreground hover:text-foreground transition-colors">
+            Ocean
           </Link>
         </nav>
         

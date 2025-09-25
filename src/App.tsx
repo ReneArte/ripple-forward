@@ -8,6 +8,8 @@ import Landing from "./pages/Landing";
 import CreateAct from "./pages/CreateAct";
 import Nominate from "./pages/Nominate";
 import RipplePage from "./pages/RipplePage";
+import Profile from "./pages/Profile";
+import Gamification from "./pages/Gamification";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +25,10 @@ const App = () => (
             <Route path="/" element={<Landing />} />
             <Route path="/create" element={<CreateAct />} />
             <Route path="/nominate" element={<Nominate />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/ocean" element={<Gamification />} />
             <Route path="/ripple/:slug" element={<RipplePage />} />
+            <Route path="/ripples" element={<RipplePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

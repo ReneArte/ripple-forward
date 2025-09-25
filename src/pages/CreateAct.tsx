@@ -69,10 +69,10 @@ const CreateAct: React.FC = () => {
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-8">
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-4">
-              Record Your Act of Kindness
+              Celebrate Someone's Kindness
             </h1>
             <p className="text-xl text-muted-foreground">
-              Share a moment when you made someone's day better
+              Share someone else's act of kindness and build their profile
             </p>
           </div>
           
@@ -83,14 +83,49 @@ const CreateAct: React.FC = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
+              {/* Suggested Profiles Section */}
+              <div className="mb-8">
+                <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {['Sarah M.', 'John D.', 'Maria L.', 'Alex K.'].map((name) => (
+                    <button
+                      key={name}
+                      className="p-3 border-2 border-muted rounded-lg hover:border-hope-green hover:bg-hope-green/5 transition-colors text-center"
+                    >
+                      <div className="w-12 h-12 bg-hope-green/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="font-medium text-hope-green">{name[0]}</span>
+                      </div>
+                      <span className="text-sm font-medium">{name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* New Waves Section */}
+              <div className="mb-6">
+                <h3 className="font-poppins font-semibold text-lg mb-4">New Waves</h3>
+                <div className="relative">
+                  <Input
+                    type="text"
+                    placeholder="Search for someone by name or username..."
+                    className="pl-12 text-lg p-4 border-2 border-muted focus:border-hope-green"
+                  />
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                    <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center">
+                      <span className="text-xs">👤</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    What did you do?
+                    Who made a kind splash today? *
                   </label>
                   <Input
                     type="text"
-                    placeholder="e.g., Helped a neighbor carry groceries"
+                    placeholder="Select or search for the person..."
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     className="text-lg p-4 border-2 border-muted focus:border-hope-green"
@@ -100,10 +135,10 @@ const CreateAct: React.FC = () => {
                 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Tell us more about it
+                    Tell us the act of kindness *
                   </label>
                   <Textarea
-                    placeholder="Share the story of your act of kindness. How did it make them feel? What was their reaction?"
+                    placeholder="Describe the kind act and what happened. How did it impact others?"
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     className="min-h-32 text-lg p-4 border-2 border-muted focus:border-hope-green resize-none"
@@ -111,18 +146,15 @@ const CreateAct: React.FC = () => {
                   />
                 </div>
                 
-                <div className="flex items-center space-x-3 p-4 bg-peach-glow/20 rounded-lg">
-                  <Checkbox
-                    id="blocker"
-                    checked={formData.removedBlocker}
-                    onCheckedChange={(checked) => 
-                      setFormData({ ...formData, removedBlocker: checked as boolean })
-                    }
-                    className="data-[state=checked]:bg-hope-green data-[state=checked]:border-hope-green"
-                  />
-                  <label htmlFor="blocker" className="text-sm font-medium text-foreground">
-                    I removed a blocker for someone
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    People involved
                   </label>
+                  <Input
+                    type="text"
+                    placeholder="Tag others who were positively affected (optional)"
+                    className="text-lg p-4 border-2 border-muted focus:border-hope-green"
+                  />
                 </div>
                 
                 <div className="border-2 border-dashed border-muted rounded-lg p-8 text-center gentle-hover cursor-pointer">
@@ -141,7 +173,7 @@ const CreateAct: React.FC = () => {
                   disabled={isSubmitting || !formData.title || !formData.description}
                   className="w-full bg-hope-green hover:bg-hope-green-dark text-white py-4 text-lg font-medium gentle-hover"
                 >
-                  {isSubmitting ? 'Creating your ripple...' : 'Create Act'}
+                  {isSubmitting ? 'Creating their ripple...' : 'Celebrate Their Kindness'}
                 </Button>
               </form>
             </CardContent>

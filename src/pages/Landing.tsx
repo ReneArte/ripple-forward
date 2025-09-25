@@ -129,6 +129,68 @@ const Landing: React.FC = () => {
         </div>
       </section>
       
+      {/* The Biggest Wave Section */}
+      <section className="py-16 px-4 relative">
+        <WaterRipples intensity="medium" className="opacity-30" />
+        <div className="container mx-auto relative z-10">
+          <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
+            🌊 The Biggest Wave
+          </h2>
+          <p className="text-xl text-muted-foreground text-center mb-12">
+            This week's most inspiring act of kindness
+          </p>
+          
+          <div className="max-w-2xl mx-auto">
+            <Card className="soft-shadow border-0 overflow-hidden">
+              <div className="aspect-square bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
+                <Camera className="w-24 h-24 text-white/70" />
+              </div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-hope-green rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">A</span>
+                  </div>
+                  <div>
+                    <h3 className="font-poppins font-semibold text-lg">Alex Johnson</h3>
+                    <p className="text-muted-foreground text-sm">@alexjohnson</p>
+                  </div>
+                </div>
+                
+                <h4 className="font-poppins font-semibold text-xl mb-3">
+                  Organized food drive for 200 families
+                </h4>
+                <p className="text-muted-foreground mb-4">
+                  Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. 
+                  They coordinated with local businesses and volunteers to make it happen. The smile on every family's face was priceless.
+                </p>
+                
+                <div className="flex items-center justify-between pt-4 border-t border-border">
+                  <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark transition-colors">
+                      <Heart className="w-5 h-5" />
+                      <span className="font-medium">247 kinds</span>
+                    </button>
+                    <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                      <span className="font-medium">32 comments</span>
+                    </button>
+                  </div>
+                  <span className="text-sm text-muted-foreground">2 days ago</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Button 
+              variant="outline" 
+              className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
+            >
+              Explore More Ripples
+            </Button>
+          </div>
+        </div>
+      </section>
+      
       {/* Rock Splash Animation */}
       <RockSplash trigger={false} size="sm" />
       
