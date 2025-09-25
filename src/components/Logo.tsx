@@ -3,15 +3,16 @@ import logoImage from '@/assets/itforward-logo-new.png';
 
 interface LogoProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   animated?: boolean;
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = false }) => {
   const sizeClasses = {
-    sm: 'w-12 h-12',
-    md: 'w-20 h-20',
-    lg: 'w-32 h-32',
+    sm: 'w-16 h-16',
+    md: 'w-28 h-28',
+    lg: 'w-40 h-40',
+    xl: 'w-52 h-52',
   };
 
   return (
