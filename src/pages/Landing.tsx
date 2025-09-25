@@ -28,7 +28,7 @@ const Landing: React.FC = () => {
         <AnimatedWavesBackground />
         
         <div className="container mx-auto text-center relative z-10">
-          <Logo size="lg" animated className="mx-auto mb-8" />
+          <Logo size="lg" animated className="mx-auto mb-8 w-48 h-48" />
           
           <h1 className="font-poppins font-bold text-5xl md:text-7xl text-white mb-4 leading-tight drop-shadow-lg">
             ItForward
