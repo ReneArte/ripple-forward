@@ -7,6 +7,7 @@ import Logo from '@/components/Logo';
 import RippleVisualization from '@/components/RippleVisualization';
 import WaterRipples from '@/components/WaterRipples';
 import RockSplash from '@/components/RockSplash';
+import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 
 const Landing: React.FC = () => {
@@ -18,23 +19,9 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section - Headspace Style */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFD93D 0%, #FF6B35 100%)' }}>
-        {/* Headspace-style floating elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Large decorative circles */}
-          <div className="absolute top-10 left-10 w-64 h-64 bg-white/20 rounded-full blur-3xl"></div>
-          <div className="absolute top-32 right-16 w-96 h-96 bg-ripple-teal/30 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-peach-glow/40 rounded-full blur-2xl"></div>
-          
-          {/* Floating geometric shapes */}
-          <div className="absolute top-1/4 right-1/3 w-16 h-16 bg-white/60 rounded-2xl rotate-45 animate-[float_6s_ease-in-out_infinite]"></div>
-          <div className="absolute top-1/2 left-1/5 w-12 h-12 bg-ripple-teal/70 rounded-full animate-[float_8s_ease-in-out_infinite]" style={{ animationDelay: '-2s' }}></div>
-          <div className="absolute bottom-1/3 right-1/4 w-20 h-20 bg-hope-green/50 rounded-3xl rotate-12 animate-[float_7s_ease-in-out_infinite]" style={{ animationDelay: '-4s' }}></div>
-          
-          {/* Small accent dots */}
-          <div className="absolute top-20 left-1/2 w-4 h-4 bg-white rounded-full animate-pulse"></div>
-          <div className="absolute bottom-32 right-1/3 w-6 h-6 bg-deep-navy/60 rounded-full animate-pulse" style={{ animationDelay: '-1s' }}></div>
-        </div>
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFD93D 0%, #FF8C42 50%, #FF6B35 100%)' }}>
+        {/* Animated waves background */}
+        <AnimatedWavesBackground />
         
         <div className="container mx-auto text-center relative z-10">
           <Logo size="lg" animated className="mx-auto mb-8" />
