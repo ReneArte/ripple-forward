@@ -19,9 +19,9 @@ const RippleVisualization: React.FC<RippleProps> = ({
   }, [delay]);
 
   const sizeClasses = {
-    sm: 'w-32 h-32',
-    md: 'w-48 h-48',
-    lg: 'w-64 h-64',
+    sm: 'w-16 h-16',
+    md: 'w-24 h-24',
+    lg: 'w-32 h-32',
   };
 
   const colorClasses = {
@@ -47,8 +47,8 @@ const RippleVisualization: React.FC<RippleProps> = ({
                      rounded-full border-2 ${colorClasses[color]}
                      transition-all duration-1000 ease-out`}
           style={{
-            width: isVisible ? `${ring * 60}px` : '0px',
-            height: isVisible ? `${ring * 60}px` : '0px',
+            width: isVisible ? `${ring * 30}px` : '0px',
+            height: isVisible ? `${ring * 30}px` : '0px',
             opacity: isVisible ? Math.max(0.1, 0.6 - ring * 0.15) : 0,
             animationDelay: `${ring * 0.3}s`,
           }}

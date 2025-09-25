@@ -9,7 +9,7 @@ import WaterRipples from '@/components/WaterRipples';
 import RockSplash from '@/components/RockSplash';
 import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
 import VisualExplanation from '@/components/VisualExplanation';
-import WorldMap from '@/components/WorldMap';
+import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 
@@ -81,63 +81,98 @@ const Landing: React.FC = () => {
       
       {/* How It Works */}
       <section className="py-16 px-4 bg-card relative">
-        <WaterRipples intensity="light" className="opacity-20" />
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
           </h2>
           
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
-                {/* Smaller ripple rings */}
-                <div className="absolute inset-4 rounded-full border border-blue-400/30 animate-ping"></div>
-                <div className="absolute inset-6 rounded-full border border-blue-300/20 animate-pulse"></div>
-                <div className="relative z-10">
-                  <Camera className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                  <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
-                  <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story.</p>
+              <div className="relative mb-6 group">
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="/src/assets/rock-shape.jpg" 
+                    alt="Rock shape" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <Camera className="w-8 h-8 text-stone-700" />
+                  </div>
+                </div>
+                {/* Subtle vibration effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/20 to-stone-600/20 
+                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
+              <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
+              <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story.</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative bg-gradient-to-br from-blue-500/20 to-blue-700/20 rounded-full p-8 backdrop-blur-sm border border-blue-500/30">
-                {/* Smaller ripple rings */}
-                <div className="absolute inset-4 rounded-full border border-blue-500/30 animate-ping animation-delay-500"></div>
-                <div className="absolute inset-6 rounded-full border border-blue-400/20 animate-pulse animation-delay-500"></div>
-                <div className="relative z-10">
-                  <Trophy className="w-8 h-8 text-blue-700 mx-auto mb-4" />
-                  <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
-                  <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community.</p>
+              <div className="relative mb-6 group">
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="/src/assets/droplet-shape.jpg" 
+                    alt="Droplet shape" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <Trophy className="w-8 h-8 text-blue-700" />
+                  </div>
+                </div>
+                {/* Subtle vibration effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 
+                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
+              <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
+              <p className="text-muted-foreground text-sm">Add to their kindness profile with photos, stories, and messages from the community.</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-full p-8 backdrop-blur-sm border border-blue-600/30">
-                {/* Smaller ripple rings */}
-                <div className="absolute inset-4 rounded-full border border-blue-600/30 animate-ping animation-delay-1000"></div>
-                <div className="absolute inset-6 rounded-full border border-blue-500/20 animate-pulse animation-delay-1000"></div>
-                <div className="relative z-10">
-                  <Star className="w-8 h-8 text-blue-800 mx-auto mb-4" />
-                  <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
-                  <p className="text-muted-foreground text-sm">Collect Kind stickers and badges for celebrating others and spreading positivity.</p>
+              <div className="relative mb-6 group">
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="/src/assets/sea-star-shape.jpg" 
+                    alt="Sea star shape" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <Star className="w-8 h-8 text-orange-600" />
+                  </div>
+                </div>
+                {/* Subtle vibration effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/20 to-orange-600/20 
+                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
+              <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
+              <p className="text-muted-foreground text-sm">Collect Kind stickers and badges for celebrating others and spreading positivity.</p>
             </div>
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
-              <div className="relative bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-full p-8 backdrop-blur-sm border border-blue-400/30">
-                {/* Smaller ripple rings */}
-                <div className="absolute inset-4 rounded-full border border-blue-400/30 animate-ping animation-delay-1500"></div>
-                <div className="absolute inset-6 rounded-full border border-blue-300/20 animate-pulse animation-delay-1500"></div>
-                <div className="relative z-10">
-                  <Share2 className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-                  <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
-                  <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
+              <div className="relative mb-6 group">
+                <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-lg">
+                  <img 
+                    src="/src/assets/wave-shape.jpg" 
+                    alt="Wave shape" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-200">
+                    <Share2 className="w-8 h-8 text-blue-600" />
+                  </div>
+                </div>
+                {/* Subtle vibration effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-blue-600/20 
+                               animate-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
+              <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
+              <p className="text-muted-foreground text-sm">See kindness spread as more people celebrate and nominate others in the chain.</p>
             </div>
           </div>
         </div>
@@ -145,57 +180,6 @@ const Landing: React.FC = () => {
       
       {/* Visual Explanation Section */}
       <VisualExplanation />
-      
-      {/* Explore Splashes Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950">
-        <div className="container mx-auto">
-          <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-4">
-            Explore Splashes
-          </h2>
-          <p className="text-xl text-muted-foreground text-center mb-12">
-            See where kindness is happening around the world
-          </p>
-          
-          <div className="max-w-4xl mx-auto mb-12">
-            <WorldMap />
-          </div>
-          
-          {/* Featured splashes grid */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <Card key={i} className="hover:shadow-lg transition-shadow duration-200">
-                <div className="aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                  <Camera className="w-8 h-8 text-white/70" />
-                </div>
-                <CardContent className="p-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">U</span>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-sm">User {i}</h4>
-                      <p className="text-xs text-muted-foreground">@user{i}</p>
-                    </div>
-                  </div>
-                  
-                  <h5 className="font-medium text-sm mb-2">Act of kindness #{i}</h5>
-                  
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-3">
-                      <span className="flex items-center gap-1 text-red-500">
-                        <Heart className="w-3 h-3" />
-                        {Math.floor(Math.random() * 200) + 50}
-                      </span>
-                      <span className="text-muted-foreground">{Math.floor(Math.random() * 30) + 5} comments</span>
-                    </div>
-                    <span className="text-muted-foreground">{i}h ago</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 relative overflow-hidden">
@@ -277,6 +261,9 @@ const Landing: React.FC = () => {
       
       {/* Rock Splash Animation */}
       <RockSplash trigger={false} size="sm" />
+      
+      {/* Pay It Forward Section */}
+      <PayItForward />
       
       {/* CTA Section */}
       <section className="py-16 px-4 brand-gradient text-white relative overflow-hidden">
