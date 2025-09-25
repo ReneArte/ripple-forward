@@ -8,7 +8,7 @@ import RippleVisualization from '@/components/RippleVisualization';
 import WaterRipples from '@/components/WaterRipples';
 import RockSplash from '@/components/RockSplash';
 import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
-import VisualExplanation from '@/components/VisualExplanation';
+
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import OceanBackground from '@/components/OceanBackground';
@@ -167,9 +167,6 @@ const Landing: React.FC = () => {
           </div>
         </div>
       </section>
-      
-      {/* Visual Explanation Section */}
-      <VisualExplanation />
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 relative overflow-hidden z-10 bg-white/5 backdrop-blur-sm">
