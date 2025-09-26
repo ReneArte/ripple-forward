@@ -41,12 +41,6 @@ const RockSplash: React.FC<RockSplashProps> = ({
           isActive ? 'animate-bounce' : ''
         }`}
       >
-        <div className="w-6 h-6 bg-gradient-to-br from-gray-400 to-gray-600 dark:from-gray-300 dark:to-gray-500 rounded-full mx-auto mb-2 
-                       shadow-lg transform transition-all duration-500"
-             style={{
-               transform: isActive ? 'translateY(20px) scale(1.2)' : 'translateY(0) scale(1)',
-             }}
-        />
         
         {/* Splash Effect */}
         {isActive && (
