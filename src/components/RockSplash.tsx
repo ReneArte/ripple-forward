@@ -30,10 +30,7 @@ const RockSplash: React.FC<RockSplashProps> = ({
     lg: 'w-32 h-32',
   };
 
-  return (
-    <div className="relative flex items-center justify-center py-16">
-    </div>
-  );
+  return null;
 };
 
 export default RockSplash;
