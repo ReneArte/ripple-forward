@@ -32,51 +32,6 @@ const RockSplash: React.FC<RockSplashProps> = ({
 
   return (
     <div className="relative flex items-center justify-center py-16">
-      {/* Water Surface */}
-      <div className="absolute w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      
-      {/* Rock */}
-      <div
-        className={`relative ${sizeClasses[size]} transition-all duration-1000 ${
-          isActive ? 'animate-bounce' : ''
-        }`}
-      >
-        
-        {/* Splash Effect */}
-        {isActive && (
-          <>
-            {/* Main Splash */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-8 bg-primary/40 rounded-full animate-ping"
-                  style={{
-                    transform: `rotate(${i * 45}deg) translateY(-20px)`,
-                    animationDuration: '0.8s',
-                    animationDelay: '0.2s',
-                  }}
-                />
-              ))}
-            </div>
-            
-            {/* Ripple Circles */}
-            {[1, 2, 3].map((ring) => (
-              <div
-                key={ring}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                          rounded-full border-2 border-primary/30 animate-ping"
-                style={{
-                  width: `${ring * 60}px`,
-                  height: `${ring * 60}px`,
-                  animationDelay: `${0.3 + ring * 0.2}s`,
-                  animationDuration: '1.5s',
-                }}
-              />
-            ))}
-          </>
-        )}
-      </div>
     </div>
   );
 };
