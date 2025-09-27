@@ -177,7 +177,7 @@ const Landing: React.FC = () => {
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
         <div className="container mx-auto relative z-10">
-          <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
+          <h2 className="font-poppins font-bold text-3xl text-center mb-4 text-slate-50 md:text-5xl">
             The Biggest Wave
           </h2>
           <p className="text-xl text-center mb-12 text-zinc-50">
