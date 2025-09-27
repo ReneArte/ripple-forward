@@ -169,7 +169,7 @@ const Landing: React.FC = () => {
       <VisualExplanation />
       
       {/* The Biggest Wave Section */}
-      <section className="py-16 px-4 relative overflow-hidden">
+      <section className="py-16 px-4 bg-white relative overflow-hidden">
         {/* Animated blue gradient wave background */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 opacity-20"></div>
