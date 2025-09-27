@@ -4,10 +4,8 @@ import Logo from './Logo';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
 import { User, Menu } from 'lucide-react';
-
 const Header: React.FC = () => {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 gentle-hover">
           <Logo size="md" />
@@ -34,7 +32,7 @@ const Header: React.FC = () => {
             <User className="w-4 h-4 mr-2" />
             Sign In
           </Button>
-          <Button size="sm" className="bg-hope-green hover:bg-hope-green-dark text-white">
+          <Button size="sm" className="bg-hope-green hover:bg-hope-green-dark text-white bg-orange-500 hover:bg-orange-400">
             Celebrate Someone
           </Button>
           <Button variant="ghost" size="sm" className="md:hidden">
@@ -42,8 +40,6 @@ const Header: React.FC = () => {
           </Button>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;

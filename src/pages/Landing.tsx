@@ -295,7 +295,7 @@ const Landing: React.FC = () => {
                   </div>
                   
                   <div className="mt-6 text-center">
-                    <Button variant="outline" size="sm" className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal hover:text-white" onClick={() => alert('Support feature coming soon!')}>
+                    <Button variant="outline" size="sm" onClick={() => alert('Support feature coming soon!')} className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal font-bold text-gray-950">
                       Support Someone Today
                     </Button>
                   </div>
