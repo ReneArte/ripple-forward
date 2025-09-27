@@ -32,8 +32,8 @@ const Header: React.FC = () => {
             <User className="w-4 h-4 mr-2" />
             Sign In
           </Button>
-          <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Celebrate Someone
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+            <Link to="/create">Celebrate Someone</Link>
           </Button>
           <Button variant="ghost" size="sm" className="md:hidden">
             <Menu className="w-4 h-4" />

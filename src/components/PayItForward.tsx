@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, Gift, DollarSign, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -44,10 +45,10 @@ const PayItForward: React.FC = () => {
                 </div>
                 <h3 className="font-poppins font-semibold text-lg mb-2">{option.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">Amazon, Starbucks, etc</p>
-                <Button variant="outline" className="w-full hover:bg-primary/5" onClick={() => {
-              alert(`Connecting to ${option.name}...`);
-            }}>
-                  Connect
+                <Button variant="secondary" className="w-full" asChild>
+                  <Link to={`/connect/${option.name.toLowerCase()}`}>
+                    Connect
+                  </Link>
                 </Button>
               </CardContent>
             </Card>)}
@@ -64,10 +65,10 @@ const PayItForward: React.FC = () => {
                 When you support someone's kindness, you're not just helping them – 
                 you're encouraging more acts of good in your community.
               </p>
-              <Button size="lg" className="bg-card text-card-foreground hover:bg-card/90 px-8 py-4 text-lg font-medium" onClick={() => {
-              alert('Exploring featured acts of kindness...');
-            }}>
-                Explore Featured Acts
+              <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium" asChild>
+                <Link to="/featured-acts">
+                  Explore Featured Acts
+                </Link>
               </Button>
             </CardContent>
           </Card>

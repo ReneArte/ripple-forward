@@ -64,15 +64,15 @@ const Landing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg" asChild>
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg" asChild>
               <Link to="/create">
                 Celebrate Someone
                 <Camera className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-deep-navy px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm" asChild>
-              <Link to="/ripples">
+            <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm" asChild>
+              <Link to="/splashes">
                 Explore Acts of Kindness
               </Link>
             </Button>
@@ -220,23 +220,27 @@ const Landing: React.FC = () => {
                   <div className="pt-4 border-t border-border space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10 cursor-pointer" onClick={() => alert('Liked! Feature coming soon.')}>
-                          <Heart className="w-5 h-5" />
-                          <span className="font-medium">247 kinds</span>
+                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer" asChild>
+                          <Link to="/kindness">
+                            <Heart className="w-5 h-5" />
+                            <span className="font-medium">247 kinds</span>
+                          </Link>
                         </Button>
-                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer" onClick={() => alert('Comments feature coming soon.')}>
-                          <span className="font-medium">32 comments</span>
+                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer" asChild>
+                          <Link to="/comments">
+                            <span className="font-medium">32 comments</span>
+                          </Link>
                         </Button>
                       </div>
-                      <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:text-foreground cursor-pointer" onClick={() => alert('View details coming soon.')}>
-                        2 days ago
+                      <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:text-foreground cursor-pointer" asChild>
+                        <Link to="/details">2 days ago</Link>
                       </Button>
                     </div>
                     
                     <div className="flex items-center justify-between pt-2 border-t border-border/50">
                       <span className="text-sm font-medium text-muted-foreground">Sponsored by</span>
-                      <Button variant="ghost" size="sm" className="text-sm font-medium text-primary hover:text-primary/80 cursor-pointer" onClick={() => alert('Sponsor profile coming soon.')}>
-                        Community Food Bank
+                      <Button variant="ghost" size="sm" className="text-sm font-medium text-primary hover:text-primary/80 cursor-pointer" asChild>
+                        <Link to="/sponsor/community-food-bank">Community Food Bank</Link>
                       </Button>
                     </div>
                   </div>
@@ -244,7 +248,7 @@ const Landing: React.FC = () => {
               </Card>
               
               <div className="text-center mt-6">
-                <Button variant="outline" className="border-hope-green text-deep-navy font-bold hover:bg-hope-green hover:text-white" asChild>
+                <Button variant="secondary" asChild>
                   <Link to="/splashes">
                     Explore More Splashes
                   </Link>
@@ -299,8 +303,8 @@ const Landing: React.FC = () => {
                   </div>
                   
                   <div className="mt-6 text-center">
-                    <Button variant="outline" size="sm" onClick={() => alert('Support feature coming soon!')} className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal font-bold text-gray-950">
-                      Support Someone Today
+                    <Button variant="secondary" size="sm" asChild>
+                      <Link to="/support">Support Someone Today</Link>
                     </Button>
                   </div>
                 </CardContent>
@@ -326,7 +330,7 @@ const Landing: React.FC = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Start building someone's kindness profile today. Share their story, capture their moment, and watch the ripples of positivity spread through your community.
           </p>
-          <Button size="lg" className="bg-card text-card-foreground hover:bg-card/90 px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
+          <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
             <Link to="/create">
               Celebrate Someone Today
               <Award className="ml-2 w-5 h-5" />
