@@ -11,6 +11,7 @@ import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
 import VisualExplanation from '@/components/VisualExplanation';
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
+import foodDriveImage from '@/assets/food-drive-community.png';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -201,8 +202,12 @@ const Landing: React.FC = () => {
             {/* Main Featured Story */}
             <div>
               <Card className="soft-shadow border-0 overflow-hidden">
-                <div className="aspect-video bg-gradient-to-br from-hope-green to-ripple-teal flex items-center justify-center">
-                  <Camera className="w-16 h-16 text-white/70" />
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={foodDriveImage} 
+                    alt="Community food drive with people receiving food from mobile truck" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
