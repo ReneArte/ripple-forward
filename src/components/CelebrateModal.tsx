@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Camera, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -19,6 +18,7 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [open, setOpen] = useState(false);
+  const [selectedPerson, setSelectedPerson] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -39,9 +39,104 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
       setOpen(false);
       setShowSuccess(false);
       setFormData({ title: '', description: '', removedBlocker: false });
+      setSelectedPerson(null);
       navigate('/nominate');
     }, 2000);
   };
+
+  const people = [
+    {
+      name: 'Sarah Mitchell',
+      username: '@sarah_helps',
+      img: 33,
+      location: 'New York, NY'
+    }, {
+      name: 'John Davis',
+      username: '@john_volunteer',
+      img: 45,
+      location: 'Los Angeles, CA'
+    }, {
+      name: 'Maria Lopez',
+      username: '@maria_kindness',
+      img: 26,
+      location: 'Miami, FL'
+    }, {
+      name: 'Alex Kim',
+      username: '@alex_community',
+      img: 18,
+      location: 'Seattle, WA'
+    }, {
+      name: 'Emma Wilson',
+      username: '@emma_ocean',
+      img: 12,
+      location: 'San Diego, CA'
+    }, {
+      name: 'Mike Rodriguez',
+      username: '@mike_mentor',
+      img: 25,
+      location: 'Chicago, IL'
+    }, {
+      name: 'Lisa Thompson',
+      username: '@lisa_learns',
+      img: 38,
+      location: 'Austin, TX'
+    }, {
+      name: 'David Lee',
+      username: '@david_builds',
+      img: 22,
+      location: 'Denver, CO'
+    }, {
+      name: 'Ana Silva',
+      username: '@ana_supports',
+      img: 41,
+      location: 'Phoenix, AZ'
+    }, {
+      name: 'Chris Peterson',
+      username: '@chris_teaches',
+      img: 29,
+      location: 'Portland, OR'
+    }, {
+      name: 'Nina Hassan',
+      username: '@nina_nurtures',
+      img: 15,
+      location: 'Boston, MA'
+    }, {
+      name: 'Tom Brown',
+      username: '@tom_treasures',
+      img: 36,
+      location: 'Atlanta, GA'
+    }, {
+      name: 'Sophie Lee',
+      username: '@sophie_shares',
+      img: 31,
+      location: 'Nashville, TN'
+    }, {
+      name: 'Ryan Taylor',
+      username: '@ryan_reaches',
+      img: 19,
+      location: 'Dallas, TX'
+    }, {
+      name: 'Zoe Adams',
+      username: '@zoe_spreads',
+      img: 47,
+      location: 'Orlando, FL'
+    }, {
+      name: 'Mark Jones',
+      username: '@mark_motivates',
+      img: 73,
+      location: 'Las Vegas, NV'
+    }, {
+      name: 'Lily Wang',
+      username: '@lily_lifts',
+      img: 44,
+      location: 'San Francisco, CA'
+    }, {
+      name: 'James Miller',
+      username: '@james_journey',
+      img: 68,
+      location: 'Minneapolis, MN'
+    }
+  ];
 
   if (showSuccess) {
     return (
@@ -86,24 +181,21 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
-        <div className="relative min-h-[600px]">
+      <DialogContent className="max-w-6xl max-h-[95vh] overflow-hidden p-0 bg-white/95 backdrop-blur-lg border-0">
+        <div className="relative h-[95vh] overflow-y-auto">
           {/* Video Background */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover opacity-10"
           >
             <source src="/celebrate-form-bg.mp4" type="video/mp4" />
           </video>
           
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-          
           {/* Content */}
-          <div className="relative z-10 p-6">
+          <div className="relative z-10 p-8">
             <div className="text-center mb-8">
               <h1 className="font-poppins font-bold text-4xl text-foreground mb-4">
                 Kind Report
@@ -113,159 +205,162 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
               </p>
             </div>
             
-            <Card className="soft-shadow border-0 bg-background/90 backdrop-blur">
-              <CardHeader>
-                <CardTitle className="font-poppins text-2xl text-center">
-                  Drop Your Pebble
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {/* Suggested Profiles Section */}
-                <div className="mb-8">
-                  <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
-                  <Carousel className="w-full">
-                    <CarouselContent className="-ml-2 md:-ml-4">
-                      {[{
-                        name: 'Sarah M.',
-                        img: 33
-                      }, {
-                        name: 'John D.',
-                        img: 45
-                      }, {
-                        name: 'Maria L.',
-                        img: 26
-                      }, {
-                        name: 'Alex K.',
-                        img: 18
-                      }, {
-                        name: 'Emma W.',
-                        img: 12
-                      }, {
-                        name: 'Mike R.',
-                        img: 25
-                      }, {
-                        name: 'Lisa T.',
-                        img: 38
-                      }, {
-                        name: 'David L.',
-                        img: 22
-                      }, {
-                        name: 'Ana S.',
-                        img: 41
-                      }, {
-                        name: 'Chris P.',
-                        img: 29
-                      }, {
-                        name: 'Nina H.',
-                        img: 15
-                      }, {
-                        name: 'Tom B.',
-                        img: 36
-                      }].map(person => (
-                        <CarouselItem key={person.name} className="pl-2 md:pl-4 basis-1/2 md:basis-1/4">
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Left Column - Profiles */}
+              <div>
+                <Card className="soft-shadow border-0 bg-white/95 backdrop-blur h-full">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="font-poppins text-xl text-center">
+                      Select Person to Celebrate
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {/* Profiles Grid */}
+                    <div>
+                      <h3 className="font-poppins font-semibold text-lg mb-4 text-hope-green">Available Profiles</h3>
+                      <div className="grid grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-2">
+                        {people.map(person => (
                           <button 
-                            className="w-28 h-28 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
+                            key={person.name}
+                            onClick={() => setSelectedPerson(person.name)}
+                            className={`bg-white border-2 transition-all duration-300 rounded-xl p-3 text-left w-full ${
+                              selectedPerson === person.name 
+                                ? 'border-hope-green bg-hope-green/10' 
+                                : 'border-gray-200 hover:border-hope-green hover:bg-hope-green/5'
+                            }`}
                           >
-                            <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
-                              <img 
-                                src={`https://i.pravatar.cc/150?img=${person.img}`} 
-                                alt={person.name} 
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
-                              />
+                            <div className="flex items-center space-x-3">
+                              <div className={`w-16 h-16 rounded-full overflow-hidden ring-2 transition-all duration-300 flex-shrink-0 ${
+                                selectedPerson === person.name
+                                  ? 'ring-hope-green'
+                                  : 'ring-gray-200'
+                              }`}>
+                                <img 
+                                  src={`https://i.pravatar.cc/150?img=${person.img}`} 
+                                  alt={person.name} 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <h4 className={`font-semibold text-sm transition-colors truncate ${
+                                  selectedPerson === person.name ? 'text-hope-green' : 'text-foreground'
+                                }`}>
+                                  {person.name}
+                                </h4>
+                                <p className="text-xs text-muted-foreground truncate">{person.username}</p>
+                                <p className="text-xs text-muted-foreground truncate">{person.location}</p>
+                              </div>
                             </div>
-                            <span className="text-xs font-medium group-hover:text-hope-green transition-colors duration-300 mt-1 leading-tight">{person.name}</span>
                           </button>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
-                  </Carousel>
-                </div>
-
-                {/* New Waves Section */}
-                <div className="mb-6">
-                  <h3 className="font-poppins font-semibold text-lg mb-4">New Waves</h3>
-                  <div className="relative">
-                    <Input 
-                      type="text" 
-                      placeholder="Search for someone by name or username..." 
-                      className="pl-12 text-lg p-4 border-2 border-muted focus:border-hope-green" 
-                    />
-                    <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                      <div className="w-6 h-6 bg-muted rounded-full flex items-center justify-center">
-                        <span className="text-xs">👤</span>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Who made a kind splash today? *
-                    </label>
-                    <Input 
-                      type="text" 
-                      placeholder="Select or search for the person..." 
-                      value={formData.title} 
-                      onChange={e => setFormData({
-                        ...formData,
-                        title: e.target.value
-                      })} 
-                      className="text-lg p-4 border-2 border-muted focus:border-hope-green" 
-                      required 
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Tell us the act of kindness *
-                    </label>
-                    <Textarea 
-                      placeholder="Describe the kind act and what happened. How did it impact others?" 
-                      value={formData.description} 
-                      onChange={e => setFormData({
-                        ...formData,
-                        description: e.target.value
-                      })} 
-                      className="min-h-32 text-lg p-4 border-2 border-muted focus:border-hope-green resize-none" 
-                      required 
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      People involved
-                    </label>
-                    <Input 
-                      type="text" 
-                      placeholder="Tag others who were positively affected (optional)" 
-                      className="text-lg p-4 border-2 border-muted focus:border-hope-green" 
-                    />
-                  </div>
-                  
-                  <div className="border-2 border-dashed border-muted rounded-lg p-8 text-center gentle-hover cursor-pointer">
-                    <Camera className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                    <p className="text-muted-foreground">
-                      Add a photo (optional)
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Click to upload or drag and drop
-                    </p>
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    disabled={isSubmitting || !formData.title || !formData.description} 
-                    className="w-full bg-hope-green hover:bg-hope-green-dark text-white py-4 text-lg font-medium gentle-hover"
-                  >
-                    {isSubmitting ? 'Creating their ripple...' : 'Celebrate Their Kindness'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    {/* Search Section */}
+                    <div>
+                      <h3 className="font-poppins font-semibold text-lg mb-3 text-ripple-teal">Find New People</h3>
+                      <div className="relative">
+                        <Input 
+                          type="text" 
+                          placeholder="Search by name or username..." 
+                          className="pl-12 text-base p-3 border-2 border-muted focus:border-ripple-teal bg-white" 
+                        />
+                        <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                          <div className="w-5 h-5 bg-muted rounded-full flex items-center justify-center">
+                            <span className="text-xs">👤</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Right Column - Form */}
+              <div>
+                <Card className="soft-shadow border-0 bg-white/95 backdrop-blur h-full">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="font-poppins text-xl text-center">
+                      Share Their Story
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {selectedPerson && (
+                        <div className="bg-hope-green/10 border border-hope-green/30 rounded-lg p-4 mb-4">
+                          <p className="text-sm text-hope-green font-medium">
+                            ✓ Celebrating: {selectedPerson}
+                          </p>
+                        </div>
+                      )}
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          What act of kindness did they do? *
+                        </label>
+                        <Input 
+                          type="text" 
+                          placeholder="Brief title of the kind act..." 
+                          value={formData.title} 
+                          onChange={e => setFormData({
+                            ...formData,
+                            title: e.target.value
+                          })} 
+                          className="text-base p-3 border-2 border-muted focus:border-hope-green bg-white" 
+                          required 
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          Tell us the full story *
+                        </label>
+                        <Textarea 
+                          placeholder="Describe what happened, how it helped others, and the impact it made..." 
+                          value={formData.description} 
+                          onChange={e => setFormData({
+                            ...formData,
+                            description: e.target.value
+                          })} 
+                          className="min-h-32 text-base p-3 border-2 border-muted focus:border-hope-green resize-none bg-white" 
+                          required 
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          People involved
+                        </label>
+                        <Input 
+                          type="text" 
+                          placeholder="Tag others who were positively affected (optional)" 
+                          className="text-base p-3 border-2 border-muted focus:border-hope-green bg-white" 
+                        />
+                      </div>
+                      
+                      <div className="border-2 border-dashed border-muted rounded-lg p-6 text-center hover:border-hope-green hover:bg-hope-green/5 transition-all cursor-pointer bg-white/50">
+                        <Camera className="w-10 h-10 text-muted-foreground mx-auto mb-2" />
+                        <p className="text-muted-foreground font-medium">
+                          Add a photo (optional)
+                        </p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          Click to upload or drag and drop
+                        </p>
+                      </div>
+                      
+                      <Button 
+                        type="submit" 
+                        size="lg" 
+                        disabled={isSubmitting || !formData.title || !formData.description || !selectedPerson} 
+                        className="w-full bg-hope-green hover:bg-hope-green-dark text-white py-4 text-lg font-medium"
+                      >
+                        {isSubmitting ? 'Creating their ripple...' : 'Celebrate Their Kindness'}
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </DialogContent>
