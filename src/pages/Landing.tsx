@@ -300,19 +300,13 @@ const Landing: React.FC = () => {
                     supporters: 89000,
                     country: "🇮🇳",
                     location: "Mumbai"
-                  }, {
-                    name: "Erik Johansson",
-                    action: "Built floating trash collectors for ocean cleanup",
-                    amount: "$22M",
-                    supporters: 243000,
-                    country: "🇸🇪",
-                    location: "Stockholm"
                   }].map((person, index) => <Link
                         key={index} 
                         to={`/profile/${person.name.toLowerCase().replace(' ', '-')}`}
                         className="block group"
                       >
-                        <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/60 transition-all duration-200 cursor-pointer transform hover:scale-[1.02] hover:shadow-md">
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/60 transition-all duration-200 cursor-pointer transform hover:scale-[1.02] hover:shadow-md relative">
+                          <div className="absolute top-2 right-2 text-lg">{person.country}</div>
                           <div className="flex items-center gap-3">
                             <div className="relative">
                               <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
@@ -321,16 +315,14 @@ const Landing: React.FC = () => {
                                   person.name === "David Chen" ? "3" :
                                   person.name === "Sarah Williams" ? "5" :
                                   person.name === "James Rodriguez" ? "7" :
-                                  person.name === "Aisha Patel" ? "9" :
-                                  "11"
+                                  "9"
                                 }`} alt={person.name} className="w-full h-full object-cover" />
                               </div>
-                              <div className="absolute -top-1 -right-1 text-base bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm">{person.country}</div>
+                              <div className="absolute -top-1 -right-1 text-base bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm opacity-0"></div>
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-2">
                                 <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
-                                <span className="text-sm">{person.country}</span>
                               </div>
                               <p className="text-xs text-muted-foreground font-medium">{person.action}</p>
                               <p className="text-xs text-muted-foreground/80">{person.location}</p>
