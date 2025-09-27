@@ -86,33 +86,33 @@
   }
 
   .dark {
-    --background: 210 77% 16%;        /* Deep Navy */
-    --foreground: 35 35% 94%;         /* Sand */
+    --background: 220 40% 8%;         /* Dark blue-gray background */
+    --foreground: 0 0% 98%;           /* White text */
 
-    --card: 210 77% 20%;
-    --card-foreground: 35 35% 94%;
+    --card: 220 35% 12%;              /* Dark blue cards */
+    --card-foreground: 0 0% 98%;      /* White text on cards */
 
-    --popover: 210 77% 20%;
-    --popover-foreground: 35 35% 94%;
+    --popover: 220 35% 12%;           /* Dark blue popover */
+    --popover-foreground: 0 0% 98%;   /* White text in popover */
 
-    --primary: 145 33% 55%;           /* Hope Green - slightly lighter for dark mode */
-    --primary-foreground: 210 77% 16%;
+    --primary: 217 91% 60%;           /* Bright blue primary */
+    --primary-foreground: 0 0% 98%;   /* White text on primary */
 
-    --secondary: 180 72% 45%;         /* Ripple Teal - slightly lighter */
-    --secondary-foreground: 210 77% 16%;
+    --secondary: 220 50% 20%;         /* Dark blue secondary */
+    --secondary-foreground: 0 0% 98%; /* White text on secondary */
 
-    --muted: 210 30% 25%;
-    --muted-foreground: 35 20% 75%;
+    --muted: 220 30% 15%;             /* Dark blue muted */
+    --muted-foreground: 0 0% 80%;     /* Light gray muted text */
 
-    --accent: 25 100% 85%;            /* Peach Glow - slightly lighter */
-    --accent-foreground: 210 77% 16%;
+    --accent: 210 100% 70%;           /* Bright light blue accent */
+    --accent-foreground: 220 40% 8%;  /* Dark text on accent */
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 35 35% 94%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 210 30% 25%;
-    --input: 210 30% 25%;
-    --ring: 145 33% 55%;
+    --border: 220 30% 18%;            /* Dark blue borders */
+    --input: 220 30% 18%;             /* Dark blue input */
+    --ring: 217 91% 60%;              /* Bright blue ring */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
