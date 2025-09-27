@@ -477,4 +477,18 @@
       opacity: 0.2;
     }
   }
+
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+    animation: gentle-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentle-glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--primary) / 0.1);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--primary) / 0.2);
+    }
+  }
 }

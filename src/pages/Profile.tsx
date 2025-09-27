@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
 import WaterRipples from '@/components/WaterRipples';
+import NetworkRipples from '@/components/NetworkRipples';
 import { Camera, Heart, MessageCircle, Users, Award, ChevronDown } from 'lucide-react';
 const Profile: React.FC = () => {
   return <div className="min-h-screen profile-gradient">
@@ -13,7 +14,7 @@ const Profile: React.FC = () => {
         <div className="container mx-auto max-w-4xl">
           {/* Profile Header */}
           <div className="text-center mb-8">
-            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden">
+            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden glow-effect">
               <img src="https://i.pravatar.cc/300?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">Alex Sanchez</h1>
@@ -157,56 +158,56 @@ const Profile: React.FC = () => {
             </div>
           </div>
 
-          {/* Ripple Effect Diagram */}
+          {/* Ripple Effect Network */}
           <Card className="soft-shadow border-0">
             <CardContent className="p-6">
               <h3 className="font-poppins font-semibold text-xl mb-6 flex items-center gap-2">
                 <Users className="w-6 h-6 text-ripple-teal" />
-                Ripple Effect Network
+                Kindness Ripple Network
               </h3>
               
-              <div className="text-center">
-                {/* Nominated by */}
-                  <div className="mb-8">
-                    <p className="text-sm text-muted-foreground mb-4">Nominated by</p>
-                    <div className="w-12 h-12 rounded-full mx-auto overflow-hidden">
-                      <img src="https://i.pravatar.cc/100?img=26" alt="Maria Lopez" className="w-full h-full object-cover" />
-                    </div>
-                    <p className="text-sm font-medium mt-2">Maria Lopez</p>
-                  </div>
-
-                {/* Current user */}
-                <div className="mb-8">
-                  <div className="w-16 h-16 rounded-full mx-auto overflow-hidden">
-                    <img src="https://i.pravatar.cc/120?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
-                  </div>
-                  <p className="text-lg font-semibold mt-2">Alex Johnson</p>
-                </div>
-
-                {/* Nominated others */}
-                <div>
-                  <p className="text-sm text-muted-foreground mb-4">Nominated</p>
-                  <div className="flex justify-center gap-4">
-                    {[{
-                    initial: 'S',
-                    name: 'Sarah M.',
-                    img: 33
-                  }, {
-                    initial: 'J',
-                    name: 'John D.',
-                    img: 45
-                  }, {
-                    initial: 'K',
-                    name: 'Kate R.',
-                    img: 18
-                  }].map((person, index) => <div key={index} className="text-center">
-                        <div className="w-12 h-12 rounded-full overflow-hidden">
-                          <img src={`https://i.pravatar.cc/100?img=${person.img}`} alt={person.name} className="w-full h-full object-cover" />
-                        </div>
-                        <p className="text-sm font-medium mt-2">{person.name}</p>
-                      </div>)}
-                  </div>
-                </div>
+              <NetworkRipples
+                centerPerson={{
+                  id: 'alex',
+                  name: 'Alex Sanchez',
+                  username: '@alexjohnson',
+                  avatar: 'https://i.pravatar.cc/300?img=12',
+                  level: 0
+                }}
+                connections={[
+                  // Level 1 - Direct connections
+                  { id: '1', name: 'Maria Lopez', username: '@maria', avatar: 'https://i.pravatar.cc/100?img=26', level: 1 },
+                  { id: '2', name: 'Sarah Mitchell', username: '@sarah', avatar: 'https://i.pravatar.cc/100?img=33', level: 1 },
+                  { id: '3', name: 'John Davis', username: '@john', avatar: 'https://i.pravatar.cc/100?img=45', level: 1 },
+                  { id: '4', name: 'Kate Roberts', username: '@kate', avatar: 'https://i.pravatar.cc/100?img=18', level: 1 },
+                  { id: '5', name: 'Mike Chen', username: '@mike', avatar: 'https://i.pravatar.cc/100?img=52', level: 1 },
+                  
+                  // Level 2 - Connections of connections
+                  { id: '6', name: 'Emma Wilson', username: '@emma', avatar: 'https://i.pravatar.cc/100?img=22', level: 2 },
+                  { id: '7', name: 'David Kim', username: '@david', avatar: 'https://i.pravatar.cc/100?img=68', level: 2 },
+                  { id: '8', name: 'Lisa Zhang', username: '@lisa', avatar: 'https://i.pravatar.cc/100?img=15', level: 2 },
+                  { id: '9', name: 'James Miller', username: '@james', avatar: 'https://i.pravatar.cc/100?img=71', level: 2 },
+                  { id: '10', name: 'Ana Garcia', username: '@ana', avatar: 'https://i.pravatar.cc/100?img=40', level: 2 },
+                  { id: '11', name: 'Tom Brown', username: '@tom', avatar: 'https://i.pravatar.cc/100?img=58', level: 2 },
+                  { id: '12', name: 'Sophie Lee', username: '@sophie', avatar: 'https://i.pravatar.cc/100?img=31', level: 2 },
+                  
+                  // Level 3 - Extended network
+                  { id: '13', name: 'Ryan Taylor', username: '@ryan', avatar: 'https://i.pravatar.cc/100?img=19', level: 3 },
+                  { id: '14', name: 'Nina Patel', username: '@nina', avatar: 'https://i.pravatar.cc/100?img=47', level: 3 },
+                  { id: '15', name: 'Alex Cooper', username: '@acooper', avatar: 'https://i.pravatar.cc/100?img=61', level: 3 },
+                  { id: '16', name: 'Zoe Adams', username: '@zoe', avatar: 'https://i.pravatar.cc/100?img=29', level: 3 },
+                  { id: '17', name: 'Mark Jones', username: '@mark', avatar: 'https://i.pravatar.cc/100?img=73', level: 3 },
+                  { id: '18', name: 'Lily Wang', username: '@lily', avatar: 'https://i.pravatar.cc/100?img=44', level: 3 },
+                ]}
+              />
+              
+              <div className="mt-6 text-center">
+                <p className="text-sm text-muted-foreground mb-2">
+                  Your acts of kindness have created ripples reaching <span className="font-semibold text-primary">18 people</span> across 3 degrees of connection
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Click on any profile to see their kindness story and connection path
+                </p>
               </div>
             </CardContent>
           </Card>
