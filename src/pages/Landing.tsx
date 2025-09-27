@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@/components/ThemeProvider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
@@ -17,6 +18,10 @@ import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'l
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
   const [showCarousel, setShowCarousel] = useState(false);
+  const { theme } = useTheme();
+  
+  // Determine if we're in dark mode
+  const isDarkMode = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   return <div className="min-h-screen bg-background relative overflow-hidden">
       <WaterRipples intensity="light" />
       <Header />
@@ -28,7 +33,7 @@ const Landing: React.FC = () => {
           <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
           filter: 'brightness(0.8)'
         }}>
-            <source src="/ocean-waves.mp4" type="video/mp4" />
+            <source src={isDarkMode ? "/ocean-waves-dark.mp4" : "/ocean-waves.mp4"} type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30"></div>
