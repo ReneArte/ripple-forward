@@ -12,13 +12,10 @@ import VisualExplanation from '@/components/VisualExplanation';
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
-
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
   const [showCarousel, setShowCarousel] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+  return <div className="min-h-screen bg-background relative overflow-hidden">
       <WaterRipples intensity="light" />
       <Header />
       
@@ -50,23 +47,14 @@ const Landing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button 
-              size="lg" 
-              className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg"
-              asChild
-            >
+              <Button size="lg" className="bg-white text-deep-navy hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg" asChild>
               <Link to="/create">
                 Celebrate Someone
                 <Camera className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-deep-navy px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm"
-              asChild
-            >
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-deep-navy px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm" asChild>
               <Link to="/ripples">
                 Explore Acts of Kindness
               </Link>
@@ -172,41 +160,28 @@ const Landing: React.FC = () => {
       <section className="py-16 px-4 bg-white relative overflow-hidden">
         {/* Realistic ocean wave video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23ocean)'/%3E%3C/svg%3E"
-          >
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23ocean)'/%3E%3C/svg%3E">
             <source src="/ocean-waves.mp4" type="video/mp4" />
             <source src="/ocean-waves.webm" type="video/webm" />
             {/* Animated fallback for when video doesn't load */}
             <div className="absolute inset-0 bg-gradient-to-b from-blue-400 via-blue-500 to-blue-700">
               <div className="absolute inset-0 opacity-80">
-                <div 
-                  className="absolute inset-0"
-                  style={{
-                    background: `
+                <div className="absolute inset-0" style={{
+                background: `
                       radial-gradient(ellipse 800px 400px at 50% 100%, rgba(96, 165, 250, 0.8) 0%, transparent 70%),
                       radial-gradient(ellipse 600px 300px at 20% 80%, rgba(147, 197, 253, 0.6) 0%, transparent 60%),
                       radial-gradient(ellipse 700px 350px at 80% 90%, rgba(59, 130, 246, 0.7) 0%, transparent 65%)
                     `,
-                    animation: 'oceanFlow 8s ease-in-out infinite'
-                  }}
-                ></div>
-                <div 
-                  className="absolute inset-0"
-                  style={{
-                    background: `
+                animation: 'oceanFlow 8s ease-in-out infinite'
+              }}></div>
+                <div className="absolute inset-0" style={{
+                background: `
                       linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.2) 40%, transparent 45%),
                       linear-gradient(-45deg, transparent 60%, rgba(255, 255, 255, 0.15) 65%, rgba(255, 255, 255, 0.1) 70%, transparent 75%)
                     `,
-                    backgroundSize: '200% 200%, 150% 150%',
-                    animation: 'waveShimmer 6s ease-in-out infinite, waveShimmer2 4s ease-in-out infinite reverse'
-                  }}
-                ></div>
+                backgroundSize: '200% 200%, 150% 150%',
+                animation: 'waveShimmer 6s ease-in-out infinite, waveShimmer2 4s ease-in-out infinite reverse'
+              }}></div>
               </div>
             </div>
           </video>
@@ -218,7 +193,7 @@ const Landing: React.FC = () => {
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
             The Biggest Wave
           </h2>
-          <p className="text-xl text-muted-foreground text-center mb-12">
+          <p className="text-xl text-center mb-12 text-zinc-50">
             This week's most inspiring act of kindness
           </p>
           
@@ -250,21 +225,11 @@ const Landing: React.FC = () => {
                   
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="flex items-center gap-4">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10"
-                        onClick={() => alert('Liked! Feature coming soon.')}
-                      >
+                      <Button variant="ghost" size="sm" className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10" onClick={() => alert('Liked! Feature coming soon.')}>
                         <Heart className="w-5 h-5" />
                         <span className="font-medium">247 kinds</span>
                       </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
-                        onClick={() => alert('Comments feature coming soon.')}
-                      >
+                      <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground" onClick={() => alert('Comments feature coming soon.')}>
                         <span className="font-medium">32 comments</span>
                       </Button>
                     </div>
@@ -274,11 +239,7 @@ const Landing: React.FC = () => {
               </Card>
               
               <div className="text-center mt-6">
-                <Button 
-                  variant="outline" 
-                  className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white"
-                  asChild
-                >
+                <Button variant="outline" className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white" asChild>
                   <Link to="/splashes">
                     Explore More Splashes
                   </Link>
@@ -295,13 +256,27 @@ const Landing: React.FC = () => {
                   </h3>
                   
                   <div className="space-y-4">
-                    {[
-                      { name: "Maria Santos", action: "Built wheelchair ramps", amount: "$2,847", supporters: 47 },
-                      { name: "David Chen", action: "Free coding classes", amount: "$1,923", supporters: 31 },
-                      { name: "Sarah Williams", action: "Community garden", amount: "$3,156", supporters: 62 },
-                      { name: "James Rodriguez", action: "Youth mentoring", amount: "$1,445", supporters: 28 }
-                    ].map((person, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                    {[{
+                    name: "Maria Santos",
+                    action: "Built wheelchair ramps",
+                    amount: "$2,847",
+                    supporters: 47
+                  }, {
+                    name: "David Chen",
+                    action: "Free coding classes",
+                    amount: "$1,923",
+                    supporters: 31
+                  }, {
+                    name: "Sarah Williams",
+                    action: "Community garden",
+                    amount: "$3,156",
+                    supporters: 62
+                  }, {
+                    name: "James Rodriguez",
+                    action: "Youth mentoring",
+                    amount: "$1,445",
+                    supporters: 28
+                  }].map((person, index) => <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center">
                             <span className="text-white font-bold text-sm">{person.name[0]}</span>
@@ -315,17 +290,11 @@ const Landing: React.FC = () => {
                           <p className="font-semibold text-sm text-hope-green">{person.amount}</p>
                           <p className="text-xs text-muted-foreground">{person.supporters} supporters</p>
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                   
                   <div className="mt-6 text-center">
-                    <Button 
-                      variant="outline"
-                      size="sm"
-                      className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal hover:text-white"
-                      onClick={() => alert('Support feature coming soon!')}
-                    >
+                    <Button variant="outline" size="sm" className="border-ripple-teal text-ripple-teal hover:bg-ripple-teal hover:text-white" onClick={() => alert('Support feature coming soon!')}>
                       Support Someone Today
                     </Button>
                   </div>
@@ -352,11 +321,7 @@ const Landing: React.FC = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Start building someone's kindness profile today. Share their story, capture their moment, and watch the ripples of positivity spread through your community.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-hope-green hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300"
-            asChild
-          >
+          <Button size="lg" className="bg-white text-hope-green hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
             <Link to="/create">
               Celebrate Someone Today
               <Award className="ml-2 w-5 h-5" />
@@ -374,8 +339,6 @@ const Landing: React.FC = () => {
           <p>&copy; 2024 ItForward. Spreading kindness, one ripple at a time.</p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Landing;
