@@ -210,17 +210,28 @@ const Landing: React.FC = () => {
                     They coordinated with local businesses and volunteers to make it happen. The smile on every family's face was priceless.
                   </p>
                   
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-4">
-                      <Button variant="ghost" size="sm" className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10" onClick={() => alert('Liked! Feature coming soon.')}>
-                        <Heart className="w-5 h-5" />
-                        <span className="font-medium">247 kinds</span>
-                      </Button>
-                      <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground" onClick={() => alert('Comments feature coming soon.')}>
-                        <span className="font-medium">32 comments</span>
+                  <div className="pt-4 border-t border-border space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-hope-green hover:text-hope-green-dark hover:bg-hope-green/10 cursor-pointer" onClick={() => alert('Liked! Feature coming soon.')}>
+                          <Heart className="w-5 h-5" />
+                          <span className="font-medium">247 kinds</span>
+                        </Button>
+                        <Button variant="ghost" size="sm" className="flex items-center gap-2 text-muted-foreground hover:text-foreground cursor-pointer" onClick={() => alert('Comments feature coming soon.')}>
+                          <span className="font-medium">32 comments</span>
+                        </Button>
+                      </div>
+                      <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:text-foreground cursor-pointer" onClick={() => alert('View details coming soon.')}>
+                        2 days ago
                       </Button>
                     </div>
-                    <span className="text-sm text-muted-foreground">2 days ago</span>
+                    
+                    <div className="flex items-center justify-between pt-2 border-t border-border/50">
+                      <span className="text-sm font-medium text-muted-foreground">Sponsored by</span>
+                      <Button variant="ghost" size="sm" className="text-sm font-medium text-primary hover:text-primary/80 cursor-pointer" onClick={() => alert('Sponsor profile coming soon.')}>
+                        Community Food Bank
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
