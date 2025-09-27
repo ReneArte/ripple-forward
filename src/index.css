@@ -400,4 +400,39 @@
       opacity: 0.4;
     }
   }
+
+  /* Enhanced ocean animations for fallback */
+  @keyframes oceanFlow {
+    0%, 100% {
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    33% {
+      transform: translateX(-20px) translateY(-10px) scale(1.02);
+    }
+    66% {
+      transform: translateX(15px) translateY(-15px) scale(1.01);
+    }
+  }
+
+  @keyframes waveShimmer {
+    0%, 100% {
+      background-position: -200% -200%, 0% 0%;
+      opacity: 0.3;
+    }
+    50% {
+      background-position: 200% 200%, 100% 100%;
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes waveShimmer2 {
+    0%, 100% {
+      background-position: 150% 150%, 0% 0%;
+      opacity: 0.4;
+    }
+    50% {
+      background-position: -150% -150%, 100% 100%;
+      opacity: 0.2;
+    }
+  }
 }

@@ -170,62 +170,49 @@ const Landing: React.FC = () => {
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 bg-white relative overflow-hidden">
-        {/* Realistic ocean wave background */}
+        {/* Realistic ocean wave video background */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Ocean base */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-400 via-blue-500 to-blue-700"></div>
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6'/%3E%3Cstop offset='100%25' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23ocean)'/%3E%3C/svg%3E"
+          >
+            <source src="/ocean-waves.mp4" type="video/mp4" />
+            <source src="/ocean-waves.webm" type="video/webm" />
+            {/* Animated fallback for when video doesn't load */}
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-400 via-blue-500 to-blue-700">
+              <div className="absolute inset-0 opacity-80">
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    background: `
+                      radial-gradient(ellipse 800px 400px at 50% 100%, rgba(96, 165, 250, 0.8) 0%, transparent 70%),
+                      radial-gradient(ellipse 600px 300px at 20% 80%, rgba(147, 197, 253, 0.6) 0%, transparent 60%),
+                      radial-gradient(ellipse 700px 350px at 80% 90%, rgba(59, 130, 246, 0.7) 0%, transparent 65%)
+                    `,
+                    animation: 'oceanFlow 8s ease-in-out infinite'
+                  }}
+                ></div>
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    background: `
+                      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.2) 40%, transparent 45%),
+                      linear-gradient(-45deg, transparent 60%, rgba(255, 255, 255, 0.15) 65%, rgba(255, 255, 255, 0.1) 70%, transparent 75%)
+                    `,
+                    backgroundSize: '200% 200%, 150% 150%',
+                    animation: 'waveShimmer 6s ease-in-out infinite, waveShimmer2 4s ease-in-out infinite reverse'
+                  }}
+                ></div>
+              </div>
+            </div>
+          </video>
           
-          {/* Wave layers */}
-          <div className="absolute inset-0">
-            <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="wave1" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(59, 130, 246, 0.8)" />
-                  <stop offset="100%" stopColor="rgba(29, 78, 216, 0.9)" />
-                </linearGradient>
-                <linearGradient id="wave2" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(96, 165, 250, 0.6)" />
-                  <stop offset="100%" stopColor="rgba(59, 130, 246, 0.7)" />
-                </linearGradient>
-                <linearGradient id="wave3" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(147, 197, 253, 0.4)" />
-                  <stop offset="100%" stopColor="rgba(96, 165, 250, 0.5)" />
-                </linearGradient>
-              </defs>
-              
-              {/* Back wave */}
-              <path 
-                d="M0,600 C300,550 600,650 900,600 C1050,575 1200,600 1200,600 L1200,800 L0,800 Z" 
-                fill="url(#wave1)"
-                className="animate-[oceanWave1_8s_ease-in-out_infinite]"
-              />
-              
-              {/* Middle wave */}
-              <path 
-                d="M0,650 C200,600 400,700 600,650 C800,600 1000,650 1200,630 L1200,800 L0,800 Z" 
-                fill="url(#wave2)"
-                className="animate-[oceanWave2_6s_ease-in-out_infinite]"
-              />
-              
-              {/* Front wave */}
-              <path 
-                d="M0,700 C150,650 350,750 500,700 C750,650 900,700 1200,680 L1200,800 L0,800 Z" 
-                fill="url(#wave3)"
-                className="animate-[oceanWave3_4s_ease-in-out_infinite]"
-              />
-            </svg>
-          </div>
-          
-          {/* Wave foam effect */}
-          <div 
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: `radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-                          radial-gradient(ellipse at 60% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-                          radial-gradient(ellipse at 90% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)`,
-              animation: 'foam 10s ease-in-out infinite'
-            }}
-          ></div>
+          {/* Optional overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
