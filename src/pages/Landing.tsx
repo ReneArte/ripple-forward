@@ -261,7 +261,7 @@ const Landing: React.FC = () => {
               <Card className="soft-shadow border-0 h-full">
                 <CardContent className="p-6">
                   <h3 className="font-poppins font-semibold text-xl mb-6 text-center">
-                    Splashers that deserve to be paid for their kindness
+                    World Splashers
                   </h3>
                   
                   <div className="space-y-4">
@@ -269,37 +269,83 @@ const Landing: React.FC = () => {
                     name: "Maria Santos",
                     action: "Built wheelchair ramps",
                     amount: "$2,847",
-                    supporters: 47
+                    supporters: 47,
+                    country: "🇲🇽",
+                    location: "Mexico City"
                   }, {
                     name: "David Chen",
                     action: "Free coding classes",
                     amount: "$1,923",
-                    supporters: 31
+                    supporters: 31,
+                    country: "🇸🇬",
+                    location: "Singapore"
                   }, {
                     name: "Sarah Williams",
                     action: "Community garden",
                     amount: "$3,156",
-                    supporters: 62
+                    supporters: 62,
+                    country: "🇨🇦",
+                    location: "Toronto"
                   }, {
                     name: "James Rodriguez",
                     action: "Youth mentoring",
                     amount: "$1,445",
-                    supporters: 28
-                  }].map((person, index) => <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full overflow-hidden">
-                            <img src={`https://i.pravatar.cc/100?img=${50 + index}`} alt={person.name} className="w-full h-full object-cover" />
+                    supporters: 28,
+                    country: "🇪🇸",
+                    location: "Barcelona"
+                  }, {
+                    name: "Aisha Patel",
+                    action: "Clean water initiative",
+                    amount: "$4,231",
+                    supporters: 89,
+                    country: "🇮🇳",
+                    location: "Mumbai"
+                  }, {
+                    name: "Erik Johansson",
+                    action: "Elderly care program",
+                    amount: "$2,156",
+                    supporters: 43,
+                    country: "🇸🇪",
+                    location: "Stockholm"
+                  }, {
+                    name: "Fatima Al-Zahra",
+                    action: "Refugee support center",
+                    amount: "$3,789",
+                    supporters: 76,
+                    country: "🇯🇴",
+                    location: "Amman"
+                  }, {
+                    name: "Lucas Silva",
+                    action: "Beach cleanup project",
+                    amount: "$1,678",
+                    supporters: 34,
+                    country: "🇧🇷",
+                    location: "Rio de Janeiro"
+                  }].map((person, index) => <Link 
+                        key={index} 
+                        to={`/profile/${person.name.toLowerCase().replace(' ', '-')}`}
+                        className="block group"
+                      >
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/60 transition-all duration-200 cursor-pointer transform hover:scale-[1.02] hover:shadow-md">
+                          <div className="flex items-center gap-3">
+                            <div className="relative">
+                              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
+                                <img src={`https://i.pravatar.cc/100?img=${50 + index}`} alt={person.name} className="w-full h-full object-cover" />
+                              </div>
+                              <div className="absolute -top-1 -right-1 text-sm">{person.country}</div>
+                            </div>
+                            <div>
+                              <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
+                              <p className="text-xs text-muted-foreground">{person.action}</p>
+                              <p className="text-xs text-muted-foreground/80">{person.location}</p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-medium text-sm">{person.name}</p>
-                            <p className="text-xs text-muted-foreground">{person.action}</p>
+                          <div className="text-right">
+                            <p className="font-semibold text-sm text-primary group-hover:text-primary/80 transition-colors duration-200">{person.amount}</p>
+                            <p className="text-xs text-muted-foreground">{person.supporters} supporters</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="font-semibold text-sm text-hope-green">{person.amount}</p>
-                          <p className="text-xs text-muted-foreground">{person.supporters} supporters</p>
-                        </div>
-                      </div>)}
+                      </Link>)}
                   </div>
                   
                   <div className="mt-6 text-center">
