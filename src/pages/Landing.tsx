@@ -12,6 +12,7 @@ import AnimatedWavesBackground from '@/components/AnimatedWavesBackground';
 import VisualExplanation from '@/components/VisualExplanation';
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
+import CelebrateModal from '@/components/CelebrateModal';
 import foodDriveImage from '@/assets/food-drive-community.png';
 import heroWaves from '@/assets/hero-waves.png';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
@@ -67,12 +68,14 @@ const Landing: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg" asChild>
-              <Link to="/create">
-                Celebrate Someone
-                <Camera className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
+            <CelebrateModal 
+              trigger={
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-medium gentle-hover shadow-lg">
+                  Celebrate Someone
+                  <Camera className="ml-2 w-5 h-5" />
+                </Button>
+              } 
+            />
             
             <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium gentle-hover shadow-lg backdrop-blur-sm" asChild>
               <Link to="/splashes">
@@ -367,12 +370,14 @@ const Landing: React.FC = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Start building someone's kindness profile today. Share their story, capture their moment, and watch the ripples of positivity spread through your community.
           </p>
-          <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
-            <Link to="/create">
-              Celebrate Someone Today
-              <Award className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
+          <CelebrateModal 
+            trigger={
+              <Button size="lg" variant="secondary" className="px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300">
+                Celebrate Someone Today
+                <Award className="ml-2 w-5 h-5" />
+              </Button>
+            } 
+          />
         </div>
       </section>
       

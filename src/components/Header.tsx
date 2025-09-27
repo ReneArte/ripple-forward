@@ -4,6 +4,7 @@ import Logo from './Logo';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
 import { User, Menu } from 'lucide-react';
+import CelebrateModal from './CelebrateModal';
 const Header: React.FC = () => {
   return <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -32,9 +33,13 @@ const Header: React.FC = () => {
             <User className="w-4 h-4 mr-2" />
             Sign In
           </Button>
-          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-            <Link to="/create">Celebrate Someone</Link>
-          </Button>
+          <CelebrateModal 
+            trigger={
+              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Celebrate Someone
+              </Button>
+            } 
+          />
           <Button variant="ghost" size="sm" className="md:hidden">
             <Menu className="w-4 h-4" />
           </Button>
