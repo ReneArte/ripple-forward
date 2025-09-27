@@ -267,60 +267,46 @@ const Landing: React.FC = () => {
                   <div className="space-y-4">
                     {[{
                     name: "Maria Santos",
-                    action: "Provided clean water to 50,000 people",
-                    amount: "$284,700",
+                    action: "Donated wedding venue and catering to 500 refugee families",
+                    amount: "$285K",
                     supporters: 4700,
                     country: "🇲🇽",
                     location: "Mexico City"
                   }, {
                     name: "David Chen",
-                    action: "Built 200 schools across Southeast Asia",
-                    amount: "$1,923,000",
+                    action: "Built coding bootcamp dormitories for homeless youth",
+                    amount: "$1.9M",
                     supporters: 31000,
                     country: "🇸🇬",
                     location: "Singapore"
                   }, {
                     name: "Sarah Williams",
-                    action: "Reforested 10,000 acres of Amazon",
-                    amount: "$3,156,000",
+                    action: "Planted fruit trees in food deserts across 50 cities",
+                    amount: "$3.2M",
                     supporters: 62000,
                     country: "🇨🇦",
                     location: "Toronto"
                   }, {
                     name: "James Rodriguez",
-                    action: "Fed 1 million refugees worldwide",
-                    amount: "$14,450,000",
+                    action: "Opened free restaurants feeding 10,000 people daily",
+                    amount: "$14M",
                     supporters: 128000,
                     country: "🇪🇸",
                     location: "Barcelona"
                   }, {
                     name: "Aisha Patel",
-                    action: "Solar power for 500 villages",
-                    amount: "$4,231,000",
+                    action: "Donated solar panels and WiFi to rural schools",
+                    amount: "$4.2M",
                     supporters: 89000,
                     country: "🇮🇳",
                     location: "Mumbai"
                   }, {
                     name: "Erik Johansson",
-                    action: "Ocean plastic cleanup - 1M tons removed",
-                    amount: "$21,560,000",
+                    action: "Built floating trash collectors for ocean cleanup",
+                    amount: "$22M",
                     supporters: 243000,
                     country: "🇸🇪",
                     location: "Stockholm"
-                  }, {
-                    name: "Fatima Al-Zahra",
-                    action: "Emergency hospitals in 15 countries",
-                    amount: "$37,890,000",
-                    supporters: 376000,
-                    country: "🇯🇴",
-                    location: "Amman"
-                  }, {
-                    name: "Lucas Silva",
-                    action: "Coral reef restoration across 8 oceans",
-                    amount: "$16,780,000",
-                    supporters: 134000,
-                    country: "🇧🇷",
-                    location: "Rio de Janeiro"
                   }].map((person, index) => <Link
                         key={index} 
                         to={`/profile/${person.name.toLowerCase().replace(' ', '-')}`}
@@ -336,22 +322,23 @@ const Landing: React.FC = () => {
                                   person.name === "Sarah Williams" ? "5" :
                                   person.name === "James Rodriguez" ? "7" :
                                   person.name === "Aisha Patel" ? "9" :
-                                  person.name === "Erik Johansson" ? "11" :
-                                  person.name === "Fatima Al-Zahra" ? "13" :
-                                  "15"
+                                  "11"
                                 }`} alt={person.name} className="w-full h-full object-cover" />
                               </div>
-                              <div className="absolute -top-1 -right-1 text-lg bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-sm">{person.country}</div>
+                              <div className="absolute -top-1 -right-1 text-base bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm">{person.country}</div>
                             </div>
-                            <div>
-                              <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2">
+                                <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
+                                <span className="text-sm">{person.country}</span>
+                              </div>
                               <p className="text-xs text-muted-foreground font-medium">{person.action}</p>
                               <p className="text-xs text-muted-foreground/80">{person.location}</p>
                             </div>
                           </div>
                           <div className="text-right">
                             <p className="font-semibold text-sm text-primary group-hover:text-primary/80 transition-colors duration-200">{person.amount}</p>
-                            <p className="text-xs text-muted-foreground">{person.supporters.toLocaleString()} supporters</p>
+                            <p className="text-xs text-muted-foreground">{person.supporters.toLocaleString()} raised</p>
                           </div>
                         </div>
                       </Link>)}
