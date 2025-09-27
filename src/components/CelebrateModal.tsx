@@ -158,7 +158,7 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
             Your pebble has dropped!
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Now let's nominate three friends to continue the ripple.
+            Now let&apos;s nominate three friends to continue the ripple.
           </p>
           <div className="flex justify-center">
             <div className="w-48 h-48 relative">
@@ -201,7 +201,7 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
                 Kind Report
               </h1>
               <p className="text-xl text-muted-foreground">
-                Share someone else's act of kindness and build their profile
+                Share someone else&apos;s act of kindness and build their profile
               </p>
             </div>
             
