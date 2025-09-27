@@ -15,8 +15,8 @@ const Profile: React.FC = () => {
         <div className="container mx-auto max-w-4xl">
           {/* Profile Header */}
           <div className="text-center mb-8">
-            <div className="w-48 h-48 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800">
-              <span className="text-white text-6xl font-bold">A</span>
+            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden">
+              <img src="https://i.pravatar.cc/300?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">
               Alex Johnson
@@ -106,18 +106,18 @@ const Profile: React.FC = () => {
               
               <div className="text-center">
                 {/* Nominated by */}
-                <div className="mb-8">
-                  <p className="text-sm text-muted-foreground mb-4">Nominated by</p>
-                  <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-sm font-medium">M</span>
+                  <div className="mb-8">
+                    <p className="text-sm text-muted-foreground mb-4">Nominated by</p>
+                    <div className="w-12 h-12 rounded-full mx-auto overflow-hidden">
+                      <img src="https://i.pravatar.cc/100?img=26" alt="Maria Lopez" className="w-full h-full object-cover" />
+                    </div>
+                    <p className="text-sm font-medium mt-2">Maria Lopez</p>
                   </div>
-                  <p className="text-sm font-medium mt-2">Maria Lopez</p>
-                </div>
 
                 {/* Current user */}
                 <div className="mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center mx-auto">
-                    <span className="text-white text-lg font-bold">A</span>
+                  <div className="w-16 h-16 rounded-full mx-auto overflow-hidden">
+                    <img src="https://i.pravatar.cc/120?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-lg font-semibold mt-2">Alex Johnson</p>
                 </div>
@@ -126,14 +126,16 @@ const Profile: React.FC = () => {
                 <div>
                   <p className="text-sm text-muted-foreground mb-4">Nominated</p>
                   <div className="flex justify-center gap-4">
-                    {['S', 'J', 'K'].map((initial, index) => (
+                    {[
+                      { initial: 'S', name: 'Sarah M.', img: 33 },
+                      { initial: 'J', name: 'John D.', img: 45 },
+                      { initial: 'K', name: 'Kate R.', img: 18 }
+                    ].map((person, index) => (
                       <div key={index} className="text-center">
-                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
-                          <span className="text-sm font-medium">{initial}</span>
+                        <div className="w-12 h-12 rounded-full overflow-hidden">
+                          <img src={`https://i.pravatar.cc/100?img=${person.img}`} alt={person.name} className="w-full h-full object-cover" />
                         </div>
-                        <p className="text-sm font-medium mt-2">
-                          {initial === 'S' ? 'Sarah M.' : initial === 'J' ? 'John D.' : 'Kate R.'}
-                        </p>
+                        <p className="text-sm font-medium mt-2">{person.name}</p>
                       </div>
                     ))}
                   </div>

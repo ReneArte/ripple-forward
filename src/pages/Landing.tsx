@@ -207,8 +207,8 @@ const Landing: React.FC = () => {
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-hope-green rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">A</span>
+                    <div className="w-12 h-12 rounded-full overflow-hidden">
+                      <img src="https://i.pravatar.cc/100?img=12" alt="Alex Perez" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <h3 className="font-poppins font-semibold text-lg">Alex Perez</h3>
@@ -279,8 +279,8 @@ const Landing: React.FC = () => {
                     supporters: 28
                   }].map((person, index) => <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-hope-green to-ripple-teal rounded-full flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">{person.name[0]}</span>
+                          <div className="w-10 h-10 rounded-full overflow-hidden">
+                            <img src={`https://i.pravatar.cc/100?img=${50 + index}`} alt={person.name} className="w-full h-full object-cover" />
                           </div>
                           <div>
                             <p className="font-medium text-sm">{person.name}</p>

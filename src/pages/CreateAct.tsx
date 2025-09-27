@@ -87,15 +87,20 @@ const CreateAct: React.FC = () => {
               <div className="mb-8">
                 <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {['Sarah M.', 'John D.', 'Maria L.', 'Alex K.'].map((name) => (
+                  {[
+                    { name: 'Sarah M.', img: 33 },
+                    { name: 'John D.', img: 45 },
+                    { name: 'Maria L.', img: 26 },
+                    { name: 'Alex K.', img: 18 }
+                  ].map((person) => (
                     <button
-                      key={name}
+                      key={person.name}
                       className="p-3 border-2 border-muted rounded-lg hover:border-hope-green hover:bg-hope-green/5 transition-colors text-center"
                     >
-                      <div className="w-12 h-12 bg-hope-green/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                        <span className="font-medium text-hope-green">{name[0]}</span>
+                      <div className="w-12 h-12 rounded-full overflow-hidden mx-auto mb-2">
+                        <img src={`https://i.pravatar.cc/100?img=${person.img}`} alt={person.name} className="w-full h-full object-cover" />
                       </div>
-                      <span className="text-sm font-medium">{name}</span>
+                      <span className="text-sm font-medium">{person.name}</span>
                     </button>
                   ))}
                 </div>
