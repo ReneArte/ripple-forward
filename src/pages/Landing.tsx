@@ -25,12 +25,14 @@ const Landing: React.FC = () => {
       <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
-          filter: 'brightness(0.8)'
-        }} onError={e => {
-          console.log('Video failed to load:', e);
-          e.currentTarget.style.display = 'none';
-        }}>
+          <video 
+            className="absolute inset-0 w-full h-full object-cover" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            style={{ filter: 'brightness(0.8)' }}
+          >
             <source src="/ocean-waves.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
