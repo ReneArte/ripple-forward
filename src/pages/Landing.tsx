@@ -170,31 +170,32 @@ const Landing: React.FC = () => {
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 relative overflow-hidden">
-        {/* Realistic ocean wave video background */}
+        {/* Animated blue gradient wave background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video
-            className="absolute bottom-0 left-0 w-full h-full object-cover opacity-30"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/ocean-waves.mp4" type="video/mp4" />
-            {/* Fallback to SVG waves if video doesn't load */}
-            <svg
-              className="absolute bottom-0 left-0 w-full h-full"
-              viewBox="0 0 1200 400"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
-                <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
-              </defs>
-              <use href="#bgwave1" fill="hsl(220, 80%, 60%)" className="animate-[slowWave_30s_ease-in-out_infinite]" />
-              <use href="#bgwave2" fill="hsl(240, 70%, 50%)" className="animate-[slowWave_40s_ease-in-out_infinite_reverse]" />
-            </svg>
-          </video>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 opacity-20"></div>
+          <div 
+            className="absolute inset-0 opacity-30"
+            style={{
+              background: `
+                linear-gradient(60deg, transparent 30%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.3) 60%, transparent 60%),
+                linear-gradient(120deg, transparent 20%, rgba(37, 99, 235, 0.4) 20%, rgba(37, 99, 235, 0.4) 80%, transparent 80%),
+                linear-gradient(45deg, rgba(96, 165, 250, 0.2) 0%, rgba(59, 130, 246, 0.2) 50%, rgba(37, 99, 235, 0.2) 100%)
+              `,
+              backgroundSize: '200% 100%, 300% 100%, 100% 100%',
+              animation: 'waveMove 15s ease-in-out infinite, waveMove2 20s ease-in-out infinite reverse'
+            }}
+          ></div>
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              background: `
+                radial-gradient(ellipse at center bottom, rgba(147, 197, 253, 0.4) 0%, transparent 70%),
+                linear-gradient(180deg, transparent 60%, rgba(59, 130, 246, 0.2) 100%)
+              `,
+              backgroundSize: '100% 300%, 100% 100%',
+              animation: 'waveRise 25s ease-in-out infinite'
+            }}
+          ></div>
         </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">

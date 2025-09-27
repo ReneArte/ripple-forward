@@ -333,4 +333,34 @@
       transform: translateX(-20px);
     }
   }
+
+  /* Blue gradient wave animations */
+  @keyframes waveMove {
+    0%, 100% {
+      background-position: 0% 0%, 0% 0%, 0% 0%;
+    }
+    50% {
+      background-position: 100% 0%, -50% 0%, 0% 0%;
+    }
+  }
+
+  @keyframes waveMove2 {
+    0%, 100% {
+      background-position: 0% 0%, 0% 0%, 0% 0%;
+    }
+    50% {
+      background-position: -100% 0%, 50% 0%, 0% 0%;
+    }
+  }
+
+  @keyframes waveRise {
+    0%, 100% {
+      background-position: center bottom, center bottom;
+      transform: translateY(0px);
+    }
+    50% {
+      background-position: center top, center bottom;
+      transform: translateY(-10px);
+    }
+  }
 }
