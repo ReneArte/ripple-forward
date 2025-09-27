@@ -18,12 +18,15 @@ import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'l
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
   const [showCarousel, setShowCarousel] = useState(false);
-  const {
-    theme
-  } = useTheme();
+  const { theme } = useTheme();
 
-  // Determine if we're in dark mode
-  const isDarkMode = theme === 'dark' || theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // Determine if we're in dark mode - reactive to theme changes
+  const isDarkMode = React.useMemo(() => {
+    if (theme === 'dark') return true;
+    if (theme === 'light') return false;
+    // For system theme, check the media query
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }, [theme]);
   return <div className="min-h-screen bg-background relative overflow-hidden">
       <WaterRipples intensity="light" />
       <Header />
@@ -32,7 +35,7 @@ const Landing: React.FC = () => {
       <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
+          <video key={isDarkMode ? 'dark' : 'light'} className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
           filter: 'brightness(0.8)'
         }}>
             <source src={isDarkMode ? "/ocean-waves-dark.mp4" : "/ocean-waves.mp4"} type="video/mp4" />
