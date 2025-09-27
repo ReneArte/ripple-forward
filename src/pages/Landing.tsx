@@ -330,7 +330,16 @@ const Landing: React.FC = () => {
                           <div className="flex items-center gap-3">
                             <div className="relative">
                               <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
-                                <img src={`https://i.pravatar.cc/100?img=${50 + index}`} alt={person.name} className="w-full h-full object-cover" />
+                                <img src={`https://i.pravatar.cc/100?img=${
+                                  person.name === "Maria Santos" ? "1" :
+                                  person.name === "David Chen" ? "3" :
+                                  person.name === "Sarah Williams" ? "5" :
+                                  person.name === "James Rodriguez" ? "7" :
+                                  person.name === "Aisha Patel" ? "9" :
+                                  person.name === "Erik Johansson" ? "11" :
+                                  person.name === "Fatima Al-Zahra" ? "13" :
+                                  "15"
+                                }`} alt={person.name} className="w-full h-full object-cover" />
                               </div>
                               <div className="absolute -top-1 -right-1 text-lg bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-sm">{person.country}</div>
                             </div>
