@@ -538,4 +538,83 @@
       opacity: 1;
     }
   }
+
+  .glow-effect-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(147, 197, 253, 0.2);
+    animation: gentle-glow-blue 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentle-glow-blue {
+    from {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(147, 197, 253, 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(147, 197, 253, 0.3);
+    }
+  }
+
+  @keyframes expandingRipple {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulseRipple {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes levelRing {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes expandLevel {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes floatingDroplet {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-10px) scale(1.1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translateY(-5px) scale(0.9);
+      opacity: 1;
+    }
+    75% {
+      transform: translateY(-15px) scale(1.2);
+      opacity: 0.4;
+    }
+  }
 }
