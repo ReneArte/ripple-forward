@@ -321,7 +321,7 @@ const Landing: React.FC = () => {
       <SplashCarousel isOpen={showCarousel} onClose={() => setShowCarousel(false)} />
       
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border">
+      <footer className="py-8 px-4 border-t border-border bg-slate-50">
         <div className="container mx-auto text-center text-muted-foreground">
           <p>&copy; 2024 ItForward. Spreading kindness, one ripple at a time.</p>
         </div>
