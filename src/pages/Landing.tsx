@@ -197,8 +197,8 @@ const Landing: React.FC = () => {
             This week's most inspiring act of kindness
           </p>
           
-          <div className="max-w-2xl mx-auto">
-            {/* Main Featured Story - Centered */}
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Main Featured Story */}
             <div>
               <Card className="soft-shadow border-0 overflow-hidden">
                 <div className="aspect-video overflow-hidden">
@@ -262,6 +262,98 @@ const Landing: React.FC = () => {
               </div>
             </div>
 
+            {/* Splashers That Deserve Support */}
+            <div>
+              <Card className="soft-shadow border-0 h-full">
+                <CardContent className="p-6">
+                  <h3 className="font-poppins font-semibold text-xl mb-6 text-center">
+                    World Splashers
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {[{
+                    name: "Maria Santos",
+                    action: "Donated wedding venue and catering to 500 refugee families",
+                    amount: "$285K",
+                    supporters: 4700,
+                    country: "🇲🇽",
+                    location: "Mexico City"
+                  }, {
+                    name: "David Chen",
+                    action: "Built coding bootcamp dormitories for homeless youth",
+                    amount: "$1.9M",
+                    supporters: 31000,
+                    country: "🇸🇬",
+                    location: "Singapore"
+                  }, {
+                    name: "Sarah Williams",
+                    action: "Planted fruit trees in food deserts across 50 cities",
+                    amount: "$3.2M",
+                    supporters: 62000,
+                    country: "🇨🇦",
+                    location: "Toronto"
+                  }, {
+                    name: "James Rodriguez",
+                    action: "Opened free restaurants feeding 10,000 people daily",
+                    amount: "$14M",
+                    supporters: 128000,
+                    country: "🇪🇸",
+                    location: "Barcelona"
+                  }, {
+                    name: "Aisha Patel",
+                    action: "Donated solar panels and WiFi to rural schools",
+                    amount: "$4.2M",
+                    supporters: 89000,
+                    country: "🇮🇳",
+                    location: "Mumbai"
+                  }].map((person, index) => <Link
+                        key={index} 
+                        to={`/profile/${person.name.toLowerCase().replace(' ', '-')}`}
+                        className="block group"
+                      >
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/60 transition-all duration-200 cursor-pointer transform hover:scale-[1.02] hover:shadow-md relative">
+                          <div className="absolute top-2 right-2 text-lg">{person.country}</div>
+                          <div className="flex items-center gap-3">
+                            <div className="relative">
+                              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
+                                <img src={`https://i.pravatar.cc/100?img=${
+                                  person.name === "Maria Santos" ? "1" :
+                                  person.name === "David Chen" ? "3" :
+                                  person.name === "Sarah Williams" ? "5" :
+                                  person.name === "James Rodriguez" ? "7" :
+                                  "9"
+                                }`} alt={person.name} className="w-full h-full object-cover" />
+                              </div>
+                              <div className="absolute -top-1 -right-1 text-base bg-white rounded-full w-5 h-5 flex items-center justify-center shadow-sm opacity-0"></div>
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2">
+                                <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
+                              </div>
+                              <p className="text-xs text-muted-foreground font-medium">{person.action}</p>
+                              <p className="text-xs text-muted-foreground/80">{person.location}</p>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <p className="font-semibold text-sm text-primary group-hover:text-primary/80 transition-colors duration-200">{person.amount}</p>
+                            <p className="text-xs text-muted-foreground">{person.supporters.toLocaleString()} raised</p>
+                          </div>
+                        </div>
+                      </Link>)}
+                  </div>
+                  
+                  <div className="mt-6 text-center">
+                    <CelebrateModal 
+                      trigger={
+                        <Button variant="secondary" size="sm">
+                          Support Someone Today
+                        </Button>
+                      } 
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
