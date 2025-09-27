@@ -18,10 +18,12 @@ import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'l
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
   const [showCarousel, setShowCarousel] = useState(false);
-  const { theme } = useTheme();
-  
+  const {
+    theme
+  } = useTheme();
+
   // Determine if we're in dark mode
-  const isDarkMode = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDarkMode = theme === 'dark' || theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches;
   return <div className="min-h-screen bg-background relative overflow-hidden">
       <WaterRipples intensity="light" />
       <Header />
@@ -82,7 +84,7 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative">
+      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative bg-zinc-950">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
