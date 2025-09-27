@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Camera, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -122,35 +123,64 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
                 {/* Suggested Profiles Section */}
                 <div className="mb-8">
                   <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
-                   <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                     {[{
-                       name: 'Sarah M.',
-                       img: 33
-                     }, {
-                       name: 'John D.',
-                       img: 45
-                     }, {
-                       name: 'Maria L.',
-                       img: 26
-                     }, {
-                       name: 'Alex K.',
-                       img: 18
-                     }].map(person => (
-                       <button 
-                         key={person.name} 
-                         className="w-28 h-28 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
-                       >
-                         <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
-                           <img 
-                             src={`https://i.pravatar.cc/150?img=${person.img}`} 
-                             alt={person.name} 
-                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
-                           />
-                         </div>
-                         <span className="text-xs font-medium group-hover:text-hope-green transition-colors duration-300 mt-1 leading-tight">{person.name}</span>
-                      </button>
-                    ))}
-                  </div>
+                  <Carousel className="w-full">
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                      {[{
+                        name: 'Sarah M.',
+                        img: 33
+                      }, {
+                        name: 'John D.',
+                        img: 45
+                      }, {
+                        name: 'Maria L.',
+                        img: 26
+                      }, {
+                        name: 'Alex K.',
+                        img: 18
+                      }, {
+                        name: 'Emma W.',
+                        img: 12
+                      }, {
+                        name: 'Mike R.',
+                        img: 25
+                      }, {
+                        name: 'Lisa T.',
+                        img: 38
+                      }, {
+                        name: 'David L.',
+                        img: 22
+                      }, {
+                        name: 'Ana S.',
+                        img: 41
+                      }, {
+                        name: 'Chris P.',
+                        img: 29
+                      }, {
+                        name: 'Nina H.',
+                        img: 15
+                      }, {
+                        name: 'Tom B.',
+                        img: 36
+                      }].map(person => (
+                        <CarouselItem key={person.name} className="pl-2 md:pl-4 basis-1/2 md:basis-1/4">
+                          <button 
+                            className="w-28 h-28 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
+                          >
+                            <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
+                              <img 
+                                src={`https://i.pravatar.cc/150?img=${person.img}`} 
+                                alt={person.name} 
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                              />
+                            </div>
+                            <span className="text-xs font-medium group-hover:text-hope-green transition-colors duration-300 mt-1 leading-tight">{person.name}</span>
+                          </button>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
                 </div>
 
                 {/* New Waves Section */}
