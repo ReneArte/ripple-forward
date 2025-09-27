@@ -342,7 +342,7 @@ const Landing: React.FC = () => {
                       </Link>)}
                   </div>
                   
-                  <div className="mt-6 text-center">
+                  <div className="text-center">
                     <CelebrateModal 
                       trigger={
                         <Button variant="secondary" size="sm">
