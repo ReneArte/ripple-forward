@@ -203,11 +203,7 @@ const Landing: React.FC = () => {
             <div>
               <Card className="soft-shadow border-0 overflow-hidden">
                 <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={foodDriveImage} 
-                    alt="Community food drive with people receiving food from mobile truck" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={foodDriveImage} alt="Community food drive with people receiving food from mobile truck" className="w-full h-full object-cover" />
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
@@ -215,7 +211,7 @@ const Landing: React.FC = () => {
                       <span className="text-white font-bold text-lg">A</span>
                     </div>
                     <div>
-                      <h3 className="font-poppins font-semibold text-lg">Alex Johnson</h3>
+                      <h3 className="font-poppins font-semibold text-lg">Alex Perez</h3>
                       <p className="text-muted-foreground text-sm">@alexjohnson</p>
                     </div>
                   </div>
