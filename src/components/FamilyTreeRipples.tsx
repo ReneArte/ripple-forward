@@ -8,6 +8,7 @@ interface Person {
   id: string;
   name: string;
   initials: string;
+  avatar: string;
   level: number;
   paymentApps?: string[];
 }
@@ -21,20 +22,20 @@ const FamilyTreeRipples: React.FC = () => {
   const [selectedPerson, setSelectedPerson] = React.useState<TreePerson | null>(null);
 
   const familyTree: Person[] = [
-    { id: 'nominator', name: 'Sarah Chen', initials: 'SC', level: 0, paymentApps: ['venmo', 'gofundme'] },
-    { id: 'you', name: 'You', initials: 'ME', level: 1, paymentApps: [] },
-    { id: 'friend1', name: 'Mike Rodriguez', initials: 'MR', level: 2, paymentApps: ['venmo', 'paypal'] },
-    { id: 'friend2', name: 'Emma Thompson', initials: 'ET', level: 2, paymentApps: ['gofundme'] },
-    { id: 'friend3', name: 'James Park', initials: 'JP', level: 2, paymentApps: ['venmo'] },
-    { id: 'f1c1', name: 'Lisa Wang', initials: 'LW', level: 3, paymentApps: ['paypal', 'cashapp'] },
-    { id: 'f1c2', name: 'David Kim', initials: 'DK', level: 3, paymentApps: ['venmo', 'gofundme'] },
-    { id: 'f1c3', name: 'Ana Silva', initials: 'AS', level: 3, paymentApps: ['cashapp'] },
-    { id: 'f2c1', name: 'Tom Brown', initials: 'TB', level: 3, paymentApps: ['paypal'] },
-    { id: 'f2c2', name: 'Maya Patel', initials: 'MP', level: 3, paymentApps: ['venmo', 'gofundme'] },
-    { id: 'f2c3', name: 'Alex Chen', initials: 'AC', level: 3, paymentApps: ['cashapp'] },
-    { id: 'f3c1', name: 'Sophie Lee', initials: 'SL', level: 3, paymentApps: ['venmo'] },
-    { id: 'f3c2', name: 'Ryan Taylor', initials: 'RT', level: 3, paymentApps: ['paypal', 'gofundme'] },
-    { id: 'f3c3', name: 'Nina Patel', initials: 'NP', level: 3, paymentApps: ['cashapp', 'venmo'] },
+    { id: 'nominator', name: 'Sarah Chen', initials: 'SC', avatar: 'https://i.pravatar.cc/100?img=26', level: 0, paymentApps: ['venmo', 'gofundme'] },
+    { id: 'you', name: 'You', initials: 'ME', avatar: 'https://i.pravatar.cc/100?img=12', level: 1, paymentApps: [] },
+    { id: 'friend1', name: 'Mike Rodriguez', initials: 'MR', avatar: 'https://i.pravatar.cc/100?img=52', level: 2, paymentApps: ['venmo', 'paypal'] },
+    { id: 'friend2', name: 'Emma Thompson', initials: 'ET', avatar: 'https://i.pravatar.cc/100?img=33', level: 2, paymentApps: ['gofundme'] },
+    { id: 'friend3', name: 'James Park', initials: 'JP', avatar: 'https://i.pravatar.cc/100?img=45', level: 2, paymentApps: ['venmo'] },
+    { id: 'f1c1', name: 'Lisa Wang', initials: 'LW', avatar: 'https://i.pravatar.cc/100?img=15', level: 3, paymentApps: ['paypal', 'cashapp'] },
+    { id: 'f1c2', name: 'David Kim', initials: 'DK', avatar: 'https://i.pravatar.cc/100?img=68', level: 3, paymentApps: ['venmo', 'gofundme'] },
+    { id: 'f1c3', name: 'Ana Silva', initials: 'AS', avatar: 'https://i.pravatar.cc/100?img=40', level: 3, paymentApps: ['cashapp'] },
+    { id: 'f2c1', name: 'Tom Brown', initials: 'TB', avatar: 'https://i.pravatar.cc/100?img=58', level: 3, paymentApps: ['paypal'] },
+    { id: 'f2c2', name: 'Maya Patel', initials: 'MP', avatar: 'https://i.pravatar.cc/100?img=31', level: 3, paymentApps: ['venmo', 'gofundme'] },
+    { id: 'f2c3', name: 'Alex Chen', initials: 'AC', avatar: 'https://i.pravatar.cc/100?img=61', level: 3, paymentApps: ['cashapp'] },
+    { id: 'f3c1', name: 'Sophie Lee', initials: 'SL', avatar: 'https://i.pravatar.cc/100?img=29', level: 3, paymentApps: ['venmo'] },
+    { id: 'f3c2', name: 'Ryan Taylor', initials: 'RT', avatar: 'https://i.pravatar.cc/100?img=19', level: 3, paymentApps: ['paypal', 'gofundme'] },
+    { id: 'f3c3', name: 'Nina Patel', initials: 'NP', avatar: 'https://i.pravatar.cc/100?img=47', level: 3, paymentApps: ['cashapp', 'venmo'] },
   ];
 
   const getLevelColor = (level: number, isYou: boolean = false) => {
@@ -115,9 +116,8 @@ const FamilyTreeRipples: React.FC = () => {
               <Card className="sticky top-8">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${getLevelColor(selectedPerson.level, selectedPerson.id === 'you')} 
-                                   rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3`}>
-                      {selectedPerson.initials}
+                    <div className="w-16 h-16 rounded-full mx-auto mb-3 overflow-hidden ring-4 ring-white shadow-lg">
+                      <img src={selectedPerson.avatar} alt={selectedPerson.name} className="w-full h-full object-cover" />
                     </div>
                     <h3 className="font-poppins font-semibold text-lg">{selectedPerson.name}</h3>
                     <p className="text-sm text-muted-foreground">

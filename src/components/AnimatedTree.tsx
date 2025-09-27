@@ -4,6 +4,7 @@ interface TreePerson {
   id: string;
   name: string;
   initials: string;
+  avatar: string;
   level: number;
   x: number;
   y: number;
@@ -152,10 +153,13 @@ const AnimatedTree: React.FC<AnimatedTreeProps> = ({ people, selectedPerson, onP
           onClick={() => onPersonSelect(person)}
         >
           <div className={`w-${person.level === 1 ? '16' : person.level === 0 ? '14' : '12'} h-${person.level === 1 ? '16' : person.level === 0 ? '14' : '12'} 
-                         bg-gradient-to-br ${getLevelColor(person.level, person.id === 'you')} 
-                         rounded-full flex items-center justify-center shadow-lg border-4 border-white
-                         ${person.id === 'you' ? 'animate-pulse' : ''}`}>
-            <span className="text-white font-bold text-sm">{person.initials}</span>
+                         rounded-full overflow-hidden shadow-lg border-4 border-white
+                         ${person.id === 'you' ? 'ring-4 ring-primary/50 animate-pulse' : ''}`}>
+            <img 
+              src={person.avatar} 
+              alt={person.name} 
+              className="w-full h-full object-cover"
+            />
           </div>
           
           {/* Name label */}
