@@ -17,10 +17,6 @@ interface KindnessActivity {
 }
 
 const InteractiveWorldMap = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [isMapReady, setIsMapReady] = useState(false);
   const [selectedActivity, setSelectedActivity] = useState<KindnessActivity | null>(null);
 
   // Live kindness activities data
@@ -99,179 +95,173 @@ const InteractiveWorldMap = () => {
     }
   ];
 
-  const initializeMap = () => {
-    if (!mapContainer.current || !mapboxToken) return;
-
-    mapboxgl.accessToken = mapboxToken;
-
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
-      projection: 'globe',
-      zoom: 1.5,
-      center: [20, 20],
-      pitch: 0,
-    });
-
-    map.current.addControl(
-      new mapboxgl.NavigationControl({
-        visualizePitch: true,
-      }),
-      'top-right'
-    );
-
-    map.current.scrollZoom.disable();
-
-    map.current.on('style.load', () => {
-      map.current?.setFog({
-        color: 'rgb(255, 255, 255)',
-        'high-color': 'rgb(200, 200, 225)',
-        'horizon-blend': 0.2,
-      });
-
-      // Add kindness activity markers
-      kindnessActivities.forEach((activity, index) => {
-        // Create ripple effect element
-        const rippleEl = document.createElement('div');
-        rippleEl.className = 'kindness-ripple';
-        rippleEl.style.cssText = `
-          width: 20px;
-          height: 20px;
-          background: ${activity.color};
-          border-radius: 50%;
-          position: relative;
-          cursor: pointer;
-          animation: pulseRipple 2s infinite;
-          animation-delay: ${index * 0.3}s;
-        `;
-
-        // Add ripple rings
-        for (let i = 1; i <= 3; i++) {
-          const ring = document.createElement('div');
-          ring.style.cssText = `
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: ${20 + i * 15}px;
-            height: ${20 + i * 15}px;
-            border: 2px solid ${activity.color};
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: ${0.6 - i * 0.15};
-            animation: expandingRipple ${2 + i * 0.5}s infinite;
-            animation-delay: ${index * 0.3 + i * 0.2}s;
-            pointer-events: none;
-          `;
-          rippleEl.appendChild(ring);
-        }
-
-        // Add click handler
-        rippleEl.addEventListener('click', () => {
-          setSelectedActivity(activity);
-        });
-
-        // Create marker
-        new mapboxgl.Marker(rippleEl)
-          .setLngLat(activity.coordinates)
-          .addTo(map.current!);
-      });
-
-      setIsMapReady(true);
-    });
-
-    // Globe rotation
-    const secondsPerRevolution = 300;
-    const maxSpinZoom = 4;
-    let userInteracting = false;
-    let spinEnabled = true;
-
-    function spinGlobe() {
-      if (!map.current) return;
-      
-      const zoom = map.current.getZoom();
-      if (spinEnabled && !userInteracting && zoom < maxSpinZoom) {
-        const distancePerSecond = 360 / secondsPerRevolution;
-        const center = map.current.getCenter();
-        center.lng -= distancePerSecond;
-        map.current.easeTo({ center, duration: 1000, easing: (n) => n });
-      }
-    }
-
-    map.current.on('mousedown', () => { userInteracting = true; });
-    map.current.on('dragstart', () => { userInteracting = true; });
-    map.current.on('mouseup', () => { userInteracting = false; spinGlobe(); });
-    map.current.on('touchend', () => { userInteracting = false; spinGlobe(); });
-    map.current.on('moveend', () => { spinGlobe(); });
-
-    spinGlobe();
-  };
-
-  useEffect(() => {
-    if (mapboxToken) {
-      initializeMap();
-    }
-
-    return () => {
-      map.current?.remove();
-    };
-  }, [mapboxToken]);
-
-  if (!mapboxToken) {
-    return (
-      <div className="w-full h-96 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 rounded-lg flex items-center justify-center">
-        <Card className="w-full max-w-md mx-4">
-          <CardContent className="p-6">
-            <h3 className="font-semibold text-lg mb-4">Enter Mapbox Token</h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              Get your free public token from{' '}
-              <a 
-                href="https://mapbox.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-primary hover:underline"
-              >
-                mapbox.com
-              </a>
-            </p>
-            <div className="space-y-3">
-              <Input
-                type="password"
-                placeholder="pk.eyJ1..."
-                value={mapboxToken}
-                onChange={(e) => setMapboxToken(e.target.value)}
-              />
-              <Button 
-                onClick={() => mapboxToken && initializeMap()}
-                disabled={!mapboxToken}
-                className="w-full"
-              >
-                Load Interactive Map
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
   return (
-    <div className="relative w-full h-96 rounded-lg overflow-hidden">
-      <div ref={mapContainer} className="w-full h-full" />
+    <div className="relative w-full h-96 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950 rounded-lg overflow-hidden">
+      {/* Heat Map Visualization */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 400">
+        <defs>
+          {/* Heat map gradients */}
+          <radialGradient id="heatHigh" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FF4444" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#FF6B6B" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#FF8E8E" stopOpacity="0.2" />
+          </radialGradient>
+          <radialGradient id="heatMedium" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFA500" stopOpacity="0.7" />
+            <stop offset="50%" stopColor="#FFB84D" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#FFCC80" stopOpacity="0.2" />
+          </radialGradient>
+          <radialGradient id="heatLow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#4CAF50" stopOpacity="0.6" />
+            <stop offset="50%" stopColor="#66BB6A" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#A5D6A7" stopOpacity="0.2" />
+          </radialGradient>
+        </defs>
+        
+        {/* World continents outline */}
+        <g className="opacity-30">
+          {/* North America */}
+          <path d="M50 120 Q120 100 200 130 Q250 140 280 120 L280 180 Q250 200 200 190 Q120 180 50 160 Z" 
+                fill="#E3F2FD" stroke="#2196F3" strokeWidth="1"/>
+          {/* South America */}
+          <path d="M180 220 Q220 210 240 240 Q250 300 230 350 Q210 360 190 340 Q170 280 180 220 Z" 
+                fill="#E8F5E8" stroke="#4CAF50" strokeWidth="1"/>
+          {/* Europe */}
+          <path d="M380 100 Q420 90 450 110 Q460 130 440 140 Q400 135 380 120 Z" 
+                fill="#FFF3E0" stroke="#FF9800" strokeWidth="1"/>
+          {/* Africa */}
+          <path d="M420 150 Q460 140 480 170 Q490 220 470 270 Q450 280 430 260 Q410 200 420 150 Z" 
+                fill="#FFEBEE" stroke="#F44336" strokeWidth="1"/>
+          {/* Asia */}
+          <path d="M500 80 Q580 70 650 100 Q680 120 660 150 Q600 160 540 140 Q510 110 500 80 Z" 
+                fill="#E1F5FE" stroke="#03A9F4" strokeWidth="1"/>
+          {/* Australia */}
+          <path d="M620 280 Q670 270 690 290 Q685 310 660 315 Q630 305 620 280 Z" 
+                fill="#F3E5F5" stroke="#9C27B0" strokeWidth="1"/>
+        </g>
+        
+        {/* Heat map zones - High activity areas */}
+        <circle cx="150" cy="140" r="45" fill="url(#heatHigh)" className="animate-pulse">
+          <animate attributeName="r" values="40;50;40" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="450" cy="120" r="35" fill="url(#heatHigh)" className="animate-pulse" style={{animationDelay: '0.5s'}}>
+          <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="580" cy="110" r="40" fill="url(#heatHigh)" className="animate-pulse" style={{animationDelay: '1s'}}>
+          <animate attributeName="r" values="35;45;35" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        
+        {/* Medium activity areas */}
+        <circle cx="220" cy="280" r="35" fill="url(#heatMedium)" className="animate-pulse" style={{animationDelay: '1.5s'}}>
+          <animate attributeName="r" values="30;40;30" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="460" cy="200" r="40" fill="url(#heatMedium)" className="animate-pulse" style={{animationDelay: '2s'}}>
+          <animate attributeName="r" values="35;45;35" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="650" cy="300" r="30" fill="url(#heatMedium)" className="animate-pulse" style={{animationDelay: '2.5s'}}>
+          <animate attributeName="r" values="25;35;25" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        
+        {/* Low activity areas */}
+        <circle cx="100" cy="200" r="25" fill="url(#heatLow)" className="animate-pulse" style={{animationDelay: '3s'}}>
+          <animate attributeName="r" values="20;30;20" dur="5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="520" cy="160" r="28" fill="url(#heatLow)" className="animate-pulse" style={{animationDelay: '3.5s'}}>
+          <animate attributeName="r" values="23;33;23" dur="5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="380" cy="160" r="22" fill="url(#heatLow)" className="animate-pulse" style={{animationDelay: '4s'}}>
+          <animate attributeName="r" values="18;28;18" dur="5s" repeatCount="indefinite"/>
+        </circle>
+        
+        {/* Dynamic activity indicators */}
+        <g className="animate-pulse">
+          {kindnessActivities.map((activity, index) => {
+            const intensity = ['high', 'medium', 'low'][index % 3];
+            const size = intensity === 'high' ? 8 : intensity === 'medium' ? 6 : 4;
+            const x = (activity.coordinates[0] + 180) * (800 / 360);
+            const y = (90 - activity.coordinates[1]) * (400 / 180);
+            
+            return (
+              <circle
+                key={activity.id}
+                cx={x}
+                cy={y}
+                r={size}
+                fill={activity.color}
+                className="animate-pulse cursor-pointer"
+                style={{
+                  animationDelay: `${index * 0.3}s`,
+                  filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.8))'
+                }}
+                onClick={() => setSelectedActivity(activity)}
+              >
+                <animate attributeName="r" values={`${size};${size + 3};${size}`} dur="2s" repeatCount="indefinite"/>
+              </circle>
+            );
+          })}
+        </g>
+      </svg>
       
-      {/* Map overlay with activity info */}
-      <div className="absolute top-4 left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4 max-w-xs">
-        <div className="flex items-center gap-2 mb-2">
-          <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-          <span className="font-semibold text-sm">Live Kindness Activity</span>
+      {/* Heat map legend */}
+      <div className="absolute bottom-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4 min-w-48">
+        <h4 className="font-semibold text-sm mb-3 text-gray-700 dark:text-gray-300">Kindness Activity Heat Map</h4>
+        <div className="space-y-2">
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-4 rounded-full bg-red-500"></div>
+            <span className="text-xs text-gray-600 dark:text-gray-400">High Activity (50+ acts)</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-4 rounded-full bg-orange-500"></div>
+            <span className="text-xs text-gray-600 dark:text-gray-400">Medium Activity (20-49 acts)</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-4 h-4 rounded-full bg-green-500"></div>
+            <span className="text-xs text-gray-600 dark:text-gray-400">Low Activity (1-19 acts)</span>
+          </div>
         </div>
-        <p className="text-xs text-muted-foreground">
-          {kindnessActivities.length} acts of kindness happening now around the world
-        </p>
+        <div className="mt-3 pt-2 border-t border-gray-200 dark:border-gray-600">
+          <p className="text-xs text-gray-500 dark:text-gray-500">
+            {kindnessActivities.length} active regions worldwide
+          </p>
+        </div>
+      </div>
+      
+      {/* Live activity counter */}
+      <div className="absolute top-4 left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4">
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+          <span className="font-semibold text-sm text-gray-700 dark:text-gray-300">Live Activity</span>
+        </div>
+        <div className="text-2xl font-bold text-red-500">247</div>
+        <p className="text-xs text-gray-500 dark:text-gray-500">acts in last hour</p>
+      </div>
+      
+      {/* Regional stats overlay */}
+      <div className="absolute top-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4 max-w-xs">
+        <h4 className="font-semibold text-sm mb-2 text-gray-700 dark:text-gray-300">Top Regions Today</h4>
+        <div className="space-y-1 text-xs">
+          <div className="flex justify-between">
+            <span className="text-gray-600 dark:text-gray-400">North America</span>
+            <span className="font-medium text-red-500">142 acts</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-gray-600 dark:text-gray-400">Europe</span>
+            <span className="font-medium text-orange-500">89 acts</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-gray-600 dark:text-gray-400">Asia</span>
+            <span className="font-medium text-red-500">156 acts</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-gray-600 dark:text-gray-400">Others</span>
+            <span className="font-medium text-green-500">67 acts</span>
+          </div>
+        </div>
       </div>
 
       {/* Selected activity popup */}
       {selectedActivity && (
-        <div className="absolute bottom-4 right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4 max-w-sm">
+        <div className="absolute bottom-4 left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-4 max-w-sm">
           <div className="flex items-start justify-between mb-2">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-muted-foreground" />
