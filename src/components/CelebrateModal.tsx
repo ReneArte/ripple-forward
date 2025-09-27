@@ -105,7 +105,7 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
           <div className="relative z-10 p-6">
             <div className="text-center mb-8">
               <h1 className="font-poppins font-bold text-4xl text-foreground mb-4">
-                Celebrate Someone's Kindness
+                Kind Report
               </h1>
               <p className="text-xl text-muted-foreground">
                 Share someone else's act of kindness and build their profile
@@ -122,32 +122,32 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
                 {/* Suggested Profiles Section */}
                 <div className="mb-8">
                   <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {[{
-                      name: 'Sarah M.',
-                      img: 33
-                    }, {
-                      name: 'John D.',
-                      img: 45
-                    }, {
-                      name: 'Maria L.',
-                      img: 26
-                    }, {
-                      name: 'Alex K.',
-                      img: 18
-                    }].map(person => (
-                      <button 
-                        key={person.name} 
-                        className="p-3 border-2 border-muted rounded-lg hover:border-hope-green hover:bg-hope-green/5 transition-colors text-center"
-                      >
-                        <div className="w-12 h-12 rounded-full overflow-hidden mx-auto mb-2">
-                          <img 
-                            src={`https://i.pravatar.cc/100?img=${person.img}`} 
-                            alt={person.name} 
-                            className="w-full h-full object-cover" 
-                          />
-                        </div>
-                        <span className="text-sm font-medium">{person.name}</span>
+                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                     {[{
+                       name: 'Sarah M.',
+                       img: 33
+                     }, {
+                       name: 'John D.',
+                       img: 45
+                     }, {
+                       name: 'Maria L.',
+                       img: 26
+                     }, {
+                       name: 'Alex K.',
+                       img: 18
+                     }].map(person => (
+                       <button 
+                         key={person.name} 
+                         className="w-24 h-24 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
+                       >
+                         <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
+                           <img 
+                             src={`https://i.pravatar.cc/150?img=${person.img}`} 
+                             alt={person.name} 
+                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                           />
+                         </div>
+                         <span className="text-xs font-medium group-hover:text-hope-green transition-colors duration-300 mt-1 leading-tight">{person.name}</span>
                       </button>
                     ))}
                   </div>
