@@ -3,7 +3,7 @@ import logoImage from '@/assets/itforward-logo-new.png';
 
 interface LogoProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero';
   animated?: boolean;
 }
 
@@ -13,6 +13,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', animated = fal
     md: 'w-28 h-28',
     lg: 'w-20 h-20',
     xl: 'w-26 h-26',
+    hero: 'w-40 h-40',
   };
 
   return (
