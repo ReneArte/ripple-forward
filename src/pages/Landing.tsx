@@ -25,14 +25,9 @@ const Landing: React.FC = () => {
       <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video 
-            className="absolute inset-0 w-full h-full object-cover" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            style={{ filter: 'brightness(0.8)' }}
-          >
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
+          filter: 'brightness(0.8)'
+        }}>
             <source src="/ocean-waves.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
@@ -174,13 +169,7 @@ const Landing: React.FC = () => {
       <section className="py-16 px-4 bg-white relative overflow-hidden">
         {/* Video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video 
-            className="absolute inset-0 w-full h-full object-cover" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-          >
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline>
             <source src="/biggest-wave-video.mp4" type="video/mp4" />
           </video>
           
@@ -310,9 +299,9 @@ const Landing: React.FC = () => {
       <PayItForward />
       
       {/* CTA Section */}
-      <section className="py-16 px-4 brand-gradient text-white relative overflow-hidden">
+      <section className="py-16 px-4 brand-gradient text-white relative overflow-hidden bg-blue-800">
         <WaterRipples intensity="medium" className="opacity-20" />
-        <div className="container mx-auto text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 bg-transparent">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
             Every act of kindness deserves to be celebrated
           </h2>
