@@ -13,12 +13,12 @@ const Profile: React.FC = () => {
         <div className="container mx-auto max-w-4xl">
           {/* Profile Header */}
           <div className="text-center mb-8">
-            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden profile-glow">
+            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden">
               <img src="https://i.pravatar.cc/300?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">Alex Sanchez</h1>
             <p className="text-xl text-muted-foreground mb-4">@alexjohnson</p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg max-w-2xl mx-auto text-gray-200">
               Community organizer spreading kindness one act at a time. Believer in the ripple effect of good deeds.
             </p>
           </div>
@@ -67,63 +67,55 @@ const Profile: React.FC = () => {
             
             {/* Acts of Kindness Grid */}
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {[
-                {
-                  id: 1,
-                  title: "Organized community food drive",
-                  description: "Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. They coordinated with local businesses and volunteers to make it happen.",
-                  image: "/src/assets/food-drive-community.png",
-                  kinds: 247,
-                  comments: 32,
-                  timeAgo: "2 days ago"
-                },
-                {
-                  id: 2,
-                  title: "Helped elderly neighbor with groceries",
-                  description: "Every week, Alex helps Mrs. Chen with her grocery shopping and carries her bags up three flights of stairs. A small act that makes a huge difference in her daily life.",
-                  image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop",
-                  kinds: 89,
-                  comments: 15,
-                  timeAgo: "5 days ago"
-                },
-                {
-                  id: 3,
-                  title: "Volunteered at local animal shelter",
-                  description: "Spent the entire Saturday helping at the animal shelter, walking dogs, cleaning kennels, and helping with adoption events. The animals needed extra love and care.",
-                  image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop",
-                  kinds: 156,
-                  comments: 28,
-                  timeAgo: "1 week ago"
-                },
-                {
-                  id: 4,
-                  title: "Donated birthday money to charity",
-                  description: "Instead of buying personal gifts, Alex asked friends and family to donate to a local homeless shelter. Raised over $500 for those in need during their birthday celebration.",
-                  image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop",
-                  kinds: 198,
-                  comments: 45,
-                  timeAgo: "2 weeks ago"
-                },
-                {
-                  id: 5,
-                  title: "Tutored kids at community center",
-                  description: "Volunteered as a tutor for underprivileged kids at the local community center, helping them with homework and building their confidence in learning.",
-                  image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=300&fit=crop",
-                  kinds: 134,
-                  comments: 22,
-                  timeAgo: "3 weeks ago"
-                },
-                {
-                  id: 6,
-                  title: "Planted trees in neighborhood park",
-                  description: "Organized a tree-planting event in the local park with community members. Planted 50 new trees to help improve air quality and create a greener environment for everyone.",
-                  image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
-                  kinds: 176,
-                  comments: 38,
-                  timeAgo: "1 month ago"
-                }
-              ].map(act => (
-                <Card key={act.id} className="soft-shadow border-0 overflow-hidden">
+              {[{
+              id: 1,
+              title: "Organized community food drive",
+              description: "Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. They coordinated with local businesses and volunteers to make it happen.",
+              image: "/src/assets/food-drive-community.png",
+              kinds: 247,
+              comments: 32,
+              timeAgo: "2 days ago"
+            }, {
+              id: 2,
+              title: "Helped elderly neighbor with groceries",
+              description: "Every week, Alex helps Mrs. Chen with her grocery shopping and carries her bags up three flights of stairs. A small act that makes a huge difference in her daily life.",
+              image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop",
+              kinds: 89,
+              comments: 15,
+              timeAgo: "5 days ago"
+            }, {
+              id: 3,
+              title: "Volunteered at local animal shelter",
+              description: "Spent the entire Saturday helping at the animal shelter, walking dogs, cleaning kennels, and helping with adoption events. The animals needed extra love and care.",
+              image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop",
+              kinds: 156,
+              comments: 28,
+              timeAgo: "1 week ago"
+            }, {
+              id: 4,
+              title: "Donated birthday money to charity",
+              description: "Instead of buying personal gifts, Alex asked friends and family to donate to a local homeless shelter. Raised over $500 for those in need during their birthday celebration.",
+              image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop",
+              kinds: 198,
+              comments: 45,
+              timeAgo: "2 weeks ago"
+            }, {
+              id: 5,
+              title: "Tutored kids at community center",
+              description: "Volunteered as a tutor for underprivileged kids at the local community center, helping them with homework and building their confidence in learning.",
+              image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=300&fit=crop",
+              kinds: 134,
+              comments: 22,
+              timeAgo: "3 weeks ago"
+            }, {
+              id: 6,
+              title: "Planted trees in neighborhood park",
+              description: "Organized a tree-planting event in the local park with community members. Planted 50 new trees to help improve air quality and create a greener environment for everyone.",
+              image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+              kinds: 176,
+              comments: 38,
+              timeAgo: "1 month ago"
+            }].map(act => <Card key={act.id} className="soft-shadow border-0 overflow-hidden">
                   <div className="aspect-video overflow-hidden">
                     <img src={act.image} alt={act.title} className="w-full h-full object-cover" />
                   </div>
@@ -161,8 +153,7 @@ const Profile: React.FC = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
