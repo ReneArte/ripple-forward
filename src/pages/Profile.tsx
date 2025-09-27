@@ -4,10 +4,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
 import WaterRipples from '@/components/WaterRipples';
 import { Camera, Heart, MessageCircle, Users, Award, ChevronDown } from 'lucide-react';
-
 const Profile: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <WaterRipples intensity="light" />
       <Header />
       
@@ -18,9 +16,7 @@ const Profile: React.FC = () => {
             <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden">
               <img src="https://i.pravatar.cc/300?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
             </div>
-            <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">
-              Alex Johnson
-            </h1>
+            <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">Alex Sanchez</h1>
             <p className="text-xl text-muted-foreground mb-4">@alexjohnson</p>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Community organizer spreading kindness one act at a time. Believer in the ripple effect of good deeds.
@@ -71,8 +67,7 @@ const Profile: React.FC = () => {
             
             {/* Polaroid-style photo grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {[1, 2, 3, 4, 5, 6].map((item) => (
-                <Card key={item} className="soft-shadow border-0 transform rotate-1 hover:rotate-0 transition-transform duration-300 bg-white">
+              {[1, 2, 3, 4, 5, 6].map(item => <Card key={item} className="soft-shadow border-0 transform rotate-1 hover:rotate-0 transition-transform duration-300 bg-white">
                   <div className="p-4 pb-2">
                     <div className="aspect-square bg-gradient-to-br from-hope-green to-ripple-teal rounded-lg mb-3 flex items-center justify-center">
                       <Camera className="w-12 h-12 text-white/70" />
@@ -91,8 +86,7 @@ const Profile: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
@@ -126,18 +120,24 @@ const Profile: React.FC = () => {
                 <div>
                   <p className="text-sm text-muted-foreground mb-4">Nominated</p>
                   <div className="flex justify-center gap-4">
-                    {[
-                      { initial: 'S', name: 'Sarah M.', img: 33 },
-                      { initial: 'J', name: 'John D.', img: 45 },
-                      { initial: 'K', name: 'Kate R.', img: 18 }
-                    ].map((person, index) => (
-                      <div key={index} className="text-center">
+                    {[{
+                    initial: 'S',
+                    name: 'Sarah M.',
+                    img: 33
+                  }, {
+                    initial: 'J',
+                    name: 'John D.',
+                    img: 45
+                  }, {
+                    initial: 'K',
+                    name: 'Kate R.',
+                    img: 18
+                  }].map((person, index) => <div key={index} className="text-center">
                         <div className="w-12 h-12 rounded-full overflow-hidden">
                           <img src={`https://i.pravatar.cc/100?img=${person.img}`} alt={person.name} className="w-full h-full object-cover" />
                         </div>
                         <p className="text-sm font-medium mt-2">{person.name}</p>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -145,8 +145,6 @@ const Profile: React.FC = () => {
           </Card>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Profile;
