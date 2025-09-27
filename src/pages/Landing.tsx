@@ -45,7 +45,7 @@ const Landing: React.FC = () => {
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
         
-        <div className="container mx-auto text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 pt-6">
           <Logo size="hero" animated className="mx-auto mb-8" />
           
           <h1 className="font-poppins font-bold text-5xl md:text-7xl text-white mb-4 leading-tight drop-shadow-lg">
