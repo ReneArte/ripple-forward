@@ -267,61 +267,61 @@ const Landing: React.FC = () => {
                   <div className="space-y-4">
                     {[{
                     name: "Maria Santos",
-                    action: "Built wheelchair ramps",
-                    amount: "$2,847",
-                    supporters: 47,
+                    action: "Provided clean water to 50,000 people",
+                    amount: "$284,700",
+                    supporters: 4700,
                     country: "🇲🇽",
                     location: "Mexico City"
                   }, {
                     name: "David Chen",
-                    action: "Free coding classes",
-                    amount: "$1,923",
-                    supporters: 31,
+                    action: "Built 200 schools across Southeast Asia",
+                    amount: "$1,923,000",
+                    supporters: 31000,
                     country: "🇸🇬",
                     location: "Singapore"
                   }, {
                     name: "Sarah Williams",
-                    action: "Community garden",
-                    amount: "$3,156",
-                    supporters: 62,
+                    action: "Reforested 10,000 acres of Amazon",
+                    amount: "$3,156,000",
+                    supporters: 62000,
                     country: "🇨🇦",
                     location: "Toronto"
                   }, {
                     name: "James Rodriguez",
-                    action: "Youth mentoring",
-                    amount: "$1,445",
-                    supporters: 28,
+                    action: "Fed 1 million refugees worldwide",
+                    amount: "$14,450,000",
+                    supporters: 128000,
                     country: "🇪🇸",
                     location: "Barcelona"
                   }, {
                     name: "Aisha Patel",
-                    action: "Clean water initiative",
-                    amount: "$4,231",
-                    supporters: 89,
+                    action: "Solar power for 500 villages",
+                    amount: "$4,231,000",
+                    supporters: 89000,
                     country: "🇮🇳",
                     location: "Mumbai"
                   }, {
                     name: "Erik Johansson",
-                    action: "Elderly care program",
-                    amount: "$2,156",
-                    supporters: 43,
+                    action: "Ocean plastic cleanup - 1M tons removed",
+                    amount: "$21,560,000",
+                    supporters: 243000,
                     country: "🇸🇪",
                     location: "Stockholm"
                   }, {
                     name: "Fatima Al-Zahra",
-                    action: "Refugee support center",
-                    amount: "$3,789",
-                    supporters: 76,
+                    action: "Emergency hospitals in 15 countries",
+                    amount: "$37,890,000",
+                    supporters: 376000,
                     country: "🇯🇴",
                     location: "Amman"
                   }, {
                     name: "Lucas Silva",
-                    action: "Beach cleanup project",
-                    amount: "$1,678",
-                    supporters: 34,
+                    action: "Coral reef restoration across 8 oceans",
+                    amount: "$16,780,000",
+                    supporters: 134000,
                     country: "🇧🇷",
                     location: "Rio de Janeiro"
-                  }].map((person, index) => <Link 
+                  }].map((person, index) => <Link
                         key={index} 
                         to={`/profile/${person.name.toLowerCase().replace(' ', '-')}`}
                         className="block group"
@@ -329,20 +329,20 @@ const Landing: React.FC = () => {
                         <div className="flex items-center justify-between p-3 rounded-lg bg-muted/30 hover:bg-muted/60 transition-all duration-200 cursor-pointer transform hover:scale-[1.02] hover:shadow-md">
                           <div className="flex items-center gap-3">
                             <div className="relative">
-                              <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
+                              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-transparent group-hover:ring-primary/30 transition-all duration-200">
                                 <img src={`https://i.pravatar.cc/100?img=${50 + index}`} alt={person.name} className="w-full h-full object-cover" />
                               </div>
-                              <div className="absolute -top-1 -right-1 text-sm">{person.country}</div>
+                              <div className="absolute -top-1 -right-1 text-lg bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-sm">{person.country}</div>
                             </div>
                             <div>
                               <p className="font-medium text-sm group-hover:text-primary transition-colors duration-200">{person.name}</p>
-                              <p className="text-xs text-muted-foreground">{person.action}</p>
+                              <p className="text-xs text-muted-foreground font-medium">{person.action}</p>
                               <p className="text-xs text-muted-foreground/80">{person.location}</p>
                             </div>
                           </div>
                           <div className="text-right">
                             <p className="font-semibold text-sm text-primary group-hover:text-primary/80 transition-colors duration-200">{person.amount}</p>
-                            <p className="text-xs text-muted-foreground">{person.supporters} supporters</p>
+                            <p className="text-xs text-muted-foreground">{person.supporters.toLocaleString()} supporters</p>
                           </div>
                         </div>
                       </Link>)}
