@@ -343,9 +343,13 @@ const Landing: React.FC = () => {
                   </div>
                   
                   <div className="mt-6 text-center">
-                    <Button variant="secondary" size="sm" asChild>
-                      <Link to="/support">Support Someone Today</Link>
-                    </Button>
+                    <CelebrateModal 
+                      trigger={
+                        <Button variant="secondary" size="sm">
+                          Support Someone Today
+                        </Button>
+                      } 
+                    />
                   </div>
                 </CardContent>
               </Card>
