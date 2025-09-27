@@ -122,7 +122,7 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
                 {/* Suggested Profiles Section */}
                 <div className="mb-8">
                   <h3 className="font-poppins font-semibold text-lg mb-4">Suggested Profiles</h3>
-                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                   <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                      {[{
                        name: 'Sarah M.',
                        img: 33
@@ -138,9 +138,9 @@ const CelebrateModal: React.FC<CelebrateModalProps> = ({ trigger }) => {
                      }].map(person => (
                        <button 
                          key={person.name} 
-                         className="w-24 h-24 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
+                         className="w-28 h-28 rounded-full border-2 border-muted hover:border-hope-green hover:bg-hope-green/5 transition-all duration-300 group hover-scale flex flex-col items-center justify-center p-2"
                        >
-                         <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
+                         <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-muted group-hover:ring-hope-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-hope-green/20">
                            <img 
                              src={`https://i.pravatar.cc/150?img=${person.img}`} 
                              alt={person.name} 
