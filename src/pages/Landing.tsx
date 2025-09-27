@@ -246,7 +246,7 @@ const Landing: React.FC = () => {
               </Card>
               
               <div className="text-center mt-6">
-                <Button variant="outline" className="border-hope-green text-hope-green hover:bg-hope-green hover:text-white" asChild>
+                <Button variant="outline" className="border-hope-green text-deep-navy font-bold hover:bg-hope-green hover:text-white" asChild>
                   <Link to="/splashes">
                     Explore More Splashes
                   </Link>
