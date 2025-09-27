@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import WaterRipples from '@/components/WaterRipples';
 import { Camera, Heart, MessageCircle, Users, Award, ChevronDown } from 'lucide-react';
 const Profile: React.FC = () => {
-  return <div className="min-h-screen bg-background">
+  return <div className="min-h-screen profile-gradient">
       <WaterRipples intensity="light" />
       <Header />
       
@@ -13,7 +13,7 @@ const Profile: React.FC = () => {
         <div className="container mx-auto max-w-4xl">
           {/* Profile Header */}
           <div className="text-center mb-8">
-            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden">
+            <div className="w-48 h-48 rounded-full mx-auto mb-6 shadow-2xl ring-8 ring-white dark:ring-gray-800 overflow-hidden profile-glow">
               <img src="https://i.pravatar.cc/300?img=12" alt="Alex Johnson" className="w-full h-full object-cover" />
             </div>
             <h1 className="font-poppins font-bold text-4xl text-foreground mb-2">Alex Sanchez</h1>

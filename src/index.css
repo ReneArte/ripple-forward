@@ -58,6 +58,8 @@
     --gradient-ripple: linear-gradient(135deg, hsl(var(--ripple-teal)), hsl(var(--ripple-teal-light)));
     --gradient-warm: linear-gradient(135deg, hsl(var(--peach-glow)), hsl(var(--peach-glow-light)));
     --gradient-hero: linear-gradient(135deg, hsl(var(--hope-green)), hsl(var(--ripple-teal)));
+    --gradient-profile-light: linear-gradient(to top, hsl(var(--primary)), hsl(var(--background)));
+    --gradient-profile-dark: linear-gradient(to top, hsl(220 70% 15%), hsl(220 50% 25%));
     
     /* Shadows */
     --shadow-soft: 0 4px 20px -4px hsl(var(--hope-green) / 0.1);
@@ -229,6 +231,46 @@
   
   .soft-shadow {
     box-shadow: var(--shadow-soft);
+  }
+
+  /* Profile Background Gradients */
+  .profile-gradient {
+    background: var(--gradient-profile-light);
+  }
+
+  .dark .profile-gradient {
+    background: var(--gradient-profile-dark);
+  }
+
+  /* Profile Photo Glow Effect */
+  .profile-glow {
+    box-shadow: 
+      0 0 30px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--primary) / 0.2),
+      0 0 100px hsl(var(--primary) / 0.1);
+    animation: profilePulse 3s ease-in-out infinite;
+  }
+
+  .dark .profile-glow {
+    box-shadow: 
+      0 0 30px hsl(217 91% 60% / 0.5),
+      0 0 60px hsl(217 91% 60% / 0.3),
+      0 0 100px hsl(217 91% 60% / 0.1);
+  }
+
+  @keyframes profilePulse {
+    0%, 100% {
+      box-shadow: 
+        0 0 30px hsl(var(--primary) / 0.4),
+        0 0 60px hsl(var(--primary) / 0.2),
+        0 0 100px hsl(var(--primary) / 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 0 40px hsl(var(--primary) / 0.6),
+        0 0 80px hsl(var(--primary) / 0.3),
+        0 0 120px hsl(var(--primary) / 0.15);
+    }
   }
 
   /* Tree and nature animations */
