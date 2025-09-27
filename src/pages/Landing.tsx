@@ -93,17 +93,17 @@ const Landing: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-stone-400 to-stone-600 
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 
                                flex items-center justify-center shadow-lg overflow-hidden
                                hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
                                  flex items-center justify-center group-hover:scale-110 transition-transform duration-300
                                  group-hover:bg-white">
-                    <Camera className="w-12 h-12 text-stone-700" />
+                    <Camera className="w-12 h-12 text-orange-700" />
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/10 to-stone-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-transparent"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-transparent"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
               <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story. <strong>Only YOU can build other people's profiles</strong> (except personal info like pictures).</p>
@@ -111,17 +111,17 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-400 to-blue-600 
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-green-400 to-yellow-500 
                                flex items-center justify-center shadow-lg overflow-hidden
                                hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
                                  flex items-center justify-center group-hover:scale-110 transition-transform duration-300
                                  group-hover:bg-white">
-                    <Trophy className="w-12 h-12 text-blue-700" />
+                    <Trophy className="w-12 h-12 text-green-700" />
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-600/10 
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-400/10 to-yellow-500/10 
                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Build Their Profile</h3>
@@ -130,17 +130,17 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-700 
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-green-500 to-blue-600 
                                flex items-center justify-center shadow-lg overflow-hidden
                                hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
                                  flex items-center justify-center group-hover:scale-110 transition-transform duration-300
                                  group-hover:bg-white">
-                    <Star className="w-12 h-12 text-blue-700" />
+                    <Star className="w-12 h-12 text-green-700" />
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/10 to-blue-700/10 
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/10 to-blue-600/10 
                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
@@ -149,7 +149,7 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-800 
                                flex items-center justify-center shadow-lg overflow-hidden
                                hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
@@ -159,7 +159,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/10 to-blue-600/10 
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/10 to-blue-800/10 
                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Watch It Ripple</h3>
@@ -363,7 +363,7 @@ const Landing: React.FC = () => {
       <PayItForward />
       
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-primary text-primary-foreground relative overflow-hidden">
+      <section className="py-16 px-4 bg-blue-600 text-white relative overflow-hidden">
         <WaterRipples intensity="medium" className="opacity-20" />
         <div className="container mx-auto text-center relative z-10 bg-transparent">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
