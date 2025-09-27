@@ -65,28 +65,104 @@ const Profile: React.FC = () => {
           <div className="mb-8">
             <h2 className="font-poppins font-bold text-2xl mb-6">Kindness Wall</h2>
             
-            {/* Polaroid-style photo grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {[1, 2, 3, 4, 5, 6].map(item => <Card key={item} className="soft-shadow border-0 transform rotate-1 hover:rotate-0 transition-transform duration-300 bg-white">
-                  <div className="p-4 pb-2">
-                    <div className="aspect-square bg-gradient-to-br from-hope-green to-ripple-teal rounded-lg mb-3 flex items-center justify-center">
-                      <Camera className="w-12 h-12 text-white/70" />
-                    </div>
-                    <p className="text-sm font-medium text-center mb-2">
-                      Organized community food drive
-                    </p>
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3 h-3" />
-                        <span>32</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MessageCircle className="w-3 h-3" />
-                        <span>8</span>
-                      </div>
-                    </div>
+            {/* Acts of Kindness Grid */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {[
+                {
+                  id: 1,
+                  title: "Organized community food drive",
+                  description: "Alex spent their weekend organizing a community food drive that provided meals for 200 families in need. They coordinated with local businesses and volunteers to make it happen.",
+                  image: "/src/assets/food-drive-community.png",
+                  kinds: 247,
+                  comments: 32,
+                  timeAgo: "2 days ago"
+                },
+                {
+                  id: 2,
+                  title: "Helped elderly neighbor with groceries",
+                  description: "Every week, Alex helps Mrs. Chen with her grocery shopping and carries her bags up three flights of stairs. A small act that makes a huge difference in her daily life.",
+                  image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop",
+                  kinds: 89,
+                  comments: 15,
+                  timeAgo: "5 days ago"
+                },
+                {
+                  id: 3,
+                  title: "Volunteered at local animal shelter",
+                  description: "Spent the entire Saturday helping at the animal shelter, walking dogs, cleaning kennels, and helping with adoption events. The animals needed extra love and care.",
+                  image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop",
+                  kinds: 156,
+                  comments: 28,
+                  timeAgo: "1 week ago"
+                },
+                {
+                  id: 4,
+                  title: "Donated birthday money to charity",
+                  description: "Instead of buying personal gifts, Alex asked friends and family to donate to a local homeless shelter. Raised over $500 for those in need during their birthday celebration.",
+                  image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400&h=300&fit=crop",
+                  kinds: 198,
+                  comments: 45,
+                  timeAgo: "2 weeks ago"
+                },
+                {
+                  id: 5,
+                  title: "Tutored kids at community center",
+                  description: "Volunteered as a tutor for underprivileged kids at the local community center, helping them with homework and building their confidence in learning.",
+                  image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=300&fit=crop",
+                  kinds: 134,
+                  comments: 22,
+                  timeAgo: "3 weeks ago"
+                },
+                {
+                  id: 6,
+                  title: "Planted trees in neighborhood park",
+                  description: "Organized a tree-planting event in the local park with community members. Planted 50 new trees to help improve air quality and create a greener environment for everyone.",
+                  image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+                  kinds: 176,
+                  comments: 38,
+                  timeAgo: "1 month ago"
+                }
+              ].map(act => (
+                <Card key={act.id} className="soft-shadow border-0 overflow-hidden">
+                  <div className="aspect-video overflow-hidden">
+                    <img src={act.image} alt={act.title} className="w-full h-full object-cover" />
                   </div>
-                </Card>)}
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 rounded-full overflow-hidden">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Alex Sanchez" className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="font-poppins font-medium text-sm">Alex Sanchez</h3>
+                        <p className="text-muted-foreground text-xs">@alexjohnson</p>
+                      </div>
+                    </div>
+                    
+                    <h4 className="font-poppins font-semibold text-lg mb-2">
+                      {act.title}
+                    </h4>
+                    <p className="text-muted-foreground text-sm mb-3">
+                      {act.description}
+                    </p>
+                    
+                    <div className="pt-3 border-t border-border">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Heart className="w-4 h-4" />
+                            <span className="text-sm font-medium">{act.kinds} kinds</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <MessageCircle className="w-4 h-4" />
+                            <span className="text-sm font-medium">{act.comments} comments</span>
+                          </div>
+                        </div>
+                        <span className="text-xs text-muted-foreground">{act.timeAgo}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
 
