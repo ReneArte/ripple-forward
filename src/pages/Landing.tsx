@@ -170,21 +170,31 @@ const Landing: React.FC = () => {
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 relative overflow-hidden">
-        {/* Animated wave background */}
-        <div className="absolute inset-0 opacity-30">
-          <svg
-            className="absolute bottom-0 left-0 w-full h-full"
-            viewBox="0 0 1200 400"
-            fill="none"
-            preserveAspectRatio="none"
+        {/* Realistic ocean wave video background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            className="absolute bottom-0 left-0 w-full h-full object-cover opacity-30"
+            autoPlay
+            loop
+            muted
+            playsInline
           >
-            <defs>
-              <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
-              <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
-            </defs>
-            <use href="#bgwave1" fill="hsl(220, 80%, 60%)" className="animate-[slowWave_30s_ease-in-out_infinite]" />
-            <use href="#bgwave2" fill="hsl(240, 70%, 50%)" className="animate-[slowWave_40s_ease-in-out_infinite_reverse]" />
-          </svg>
+            <source src="/ocean-waves.mp4" type="video/mp4" />
+            {/* Fallback to SVG waves if video doesn't load */}
+            <svg
+              className="absolute bottom-0 left-0 w-full h-full"
+              viewBox="0 0 1200 400"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <path id="bgwave1" d="M0,200 C200,150 400,250 600,200 C800,150 1000,200 1200,180 L1200,400 L0,400 Z" />
+                <path id="bgwave2" d="M0,250 C150,200 350,300 550,250 C750,200 950,250 1200,230 L1200,400 L0,400 Z" />
+              </defs>
+              <use href="#bgwave1" fill="hsl(220, 80%, 60%)" className="animate-[slowWave_30s_ease-in-out_infinite]" />
+              <use href="#bgwave2" fill="hsl(240, 70%, 50%)" className="animate-[slowWave_40s_ease-in-out_infinite_reverse]" />
+            </svg>
+          </video>
         </div>
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl text-center mb-4">
