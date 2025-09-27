@@ -25,36 +25,21 @@ const Landing: React.FC = () => {
       <section className="pt-24 pb-16 px-4 relative overflow-hidden">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3ClinearGradient id='ocean' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFA726'/%3E%3Cstop offset='100%25' stop-color='%233b82f6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23ocean)'/%3E%3C/svg%3E">
-            <source src="/ocean-waves.mp4" type="video/mp4" />
-            <source src="/ocean-waves.webm" type="video/webm" />
-            {/* Animated fallback for when video doesn't load */}
-            <div className="absolute inset-0 bg-gradient-to-b from-orange-300 via-blue-400 to-blue-600">
-              <div className="absolute inset-0 opacity-80">
-                <div className="absolute inset-0" style={{
-                background: `
-                      radial-gradient(ellipse 800px 400px at 50% 100%, rgba(96, 165, 250, 0.8) 0%, transparent 70%),
-                      radial-gradient(ellipse 600px 300px at 20% 80%, rgba(147, 197, 253, 0.6) 0%, transparent 60%),
-                      radial-gradient(ellipse 700px 350px at 80% 90%, rgba(59, 130, 246, 0.7) 0%, transparent 65%)
-                    `,
-                animation: 'oceanFlow 8s ease-in-out infinite'
-              }}></div>
-                <div className="absolute inset-0" style={{
-                background: `
-                      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.2) 40%, transparent 45%),
-                      linear-gradient(-45deg, transparent 60%, rgba(255, 255, 255, 0.15) 65%, rgba(255, 255, 255, 0.1) 70%, transparent 75%)
-                    `,
-                backgroundSize: '200% 200%, 150% 150%',
-                animation: 'waveShimmer 6s ease-in-out infinite, waveShimmer2 4s ease-in-out infinite reverse'
-              }}></div>
-              </div>
-            </div>
+          <video 
+            className="absolute inset-0 w-full h-full object-cover" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            style={{ filter: 'brightness(0.8)' }}
+          >
+            <source src="https://videos.pexels.com/video-files/1093662/1093662-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            {/* Fallback to a simple blue gradient if video fails */}
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-400 to-blue-600"></div>
           </video>
-          {/* Optional overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-        {/* Animated waves background */}
-        <AnimatedWavesBackground />
         
         <div className="container mx-auto text-center relative z-10">
           <Logo size="hero" animated className="mx-auto mb-8" />
