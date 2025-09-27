@@ -13,6 +13,7 @@ import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import foodDriveImage from '@/assets/food-drive-community.png';
 import heroWaves from '@/assets/hero-waves.png';
+import oceanBackground from '@/assets/ocean-background.jpg';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -22,7 +23,12 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section - Ocean Video Background */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{
+        backgroundImage: `url(${oceanBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
           <video 
@@ -37,7 +43,7 @@ const Landing: React.FC = () => {
               e.currentTarget.style.display = 'none';
             }}
           >
-            <source src="https://videos.pexels.com/video-files/1093662/1093662-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+            <source src="/ocean-waves.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30"></div>
