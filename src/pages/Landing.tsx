@@ -299,7 +299,7 @@ const Landing: React.FC = () => {
       <PayItForward />
       
       {/* CTA Section */}
-      <section className="py-16 px-4 brand-gradient text-white relative overflow-hidden bg-blue-800">
+      <section className="py-16 px-4 bg-primary text-primary-foreground relative overflow-hidden">
         <WaterRipples intensity="medium" className="opacity-20" />
         <div className="container mx-auto text-center relative z-10 bg-transparent">
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
