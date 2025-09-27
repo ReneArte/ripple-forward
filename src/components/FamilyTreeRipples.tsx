@@ -58,23 +58,23 @@ const FamilyTreeRipples: React.FC = () => {
     }
   };
 
-  // Map people to tree positions
+  // Map people to vertical tree positions
   const treePositions: TreePerson[] = [
-    { ...familyTree[0], x: 400, y: 80 },   // Nominator (top)
-    { ...familyTree[1], x: 400, y: 180 },  // You (center)
-    { ...familyTree[2], x: 280, y: 280 },  // Friend 1 (left)
-    { ...familyTree[3], x: 400, y: 280 },  // Friend 2 (center)
-    { ...familyTree[4], x: 520, y: 280 },  // Friend 3 (right)
-    // Level 3 connections
-    { ...familyTree[5], x: 220, y: 350 },  // F1C1
-    { ...familyTree[6], x: 280, y: 350 },  // F1C2
-    { ...familyTree[7], x: 340, y: 350 },  // F1C3
-    { ...familyTree[8], x: 380, y: 350 },  // F2C1
-    { ...familyTree[9], x: 420, y: 350 },  // F2C2
-    { ...familyTree[10], x: 460, y: 350 }, // F2C3
-    { ...familyTree[11], x: 500, y: 350 }, // F3C1
-    { ...familyTree[12], x: 540, y: 350 }, // F3C2
-    { ...familyTree[13], x: 580, y: 350 }, // F3C3
+    { ...familyTree[0], x: 400, y: 120 },   // Nominator (top of tree)
+    { ...familyTree[1], x: 400, y: 280 },   // You (trunk middle)
+    { ...familyTree[2], x: 280, y: 380 },   // Friend 1 (left branch)
+    { ...familyTree[3], x: 400, y: 380 },   // Friend 2 (center)
+    { ...familyTree[4], x: 520, y: 380 },   // Friend 3 (right branch)
+    // Level 3 connections (outer branches)
+    { ...familyTree[5], x: 220, y: 480 },   // F1C1 (far left)
+    { ...familyTree[6], x: 260, y: 480 },   // F1C2 (left)
+    { ...familyTree[7], x: 300, y: 480 },   // F1C3 (left-center)
+    { ...familyTree[8], x: 360, y: 480 },   // F2C1 (center-left)
+    { ...familyTree[9], x: 400, y: 480 },   // F2C2 (center)
+    { ...familyTree[10], x: 440, y: 480 },  // F2C3 (center-right)
+    { ...familyTree[11], x: 500, y: 480 },  // F3C1 (right-center)
+    { ...familyTree[12], x: 540, y: 480 },  // F3C2 (right)
+    { ...familyTree[13], x: 580, y: 480 },  // F3C3 (far right)
   ];
 
   return (

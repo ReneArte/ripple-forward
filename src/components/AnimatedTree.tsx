@@ -58,9 +58,9 @@ const AnimatedTree: React.FC<AnimatedTreeProps> = ({ people, selectedPerson, onP
   };
 
   return (
-    <div className="relative w-full h-96 bg-gradient-to-b from-sky-100 via-green-50 to-green-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 rounded-lg overflow-hidden">
+    <div className="relative w-full h-[600px] bg-gradient-to-b from-sky-200 via-sky-100 to-green-200 dark:from-slate-900 dark:via-slate-800 dark:to-green-900 rounded-lg overflow-hidden">
       {/* Realistic Tree SVG */}
-      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 400">
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 600">
         <defs>
           {/* Tree trunk gradient */}
           <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -97,27 +97,64 @@ const AnimatedTree: React.FC<AnimatedTreeProps> = ({ people, selectedPerson, onP
           </radialGradient>
         </defs>
         
-        {/* Main trunk */}
+        {/* Realistic vertical tree trunk */}
         <path
-          d="M400,400 Q398,350 400,300 Q402,250 400,200"
+          d="M400,600 Q398,550 400,500 Q402,450 400,400 Q398,350 400,300 Q402,250 400,200 Q398,150 400,100"
           stroke="url(#trunkGradient)"
-          strokeWidth="12"
+          strokeWidth="20"
           fill="none"
           strokeLinecap="round"
-          className="animate-[drawTrunk_2s_ease-out]"
+          className="animate-[drawTrunk_3s_ease-out]"
         />
         
-        {/* Root system */}
+        {/* Thick lower trunk base */}
+        <path
+          d="M400,600 Q395,580 400,560 Q405,540 400,520"
+          stroke="url(#trunkGradient)"
+          strokeWidth="25"
+          fill="none"
+          strokeLinecap="round"
+          className="animate-[drawTrunk_3s_ease-out]"
+        />
+
+        {/* Root system spreading underground */}
         <g className="animate-[fade-in_1s_ease-out]" style={{ animationDelay: '0.5s' }}>
-          <path d="M400,400 Q380,410 360,415" stroke="url(#branchGradient)" strokeWidth="4" fill="none" opacity="0.6" />
-          <path d="M400,400 Q420,410 440,415" stroke="url(#branchGradient)" strokeWidth="4" fill="none" opacity="0.6" />
-          <path d="M400,400 Q390,420 370,430" stroke="url(#branchGradient)" strokeWidth="3" fill="none" opacity="0.4" />
-          <path d="M400,400 Q410,420 430,430" stroke="url(#branchGradient)" strokeWidth="3" fill="none" opacity="0.4" />
+          <path d="M400,600 Q360,610 320,620" stroke="url(#branchGradient)" strokeWidth="6" fill="none" opacity="0.7" />
+          <path d="M400,600 Q440,610 480,620" stroke="url(#branchGradient)" strokeWidth="6" fill="none" opacity="0.7" />
+          <path d="M400,600 Q350,620 300,635" stroke="url(#branchGradient)" strokeWidth="4" fill="none" opacity="0.5" />
+          <path d="M400,600 Q450,620 500,635" stroke="url(#branchGradient)" strokeWidth="4" fill="none" opacity="0.5" />
         </g>
 
-        {/* Dynamic branches for each person */}
+        {/* Major branches at different levels */}
+        <g className="animate-[fade-in_1s_ease-out]" style={{ animationDelay: '1.5s' }}>
+          {/* Level 1 branches (nominator area) */}
+          <path d="M400,150 Q350,120 320,100" stroke="url(#branchGradient)" strokeWidth="10" fill="none" strokeLinecap="round" />
+          <path d="M400,150 Q450,120 480,100" stroke="url(#branchGradient)" strokeWidth="10" fill="none" strokeLinecap="round" />
+          
+          {/* Level 2 branches (your level) */}
+          <path d="M400,250 Q340,220 280,200" stroke="url(#branchGradient)" strokeWidth="12" fill="none" strokeLinecap="round" />
+          <path d="M400,250 Q460,220 520,200" stroke="url(#branchGradient)" strokeWidth="12" fill="none" strokeLinecap="round" />
+          <path d="M400,250 Q380,220 360,190" stroke="url(#branchGradient)" strokeWidth="8" fill="none" strokeLinecap="round" />
+          <path d="M400,250 Q420,220 440,190" stroke="url(#branchGradient)" strokeWidth="8" fill="none" strokeLinecap="round" />
+          
+          {/* Level 3 branches (friends level) */}
+          <path d="M400,350 Q320,320 250,300" stroke="url(#branchGradient)" strokeWidth="14" fill="none" strokeLinecap="round" />
+          <path d="M400,350 Q480,320 550,300" stroke="url(#branchGradient)" strokeWidth="14" fill="none" strokeLinecap="round" />
+          <path d="M400,350 Q360,330 320,310" stroke="url(#branchGradient)" strokeWidth="10" fill="none" strokeLinecap="round" />
+          <path d="M400,350 Q440,330 480,310" stroke="url(#branchGradient)" strokeWidth="10" fill="none" strokeLinecap="round" />
+          
+          {/* Level 4 branches (extended network) */}
+          <path d="M400,450 Q300,420 200,400" stroke="url(#branchGradient)" strokeWidth="16" fill="none" strokeLinecap="round" />
+          <path d="M400,450 Q500,420 600,400" stroke="url(#branchGradient)" strokeWidth="16" fill="none" strokeLinecap="round" />
+          <path d="M400,450 Q340,430 280,410" stroke="url(#branchGradient)" strokeWidth="12" fill="none" strokeLinecap="round" />
+          <path d="M400,450 Q460,430 520,410" stroke="url(#branchGradient)" strokeWidth="12" fill="none" strokeLinecap="round" />
+          <path d="M400,450 Q380,440 360,430" stroke="url(#branchGradient)" strokeWidth="8" fill="none" strokeLinecap="round" />
+          <path d="M400,450 Q420,440 440,430" stroke="url(#branchGradient)" strokeWidth="8" fill="none" strokeLinecap="round" />
+        </g>
+
+        {/* Dynamic person-specific branches */}
         {people.map((person, index) => {
-          if (person.level === 0) return null; // Skip nominator connections
+          if (person.level === 0) return null;
           
           const parent = people.find(p => 
             (person.level === 1 && p.level === 0) || 
@@ -129,82 +166,61 @@ const AnimatedTree: React.FC<AnimatedTreeProps> = ({ people, selectedPerson, onP
           
           const branchId = `branch-${person.id}`;
           const isHovered = hoveredBranch === branchId;
-          const strokeWidth = person.level === 1 ? 8 : person.level === 2 ? 6 : 4;
+          const strokeWidth = person.level === 1 ? 6 : person.level === 2 ? 8 : 10;
           
           return (
             <g key={branchId}>
-              {/* Main branch */}
               <path
                 d={getBranchPath(person, parent)}
                 stroke={isHovered ? "url(#illuminatedBranch)" : "url(#branchGradient)"}
-                strokeWidth={isHovered ? strokeWidth + 2 : strokeWidth}
+                strokeWidth={isHovered ? strokeWidth + 3 : strokeWidth}
                 fill="none"
                 strokeLinecap="round"
-                className="animate-[drawBranch_1.5s_ease-out] transition-all duration-300 cursor-pointer"
+                className="animate-[drawBranch_2s_ease-out] transition-all duration-300 cursor-pointer"
                 style={{ 
-                  animationDelay: `${index * 0.3 + 1.5}s`,
-                  filter: isHovered ? 'drop-shadow(0 0 8px #FFD700)' : 'none'
+                  animationDelay: `${index * 0.4 + 2}s`,
+                  filter: isHovered ? 'drop-shadow(0 0 10px #FFD700)' : 'none'
                 }}
                 onMouseEnter={() => setHoveredBranch(branchId)}
                 onMouseLeave={() => setHoveredBranch(null)}
               />
-              
-              {/* Small sub-branches */}
-              <g className="animate-[fade-in_0.5s_ease-out]" style={{ animationDelay: `${index * 0.3 + 2}s` }}>
-                <path 
-                  d={`M${person.x-10},${person.y-5} L${person.x-5},${person.y-10}`} 
-                  stroke={isHovered ? "url(#illuminatedBranch)" : "url(#branchGradient)"} 
-                  strokeWidth="2" 
-                  fill="none"
-                  className="transition-all duration-300"
-                />
-                <path 
-                  d={`M${person.x+10},${person.y-5} L${person.x+5},${person.y-10}`} 
-                  stroke={isHovered ? "url(#illuminatedBranch)" : "url(#branchGradient)"} 
-                  strokeWidth="2" 
-                  fill="none"
-                  className="transition-all duration-300"
-                />
-              </g>
-              
-              {/* Leaves clusters along branches */}
-              <g className="animate-[fade-in_0.8s_ease-out]" style={{ animationDelay: `${index * 0.3 + 2.5}s` }}>
-                <circle 
-                  cx={person.x - 15} 
-                  cy={person.y - 15} 
-                  r="8" 
-                  fill={isHovered ? "url(#glowingLeaves)" : "url(#leavesGradient)"} 
-                  className="animate-[gentle-sway_3s_ease-in-out_infinite] transition-all duration-300" 
-                  style={{ 
-                    animationDelay: `${index * 0.2}s`,
-                    filter: isHovered ? 'drop-shadow(0 0 6px #7FFF00)' : 'none'
-                  }}
-                />
-                <circle 
-                  cx={person.x + 15} 
-                  cy={person.y - 15} 
-                  r="6" 
-                  fill={isHovered ? "url(#glowingLeaves)" : "url(#leavesGradient)"} 
-                  className="animate-[gentle-sway_3s_ease-in-out_infinite] transition-all duration-300" 
-                  style={{ 
-                    animationDelay: `${index * 0.2 + 0.5}s`,
-                    filter: isHovered ? 'drop-shadow(0 0 6px #7FFF00)' : 'none'
-                  }}
-                />
-              </g>
             </g>
           );
         })}
         
-        {/* Crown leaves */}
-        <g className="animate-[fade-in_1s_ease-out]" style={{ animationDelay: '3s' }}>
-          <circle cx="380" cy="120" r="25" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" />
-          <circle cx="420" cy="115" r="28" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '0.5s' }} />
-          <circle cx="400" cy="95" r="22" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '1s' }} />
-          <circle cx="360" cy="140" r="20" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '1.5s' }} />
-          <circle cx="440" cy="135" r="24" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '2s' }} />
+        {/* Realistic foliage canopy */}
+        <g className="animate-[fade-in_1.5s_ease-out]" style={{ animationDelay: '3s' }}>
+          {/* Top canopy */}
+          <circle cx="400" cy="80" r="35" fill="url(#leavesGradient)" className="animate-[gentle-sway_5s_ease-in-out_infinite]" />
+          <circle cx="360" cy="95" r="30" fill="url(#leavesGradient)" className="animate-[gentle-sway_5s_ease-in-out_infinite]" style={{ animationDelay: '0.5s' }} />
+          <circle cx="440" cy="95" r="30" fill="url(#leavesGradient)" className="animate-[gentle-sway_5s_ease-in-out_infinite]" style={{ animationDelay: '1s' }} />
+          <circle cx="330" cy="115" r="25" fill="url(#leavesGradient)" className="animate-[gentle-sway_5s_ease-in-out_infinite]" style={{ animationDelay: '1.5s' }} />
+          <circle cx="470" cy="115" r="25" fill="url(#leavesGradient)" className="animate-[gentle-sway_5s_ease-in-out_infinite]" style={{ animationDelay: '2s' }} />
+          
+          {/* Mid-level foliage */}
+          <circle cx="320" cy="140" r="28" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" />
+          <circle cx="480" cy="140" r="28" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '0.7s' }} />
+          <circle cx="280" cy="170" r="22" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '1.2s' }} />
+          <circle cx="520" cy="170" r="22" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '1.8s' }} />
+          
+          {/* Lower branches foliage */}
+          <circle cx="250" cy="220" r="32" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '0.3s' }} />
+          <circle cx="550" cy="220" r="32" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '1.5s' }} />
+          <circle cx="320" cy="250" r="25" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '2.2s' }} />
+          <circle cx="480" cy="250" r="25" fill="url(#leavesGradient)" className="animate-[gentle-sway_4s_ease-in-out_infinite]" style={{ animationDelay: '0.8s' }} />
+          
+          {/* Dense lower foliage */}
+          <circle cx="200" cy="320" r="35" fill="url(#leavesGradient)" className="animate-[gentle-sway_3s_ease-in-out_infinite]" />
+          <circle cx="600" cy="320" r="35" fill="url(#leavesGradient)" className="animate-[gentle-sway_3s_ease-in-out_infinite]" style={{ animationDelay: '1s' }} />
+          <circle cx="280" cy="350" r="28" fill="url(#leavesGradient)" className="animate-[gentle-sway_3s_ease-in-out_infinite]" style={{ animationDelay: '1.7s' }} />
+          <circle cx="520" cy="350" r="28" fill="url(#leavesGradient)" className="animate-[gentle-sway_3s_ease-in-out_infinite]" style={{ animationDelay: '0.4s' }} />
         </g>
       </svg>
+      
+      {/* Ground level with grass */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-green-300 to-transparent dark:from-green-800 dark:to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-green-400 to-green-300 dark:from-green-900 dark:to-green-800"></div>
+      </div>
       
       {/* People nodes */}
       {people.map((person, index) => (
@@ -216,9 +232,9 @@ const AnimatedTree: React.FC<AnimatedTreeProps> = ({ people, selectedPerson, onP
                      ${hoveredBranch === `branch-${person.id}` ? 'scale-110 brightness-110' : ''}`}
           style={{
             left: `${(person.x / 800) * 100}%`,
-            top: `${(person.y / 400) * 100}%`,
-            transitionDelay: `${index * 0.2 + 3.5}s`,
-            filter: hoveredBranch === `branch-${person.id}` ? 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))' : 'none'
+            top: `${(person.y / 600) * 100}%`,
+            transitionDelay: `${index * 0.2 + 4}s`,
+            filter: hoveredBranch === `branch-${person.id}` ? 'drop-shadow(0 0 12px rgba(255, 215, 0, 0.9))' : 'none'
           }}
           onClick={() => onPersonSelect(person)}
           onMouseEnter={() => setHoveredBranch(`branch-${person.id}`)}
