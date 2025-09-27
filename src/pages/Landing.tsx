@@ -22,7 +22,7 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section - Ocean Video Background */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden">
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
           <video 
@@ -32,10 +32,12 @@ const Landing: React.FC = () => {
             muted 
             playsInline
             style={{ filter: 'brightness(0.8)' }}
+            onError={(e) => {
+              console.log('Video failed to load:', e);
+              e.currentTarget.style.display = 'none';
+            }}
           >
             <source src="https://videos.pexels.com/video-files/1093662/1093662-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-            {/* Fallback to a simple blue gradient if video fails */}
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-400 to-blue-600"></div>
           </video>
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30"></div>
