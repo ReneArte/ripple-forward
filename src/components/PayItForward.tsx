@@ -43,7 +43,7 @@ const PayItForward: React.FC = () => {
                   {option.icon}
                 </div>
                 <h3 className="font-poppins font-semibold text-lg mb-2">{option.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{option.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">Amazon, Starbucks, etc</p>
                 <Button variant="outline" className="w-full hover:bg-primary/5" onClick={() => {
               alert(`Connecting to ${option.name}...`);
             }}>
