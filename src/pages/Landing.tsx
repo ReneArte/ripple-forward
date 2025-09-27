@@ -24,9 +24,10 @@ const Landing: React.FC = () => {
       {/* Hero Section - Wave Background */}
       <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{
         backgroundImage: `url(${heroWaves})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundSize: 'contain',
+        backgroundPosition: 'center bottom',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#FFA726'
       }}>
         {/* Animated waves background */}
         <AnimatedWavesBackground />
