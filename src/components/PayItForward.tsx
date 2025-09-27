@@ -24,7 +24,7 @@ const PayItForward: React.FC = () => {
     color: 'from-blue-600 to-indigo-600',
     description: 'Secure payments'
   }];
-  return <section className="py-16 px-4 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950 dark:to-orange-950">
+  return <section className="py-16 px-4 bg-muted">
       <div className="container mx-auto">
         <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-6">
           Pay It Forward
@@ -54,9 +54,9 @@ const PayItForward: React.FC = () => {
         </div>
         
         <div className="text-center">
-          <Card className="brand-gradient text-white border-0 max-w-2xl mx-auto">
-            <CardContent className="p-8 bg-orange-500">
-              <Heart className="w-12 h-12 text-white/80 mx-auto mb-4" />
+          <Card className="border-0 max-w-2xl mx-auto bg-primary text-primary-foreground">
+            <CardContent className="p-8">
+              <Heart className="w-12 h-12 text-primary-foreground/80 mx-auto mb-4" />
               <h3 className="font-poppins font-bold text-2xl mb-4">
                 Every Kind Act Deserves Recognition
               </h3>
@@ -64,7 +64,7 @@ const PayItForward: React.FC = () => {
                 When you support someone's kindness, you're not just helping them – 
                 you're encouraging more acts of good in your community.
               </p>
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-medium" onClick={() => {
+              <Button size="lg" className="bg-card text-card-foreground hover:bg-card/90 px-8 py-4 text-lg font-medium" onClick={() => {
               alert('Exploring featured acts of kindness...');
             }}>
                 Explore Featured Acts

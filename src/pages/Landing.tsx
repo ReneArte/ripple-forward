@@ -84,7 +84,7 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 bg-gradient-to-br from-background via-card to-muted relative bg-zinc-950">
+      <section className="py-16 px-4 bg-card relative">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
@@ -130,17 +130,17 @@ const Landing: React.FC = () => {
             
             <div className="text-center gentle-hover transform hover:scale-105 transition-all duration-300 relative">
               <div className="relative mb-6 group">
-                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-orange-400 to-orange-600 
+                <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-700 
                                flex items-center justify-center shadow-lg overflow-hidden
                                hover:shadow-xl transition-all duration-300">
                   <div className="w-24 h-24 rounded-full bg-white/90 backdrop-blur-sm 
                                  flex items-center justify-center group-hover:scale-110 transition-transform duration-300
                                  group-hover:bg-white">
-                    <Star className="w-12 h-12 text-orange-600" />
+                    <Star className="w-12 h-12 text-blue-700" />
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400/10 to-orange-600/10 
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/10 to-blue-700/10 
                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Earn Rewards</h3>
@@ -173,7 +173,7 @@ const Landing: React.FC = () => {
       <VisualExplanation />
       
       {/* The Biggest Wave Section */}
-      <section className="py-16 px-4 bg-white relative overflow-hidden">
+      <section className="py-16 px-4 bg-card relative overflow-hidden">
         {/* Video background */}
         <div className="absolute inset-0 overflow-hidden">
           <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline>
@@ -326,7 +326,7 @@ const Landing: React.FC = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Start building someone's kindness profile today. Share their story, capture their moment, and watch the ripples of positivity spread through your community.
           </p>
-          <Button size="lg" className="bg-white text-hope-green hover:bg-white/90 px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
+          <Button size="lg" className="bg-card text-card-foreground hover:bg-card/90 px-8 py-4 text-lg font-medium gentle-hover transform hover:scale-105 transition-all duration-300" asChild>
             <Link to="/create">
               Celebrate Someone Today
               <Award className="ml-2 w-5 h-5" />
@@ -339,7 +339,7 @@ const Landing: React.FC = () => {
       <SplashCarousel isOpen={showCarousel} onClose={() => setShowCarousel(false)} />
       
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border bg-slate-50">
+      <footer className="py-8 px-4 border-t border-border bg-card">
         <div className="container mx-auto text-center text-muted-foreground">
           <p>&copy; 2024 ItForward. Spreading kindness, one ripple at a time.</p>
         </div>
