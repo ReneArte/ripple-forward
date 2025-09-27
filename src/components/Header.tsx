@@ -15,14 +15,14 @@ const Header: React.FC = () => {
         </Link>
         
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/splashes" className="text-muted-foreground hover:text-foreground transition-colors">
-            Explore Splashes
+          <Link to="/profile" className="text-muted-foreground hover:text-orange-500 dark:hover:text-blue-400 transition-all duration-200 hover:text-lg hover:font-medium">
+            My Profile
           </Link>
-          <Link to="/my-ripples" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/my-ripples" className="text-muted-foreground hover:text-orange-500 dark:hover:text-blue-400 transition-all duration-200 hover:text-lg hover:font-medium">
             My Ripples
           </Link>
-          <Link to="/profile" className="text-muted-foreground hover:text-foreground transition-colors">
-            Profile
+          <Link to="/splashes" className="text-muted-foreground hover:text-orange-500 dark:hover:text-blue-400 transition-all duration-200 hover:text-lg hover:font-medium">
+            World Splashers
           </Link>
         </nav>
         
