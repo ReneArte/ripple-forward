@@ -12,6 +12,7 @@ import VisualExplanation from '@/components/VisualExplanation';
 import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import foodDriveImage from '@/assets/food-drive-community.png';
+import heroWaves from '@/assets/hero-waves.png';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -20,8 +21,13 @@ const Landing: React.FC = () => {
       <WaterRipples intensity="light" />
       <Header />
       
-      {/* Hero Section - Headspace Style */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 dark:from-indigo-900 dark:via-blue-900 dark:to-blue-800">
+      {/* Hero Section - Wave Background */}
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{
+        backgroundImage: `url(${heroWaves})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
         {/* Animated waves background */}
         <AnimatedWavesBackground />
         
