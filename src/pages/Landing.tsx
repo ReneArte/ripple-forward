@@ -90,7 +90,7 @@ const Landing: React.FC = () => {
       <RockSplash trigger={showSplash} onComplete={() => setShowSplash(false)} />
       
       {/* How It Works */}
-      <section className="py-16 px-4 bg-black relative">
+      <section className="py-16 px-4 bg-card dark:bg-black relative">
         <div className="container mx-auto relative z-10">
           <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-center mb-12">
             How It Works
