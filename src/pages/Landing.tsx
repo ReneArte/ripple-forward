@@ -170,30 +170,60 @@ const Landing: React.FC = () => {
       
       {/* The Biggest Wave Section */}
       <section className="py-16 px-4 bg-white relative overflow-hidden">
-        {/* Animated blue gradient wave background */}
+        {/* Realistic ocean wave background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 opacity-20"></div>
-          <div 
-            className="absolute inset-0 opacity-30"
-            style={{
-              background: `
-                linear-gradient(60deg, transparent 30%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.3) 60%, transparent 60%),
-                linear-gradient(120deg, transparent 20%, rgba(37, 99, 235, 0.4) 20%, rgba(37, 99, 235, 0.4) 80%, transparent 80%),
-                linear-gradient(45deg, rgba(96, 165, 250, 0.2) 0%, rgba(59, 130, 246, 0.2) 50%, rgba(37, 99, 235, 0.2) 100%)
-              `,
-              backgroundSize: '200% 100%, 300% 100%, 100% 100%',
-              animation: 'waveMove 15s ease-in-out infinite, waveMove2 20s ease-in-out infinite reverse'
-            }}
-          ></div>
+          {/* Ocean base */}
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-400 via-blue-500 to-blue-700"></div>
+          
+          {/* Wave layers */}
+          <div className="absolute inset-0">
+            <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="wave1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(59, 130, 246, 0.8)" />
+                  <stop offset="100%" stopColor="rgba(29, 78, 216, 0.9)" />
+                </linearGradient>
+                <linearGradient id="wave2" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(96, 165, 250, 0.6)" />
+                  <stop offset="100%" stopColor="rgba(59, 130, 246, 0.7)" />
+                </linearGradient>
+                <linearGradient id="wave3" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(147, 197, 253, 0.4)" />
+                  <stop offset="100%" stopColor="rgba(96, 165, 250, 0.5)" />
+                </linearGradient>
+              </defs>
+              
+              {/* Back wave */}
+              <path 
+                d="M0,600 C300,550 600,650 900,600 C1050,575 1200,600 1200,600 L1200,800 L0,800 Z" 
+                fill="url(#wave1)"
+                className="animate-[oceanWave1_8s_ease-in-out_infinite]"
+              />
+              
+              {/* Middle wave */}
+              <path 
+                d="M0,650 C200,600 400,700 600,650 C800,600 1000,650 1200,630 L1200,800 L0,800 Z" 
+                fill="url(#wave2)"
+                className="animate-[oceanWave2_6s_ease-in-out_infinite]"
+              />
+              
+              {/* Front wave */}
+              <path 
+                d="M0,700 C150,650 350,750 500,700 C750,650 900,700 1200,680 L1200,800 L0,800 Z" 
+                fill="url(#wave3)"
+                className="animate-[oceanWave3_4s_ease-in-out_infinite]"
+              />
+            </svg>
+          </div>
+          
+          {/* Wave foam effect */}
           <div 
             className="absolute inset-0 opacity-20"
             style={{
-              background: `
-                radial-gradient(ellipse at center bottom, rgba(147, 197, 253, 0.4) 0%, transparent 70%),
-                linear-gradient(180deg, transparent 60%, rgba(59, 130, 246, 0.2) 100%)
-              `,
-              backgroundSize: '100% 300%, 100% 100%',
-              animation: 'waveRise 25s ease-in-out infinite'
+              background: `radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                          radial-gradient(ellipse at 60% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                          radial-gradient(ellipse at 90% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%)`,
+              animation: 'foam 10s ease-in-out infinite'
             }}
           ></div>
         </div>
