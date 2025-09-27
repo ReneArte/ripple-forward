@@ -13,7 +13,6 @@ import PayItForward from '@/components/PayItForward';
 import SplashCarousel from '@/components/SplashCarousel';
 import foodDriveImage from '@/assets/food-drive-community.png';
 import heroWaves from '@/assets/hero-waves.png';
-import oceanBackground from '@/assets/ocean-background.jpg';
 import { ArrowRight, Heart, Users, Award, Camera, Star, Trophy, Share2 } from 'lucide-react';
 const Landing: React.FC = () => {
   const [showSplash, setShowSplash] = useState(false);
@@ -23,26 +22,15 @@ const Landing: React.FC = () => {
       <Header />
       
       {/* Hero Section - Ocean Video Background */}
-      <section className="pt-24 pb-16 px-4 relative overflow-hidden" style={{
-        backgroundImage: `url(${oceanBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}>
+      <section className="pt-24 pb-16 px-4 relative overflow-hidden bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600">
         {/* Ocean waves video background */}
         <div className="absolute inset-0 overflow-hidden">
-          <video 
-            className="absolute inset-0 w-full h-full object-cover" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            style={{ filter: 'brightness(0.8)' }}
-            onError={(e) => {
-              console.log('Video failed to load:', e);
-              e.currentTarget.style.display = 'none';
-            }}
-          >
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline style={{
+          filter: 'brightness(0.8)'
+        }} onError={e => {
+          console.log('Video failed to load:', e);
+          e.currentTarget.style.display = 'none';
+        }}>
             <source src="/ocean-waves.mp4" type="video/mp4" />
           </video>
           {/* Overlay for text readability */}
@@ -111,8 +99,7 @@ const Landing: React.FC = () => {
                   </div>
                 </div>
                 {/* Soft glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/10 to-stone-600/10 
-                               opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stone-400/10 to-stone-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-transparent"></div>
               </div>
               <h3 className="font-poppins font-semibold text-lg mb-3">Celebrate Someone</h3>
               <p className="text-muted-foreground text-sm">Capture and share someone else's act of kindness with photos and their story. <strong>Only YOU can build other people's profiles</strong> (except personal info like pictures).</p>
